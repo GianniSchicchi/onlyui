@@ -97,8 +97,11 @@ public class LoginActivity extends AppCompatActivity {
 
     void setLoginViewLayout(Context context) {
         viewBar = new ViewBar(context);
-//        viewBar.setTitleImgView(true,"logo");
-        viewBar.setTitleStringView(true,"登入 / 註冊");
+        viewBar.setTitleImgView(true,"logo");
+//        viewBar.setTitleStringView(true,"登入 / 註冊");
+//        viewBar.setTitleLeftButton(true,"",null);
+//        viewBar.setTitleRightButton(true,"",null);
+
         viewBar.getView();
 
         linearLayout2 = new LinearLayout(context);

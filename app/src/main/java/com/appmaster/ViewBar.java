@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.util.DisplayMetrics;
@@ -23,6 +24,9 @@ import android.widget.TextView;
  */
 
 public class ViewBar {
+
+    public static int TITLEREATIVELAYOUT = 10;
+
     Context mContext;
     RelativeLayout bgReLayout;
     LinearLayout linearLayout1;
@@ -52,15 +56,47 @@ public class ViewBar {
                 leftImgBtn = new ImageButton(mContext);
             }
 
+            leftImgBtn.setBackgroundColor(Color.TRANSPARENT);
             leftImgBtn.setImageResource(R.mipmap.btn_back);
             leftImgBtn.setOnClickListener(onClickListener);
         } else {
 
         }
 
+        titleReLayout.setId(TITLEREATIVELAYOUT);
+        RelativeLayout.LayoutParams left = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
+
+        left.addRule(RelativeLayout.ALIGN_PARENT_LEFT, TITLEREATIVELAYOUT);
+
+        left.setMargins(15,0,0,0);
+        leftImgBtn.setLayoutParams(left);
+        titleReLayout.addView(leftImgBtn);
+
     }
 
     void setTitleRightButton(boolean show, String imgName, View.OnClickListener onClickListener) {
+        if (show) {
+            if (rightImgBtn == null) {
+                rightImgBtn = new ImageButton(mContext);
+            }
+
+            rightImgBtn.setBackgroundColor(Color.TRANSPARENT);
+            rightImgBtn.setImageResource(R.mipmap.btn_close);
+            rightImgBtn.setOnClickListener(onClickListener);
+        } else {
+
+        }
+
+        titleReLayout.setId(TITLEREATIVELAYOUT);
+        RelativeLayout.LayoutParams left = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
+
+        left.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, TITLEREATIVELAYOUT);
+
+        left.setMargins(0,0,15,0);
+        rightImgBtn.setLayoutParams(left);
+        titleReLayout.addView(rightImgBtn);
 
     }
 
@@ -70,6 +106,12 @@ public class ViewBar {
         titleImgView.setBackgroundColor(Color.TRANSPARENT);
         titleImgView.setImageResource(R.mipmap.logo);
 
+        RelativeLayout.LayoutParams center = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
+
+        center.addRule(RelativeLayout.CENTER_IN_PARENT, TITLEREATIVELAYOUT);
+
+        titleImgView.setLayoutParams(center);
 
         titleReLayout.addView(titleImgView);
         setTitleReLayout(true);
@@ -88,6 +130,13 @@ public class ViewBar {
             }
         }
         setTitleReLayout(true);
+
+        RelativeLayout.LayoutParams center = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
+
+        center.addRule(RelativeLayout.CENTER_IN_PARENT, TITLEREATIVELAYOUT);
+
+        titleTxtView.setLayoutParams(center);
         titleReLayout.addView(titleTxtView);
 
 
@@ -104,23 +153,32 @@ public class ViewBar {
                 80);
 
         titleReLayout.setLayoutParams(setting);
-        titleReLayout.setGravity(Gravity.CENTER);
+//        titleReLayout.setGravity(Gravity.CENTER);
 
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            titleReLayout.setBackground(setRadius(15,15,0,0));
+            titleReLayout.setBackground(setRadius(15,15,0,0,Color.BLACK));
+        }
+
+    }
+
+    void setBottomReLayout() {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            relativeLayout.setBackground(setRadius(0,0,15,15,Color.WHITE));
         }
 
     }
 
 
-    GradientDrawable setRadius(float top_left,float top_right,float bottom_right, float bottom_left) {
+    public static GradientDrawable setRadius(float top_left,float top_right,float bottom_right, float bottom_left,int bgColor) {
         GradientDrawable gdDefault = new GradientDrawable();
-        gdDefault.setColor(Color.BLACK);
+        gdDefault.setColor(bgColor);
         float[] radius = {top_left,top_left,top_right,top_right,bottom_right,bottom_right,bottom_left,bottom_left};
         gdDefault.setCornerRadii(radius);
-        gdDefault.setStroke(3, Color.BLACK);
+        gdDefault.setStroke(0, bgColor);
+
         return gdDefault;
     }
 
@@ -128,6 +186,11 @@ public class ViewBar {
     void getView() {
 
         bgReLayout.setGravity(Gravity.CENTER);
+
+//        LinearLayout.LayoutParams setting = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+//                ViewGroup.LayoutParams.MATCH_PARENT);
+//
+//        linearLayout1.setLayoutParams(setting);
         linearLayout1.setOrientation(LinearLayout.VERTICAL);
         linearLayout1.addView(titleReLayout);
 
@@ -135,6 +198,8 @@ public class ViewBar {
         lineImgView.setMinimumHeight(1);
         lineImgView.setMaxHeight(1);
         linearLayout1.addView(lineImgView);
+
+        setBottomReLayout();
     }
 
 
