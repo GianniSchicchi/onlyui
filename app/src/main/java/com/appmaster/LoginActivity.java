@@ -62,7 +62,8 @@ public class LoginActivity extends AppCompatActivity {
 
     void setView() {
         setLoginViewLayout(this);
-        if(getScreenOrientation() == 0 || getScreenOrientation() == 8) {
+        int iScreenOrientation = ViewBar.getScreenOrientation(mAct);
+        if(iScreenOrientation == 0 || iScreenOrientation == 8) {
             setLoginViewLayoutLandscape();
         }else {
             setLoginViewLayoutPortait();
@@ -102,31 +103,19 @@ public class LoginActivity extends AppCompatActivity {
 
     void setLoginViewLayout(Context context) {
         viewBar = new ViewBar(context);
-        bgReLayout = new RelativeLayout(context);
-        linearLayout1 = new LinearLayout(context);
-        relativeLayout = new RelativeLayout(context);
+        viewBar.setTitleImgView(true,"logo");
+        viewBar.getView();
+
         linearLayout2 = new LinearLayout(context);
         linearLayout3 = new LinearLayout(context);
-        titleImgView = new ImageButton(context);
-        lineImgView = new ImageButton(context);
-        guestView = setImageView(context,"遊客體驗","1");
-        registerView = setImageView(context,"登入註冊","2");
-        fbView = setImageView(context,"Facebook","3");
-        gplusView = setImageView(context,"Google","4");
-        bgReLayout.setGravity(Gravity.CENTER);
+        guestView = viewBar.setImageView(context,"遊客體驗","1");
+        registerView = viewBar.setImageView(context,"登入註冊","2");
+        fbView = viewBar.setImageView(context,"Facebook","3");
+        gplusView = viewBar.setImageView(context,"Google","4");
 
-        linearLayout1.setOrientation(LinearLayout.VERTICAL);
         linearLayout2.setOrientation(LinearLayout.HORIZONTAL);
         linearLayout3.setOrientation(LinearLayout.HORIZONTAL);
 
-        titleImgView.setBackgroundColor(Color.BLACK);
-        titleImgView.setImageResource(R.mipmap.logo);
-        linearLayout1.addView(titleImgView);
-
-        lineImgView.setBackgroundColor(Color.RED);
-        lineImgView.setMinimumHeight(getPixels(0));
-        lineImgView.setMaxHeight(getPixels(0));
-        linearLayout1.addView(lineImgView);
 
     }
 
@@ -139,7 +128,7 @@ public class LoginActivity extends AppCompatActivity {
         linearLayout3.addView(fbView);
         linearLayout3.addView(gplusView);
 
-        relativeLayout.setId(1);
+        viewBar.relativeLayout.setId(1);
         linearLayout2.setId(2);
         linearLayout3.setId(3);
         RelativeLayout.LayoutParams up = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -154,18 +143,18 @@ public class LoginActivity extends AppCompatActivity {
         down.addRule(RelativeLayout.BELOW,2);
         linearLayout3.setLayoutParams(down);
 
-        setViewPadding(linearLayout2,2,0);
-        setViewPadding(linearLayout3,2,0);
+        viewBar.setViewPadding(linearLayout2,2,0);
+        viewBar.setViewPadding(linearLayout3,2,0);
 
-        relativeLayout.addView(linearLayout2);
-        relativeLayout.addView(linearLayout3);
+        viewBar.relativeLayout.addView(linearLayout2);
+        viewBar.relativeLayout.addView(linearLayout3);
 
-        linearLayout1.addView(relativeLayout);
+        viewBar.linearLayout1.addView(viewBar.relativeLayout);
 
 
-        bgReLayout.addView(linearLayout1);
+        viewBar.bgReLayout.addView(viewBar.linearLayout1);
 
-        setContentView(bgReLayout);
+        setContentView(viewBar.bgReLayout);
 
     }
 
@@ -176,7 +165,7 @@ public class LoginActivity extends AppCompatActivity {
         linearLayout2.addView(fbView);
         linearLayout2.addView(gplusView);
 
-        relativeLayout.setId(1);
+        viewBar.relativeLayout.setId(1);
         linearLayout2.setId(2);
         RelativeLayout.LayoutParams up = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -184,129 +173,18 @@ public class LoginActivity extends AppCompatActivity {
         up.addRule(RelativeLayout.BELOW, 1);
         linearLayout2.setLayoutParams(up);
 
-        setViewPadding(linearLayout2,2,0);
+        viewBar.setViewPadding(linearLayout2,2,0);
 
-        relativeLayout.addView(linearLayout2);
+        viewBar.relativeLayout.addView(linearLayout2);
 
-        linearLayout1.addView(relativeLayout);
+        viewBar.linearLayout1.addView(viewBar.relativeLayout);
 
 
-        bgReLayout.addView(linearLayout1);
+        viewBar.bgReLayout.addView(viewBar.linearLayout1);
 
-        setContentView(bgReLayout);
-    }
-
-    void setViewPadding(View view,int left_right, int top_bottom) {
-        setViewPadding(view,left_right,top_bottom,left_right,top_bottom);
-    }
-
-    void setViewPadding(View view,int left, int top, int right, int bottom) {
-        int sizeInDp = 15;
-        int dpAsPixels = getPixels(sizeInDp);
-
-        view.setPadding(dpAsPixels * left,dpAsPixels * top,dpAsPixels * right,dpAsPixels * bottom);
-//        return view;
-
-    }
-
-    int getPixels(int sizeInDp) {
-        float scale = getResources().getDisplayMetrics().density;
-        int dpAsPixels = (int) (sizeInDp*scale + 0.5f);
-        return  dpAsPixels;
+        setContentView(viewBar.bgReLayout);
     }
 
 
-    View setImageView(Context context, String text, String imageName) {
-        LinearLayout linearLayout = new LinearLayout(context);
-        linearLayout.setOrientation(LinearLayout.VERTICAL);
-        linearLayout.setGravity(Gravity.CENTER);
-        ImageView     imageView = new ImageView(context);
-        TextView    textView = new TextView(context);
-        textView.setGravity(Gravity.CENTER);
-        textView.setText(text);
 
-        if(imageName.equals("1")) {
-            imageView.setImageResource(R.mipmap.icon_1);
-        }
-        if(imageName.equals("2")) {
-            imageView.setImageResource(R.mipmap.icon_2);
-        }
-        if(imageName.equals("3")) {
-            imageView.setImageResource(R.mipmap.icon_4);
-        }
-        if(imageName.equals("4")) {
-            imageView.setImageResource(R.mipmap.icon_5);
-        }
-
-        linearLayout.addView(imageView);
-        linearLayout.addView(textView);
-
-
-        setViewPadding(linearLayout,1,1);
-        return linearLayout;
-    }
-
-
-    private int getScreenOrientation() {
-        int rotation = getWindowManager().getDefaultDisplay().getRotation();
-        DisplayMetrics dm = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(dm);
-        int width = dm.widthPixels;
-        int height = dm.heightPixels;
-        int orientation;
-        // if the device's natural orientation is portrait:
-        if ((rotation == Surface.ROTATION_0
-                || rotation == Surface.ROTATION_180) && height > width ||
-                (rotation == Surface.ROTATION_90
-                        || rotation == Surface.ROTATION_270) && width > height) {
-            switch(rotation) {
-                case Surface.ROTATION_0:
-                    orientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
-                    break;
-                case Surface.ROTATION_90:
-                    orientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
-                    break;
-                case Surface.ROTATION_180:
-                    orientation =
-                            ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT;
-                    break;
-                case Surface.ROTATION_270:
-                    orientation =
-                            ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE;
-                    break;
-                default:
-                    Log.d("Unity - AMLoginView", "Unknown screen orientation. Defaulting to " +
-                            "portrait.");
-                    orientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
-                    break;
-            }
-        }
-        // if the device's natural orientation is landscape or if the device
-        // is square:
-        else {
-            switch(rotation) {
-                case Surface.ROTATION_0:
-                    orientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
-                    break;
-                case Surface.ROTATION_90:
-                    orientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
-                    break;
-                case Surface.ROTATION_180:
-                    orientation =
-                            ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE;
-                    break;
-                case Surface.ROTATION_270:
-                    orientation =
-                            ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT;
-                    break;
-                default:
-                    Log.d("Unity - AMLoginView", "Unknown screen orientation. Defaulting to " +
-                            "landscape.");
-                    orientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
-                    break;
-            }
-        }
-
-        return orientation;
-    }
 }
