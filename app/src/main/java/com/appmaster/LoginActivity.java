@@ -25,14 +25,8 @@ public class LoginActivity extends AppCompatActivity {
     Activity mAct;
     ViewBar viewBar;
 
-    //    RelativeLayout  bgReLayout;
-//    LinearLayout  linearLayout1;
-//    RelativeLayout relativeLayout;
     LinearLayout  linearLayout2;
     LinearLayout  linearLayout3;
-
-//    ImageView       titleImgView;
-//    ImageView       lineImgView;
 
     View     guestView;
     View     registerView;
@@ -103,7 +97,8 @@ public class LoginActivity extends AppCompatActivity {
 
     void setLoginViewLayout(Context context) {
         viewBar = new ViewBar(context);
-        viewBar.setTitleImgView(true,"logo");
+//        viewBar.setTitleImgView(true,"logo");
+        viewBar.setTitleStringView(true,"登入 / 註冊");
         viewBar.getView();
 
         linearLayout2 = new LinearLayout(context);
