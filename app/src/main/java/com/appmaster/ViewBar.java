@@ -1,6 +1,7 @@
 package com.appmaster;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
@@ -13,6 +14,11 @@ import android.view.Gravity;
 import android.view.Surface;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -40,14 +46,19 @@ public class ViewBar {
     ImageButton leftImgBtn;
     ImageButton rightImgBtn;
 
+    int mWidth;
+    int mHeight;
+
     ViewBar(Context context) {
         mContext = context;
         bgReLayout = new RelativeLayout(mContext);
         linearLayout1 = new LinearLayout(mContext);
-        relativeLayout = new RelativeLayout(mContext);
+
         lineImgView = new ImageButton(mContext);
 
         titleReLayout = new RelativeLayout(mContext);
+
+        relativeLayout = new RelativeLayout(mContext);
     }
 
     void setTitleLeftButton(boolean show, String imgName, View.OnClickListener onClickListener) {
@@ -131,8 +142,8 @@ public class ViewBar {
         }
         setTitleReLayout(true);
 
-        RelativeLayout.LayoutParams center = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT);
+        RelativeLayout.LayoutParams center = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT);
 
         center.addRule(RelativeLayout.CENTER_IN_PARENT, TITLEREATIVELAYOUT);
 
@@ -152,9 +163,10 @@ public class ViewBar {
         RelativeLayout.LayoutParams setting = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 80);
 
+
         titleReLayout.setLayoutParams(setting);
 //        titleReLayout.setGravity(Gravity.CENTER);
-
+//        titleReLayout.setMinimumWidth(mWidth/2);
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
@@ -171,17 +183,26 @@ public class ViewBar {
 
     }
 
+    GradientDrawable setRadius(float top_left_right,float bottom_left_right,int bgColor) {
 
-    public static GradientDrawable setRadius(float top_left,float top_right,float bottom_right, float bottom_left,int bgColor) {
+        return setRadius(top_left_right,top_left_right,bottom_left_right, bottom_left_right, bgColor);
+    }
+
+
+    GradientDrawable setRadius(float top_left,float top_right,float bottom_left, float bottom_right,int bgColor) {
+        return setRadius(top_left,top_right,bottom_left, bottom_right, bgColor , 0,bgColor);
+    }
+
+
+    GradientDrawable setRadius(float top_left,float top_right,float bottom_left, float bottom_right,int bgColor,int strokeWidth,int stroleColor) {
         GradientDrawable gdDefault = new GradientDrawable();
         gdDefault.setColor(bgColor);
         float[] radius = {top_left,top_left,top_right,top_right,bottom_right,bottom_right,bottom_left,bottom_left};
         gdDefault.setCornerRadii(radius);
-        gdDefault.setStroke(0, bgColor);
+        gdDefault.setStroke(strokeWidth, stroleColor);
 
         return gdDefault;
     }
-
 
     void getView() {
 
@@ -233,6 +254,90 @@ public class ViewBar {
         return linearLayout;
     }
 
+    View setTextView(Context context, String text) {
+        TextView textView = new TextView(context);
+        textView.setText(text);
+        setViewPadding(textView, 1, 1);
+        return textView;
+    }
+
+    EditText setEditText(Context context, String hintText) {
+        EditText editText = new EditText(context);
+        editText.setHint(hintText);
+        setViewPadding(editText, 1, 1);
+        return editText;
+    }
+
+
+
+    View setCheckBox(Context context, String text, CompoundButton.OnCheckedChangeListener checkedChangeListener) {
+        CheckBox checkBox = new CheckBox(context);
+        checkBox.setText(text);
+        checkBox.setBackgroundColor(Color.RED);
+        checkBox.setOnCheckedChangeListener(checkedChangeListener);
+        setViewPadding(checkBox, 1, 1);
+        return checkBox;
+    }
+
+    View setButton(Context context, String text, View.OnClickListener clickListener) {
+        return setButton(context,text,clickListener,Color.WHITE,Color.RED);
+    }
+
+    View setButton(Context context, String text, View.OnClickListener clickListener,int textColor,int bgColor) {
+        Button button = new Button(context);
+        button.setText(text);
+        button.setTextColor(textColor);
+        button.setOnClickListener(clickListener);
+
+        button.setBackgroundDrawable(setRadius(15,15,15,15,bgColor));
+        setViewPadding(button, 2, 2);
+        return button;
+    }
+
+    void setConfirmDialog(Context context, String text, View.OnClickListener cancelclickListener, View.OnClickListener okclickListener) {
+        Dialog dialog = new Dialog(context);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+        TextView textView1 = new TextView(context);
+        textView1.setText("請確認是否使用");
+        TextView textView2 = new TextView(context);
+        textView2.setTextColor(Color.BLUE);
+        textView2.setText(text);
+        TextView textView3 = new TextView(context);
+        textView3.setText("為您的會員帳號");
+        textView1.setTextSize(20);
+        textView2.setTextSize(20);
+        textView3.setTextSize(20);
+
+        Button cancelBtn = (Button) setButton(context,"取消",cancelclickListener,Color.RED,Color.WHITE);
+        cancelBtn.setBackgroundDrawable(setRadius(15,15,15,15,Color.WHITE,3,Color.RED));
+        Button okBtn = (Button) setButton(context,"確認",cancelclickListener,Color.WHITE,Color.RED);
+
+        LinearLayout bglinLayout = new LinearLayout(context);
+        bglinLayout.setOrientation(LinearLayout.VERTICAL);
+        textView1.setGravity(Gravity.CENTER);
+        textView2.setGravity(Gravity.CENTER);
+        textView3.setGravity(Gravity.CENTER);
+        bglinLayout.addView(textView1);
+        bglinLayout.addView(textView2);
+        bglinLayout.addView(textView3);
+
+        LinearLayout linLayout = new LinearLayout(context);
+        linLayout.setOrientation(LinearLayout.HORIZONTAL);
+
+        linLayout.addView(cancelBtn);
+        linLayout.addView(okBtn);
+
+        bglinLayout.addView(linLayout);
+
+        bglinLayout.setBackgroundDrawable(setRadius(15,15,Color.WHITE));
+
+        dialog.setContentView(bglinLayout);
+
+        dialog.show();
+
+    }
+
     void setViewPadding(View view, int left_right, int top_bottom) {
         setViewPadding(view, left_right, top_bottom, left_right, top_bottom);
     }
@@ -246,6 +351,7 @@ public class ViewBar {
 
     }
 
+
     int getPixels(int sizeInDp) {
         float scale = mContext.getResources().getDisplayMetrics().density;
         int dpAsPixels = (int) (sizeInDp * scale + 0.5f);
@@ -253,12 +359,16 @@ public class ViewBar {
     }
 
 
-    public static int getScreenOrientation(Activity activity) {
+    int getScreenOrientation(Activity activity) {
         int rotation = activity.getWindowManager().getDefaultDisplay().getRotation();
         DisplayMetrics dm = new DisplayMetrics();
         activity.getWindowManager().getDefaultDisplay().getMetrics(dm);
         int width = dm.widthPixels;
         int height = dm.heightPixels;
+        mWidth = width;
+        mHeight = height;
+
+        Log.e("GetWandH","width:"+width+" , height:"+height);
         int orientation;
         // if the device's natural orientation is portrait:
         if ((rotation == Surface.ROTATION_0

@@ -40,7 +40,6 @@ public class LoginActivity extends AppCompatActivity {
         mAct = this;
         Log.d("Unity - AMGameBarView", "switch btn to ambtn_new");
 
-        setView();
 
 //        AMResourceWrapper.getInstance().setImageResource(act, mStartBtn, "ambtn_new");
 
@@ -56,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
 
     void setView() {
         setLoginViewLayout(this);
-        int iScreenOrientation = ViewBar.getScreenOrientation(mAct);
+        int iScreenOrientation = viewBar.getScreenOrientation(mAct);
         if(iScreenOrientation == 0 || iScreenOrientation == 8) {
             setLoginViewLayoutLandscape();
         }else {
@@ -97,10 +96,10 @@ public class LoginActivity extends AppCompatActivity {
 
     void setLoginViewLayout(Context context) {
         viewBar = new ViewBar(context);
-        viewBar.setTitleImgView(true,"logo");
-//        viewBar.setTitleStringView(true,"登入 / 註冊");
-//        viewBar.setTitleLeftButton(true,"",null);
-//        viewBar.setTitleRightButton(true,"",null);
+//        viewBar.setTitleImgView(true,"logo");
+        viewBar.setTitleStringView(true,"登入 / 註冊");
+        viewBar.setTitleLeftButton(true,"",null);
+        viewBar.setTitleRightButton(true,"",null);
 
         viewBar.getView();
 
