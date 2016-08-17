@@ -1,24 +1,14 @@
 package com.appmaster;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.Surface;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -125,7 +115,7 @@ public class LoginActivity extends AppCompatActivity {
         linearLayout3.addView(fbView);
         linearLayout3.addView(gplusView);
 
-        viewBar.relativeLayout.setId(1);
+        viewBar.contentRelaLayout.setId(1);
         linearLayout2.setId(2);
         linearLayout3.setId(3);
         RelativeLayout.LayoutParams up = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -143,10 +133,10 @@ public class LoginActivity extends AppCompatActivity {
         viewBar.setViewPadding(linearLayout2,2,0);
         viewBar.setViewPadding(linearLayout3,2,0);
 
-        viewBar.relativeLayout.addView(linearLayout2);
-        viewBar.relativeLayout.addView(linearLayout3);
+        viewBar.contentRelaLayout.addView(linearLayout2);
+        viewBar.contentRelaLayout.addView(linearLayout3);
 
-        viewBar.linearLayout1.addView(viewBar.relativeLayout);
+        viewBar.linearLayout1.addView(viewBar.contentRelaLayout);
 
 
         viewBar.bgReLayout.addView(viewBar.linearLayout1);
@@ -162,7 +152,7 @@ public class LoginActivity extends AppCompatActivity {
         linearLayout2.addView(fbView);
         linearLayout2.addView(gplusView);
 
-        viewBar.relativeLayout.setId(1);
+        viewBar.contentRelaLayout.setId(1);
         linearLayout2.setId(2);
         RelativeLayout.LayoutParams up = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -172,9 +162,10 @@ public class LoginActivity extends AppCompatActivity {
 
         viewBar.setViewPadding(linearLayout2,2,0);
 
-        viewBar.relativeLayout.addView(linearLayout2);
 
-        viewBar.linearLayout1.addView(viewBar.relativeLayout);
+        viewBar.contentRelaLayout.addView(linearLayout2);
+
+        viewBar.linearLayout1.addView(viewBar.contentRelaLayout);
 
 
         viewBar.bgReLayout.addView(viewBar.linearLayout1);

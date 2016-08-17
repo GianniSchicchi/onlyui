@@ -45,11 +45,12 @@ public class RegisterActivity extends AppCompatActivity {
         linearLayout2 = new LinearLayout(mAct);
         linearLayout3 = new LinearLayout(mAct);
 
-        LinearLayout.LayoutParams setting = new LinearLayout.LayoutParams(viewBar.getScreenWidth(mAct)*3/4,
-                viewBar.getScreenHeight(mAct)*3/4);
+        LinearLayout.LayoutParams setting2 = new LinearLayout.LayoutParams(viewBar.getScreenWidth(mAct)*3/4,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
 
+        setting2.setMargins(20,20,20,20);
 
-        linearLayout2.setLayoutParams(setting);
+        linearLayout2.setLayoutParams(setting2);
 
         linearLayout2.setOrientation(LinearLayout.VERTICAL);
         linearLayout2.addView(viewBar.setTextView(mAct, "請輸入帳號及密碼，完成會員註冊或會員登入"));
@@ -89,11 +90,8 @@ public class RegisterActivity extends AppCompatActivity {
 
         linearLayout2.addView(linearLayout3);
 
-        viewBar.setViewPadding(linearLayout2, 20, 0);
-        viewBar.relativeLayout.addView(linearLayout2);
-
-        viewBar.linearLayout1.addView(viewBar.relativeLayout);
-
+        viewBar.contentRelaLayout.addView(linearLayout2);
+        viewBar.linearLayout1.addView(viewBar.contentRelaLayout);
 
         viewBar.bgReLayout.addView(viewBar.linearLayout1);
 
@@ -104,13 +102,13 @@ public class RegisterActivity extends AppCompatActivity {
     private void setViewLayoutPortait() {
 
         linearLayout3.setOrientation(LinearLayout.VERTICAL);
-
+//        viewBar.setMargin(linearLayout3, 20, 20);
 
     }
 
     private void setViewLayoutLandscape() {
         linearLayout3.setOrientation(LinearLayout.HORIZONTAL);
-        LinearLayout.LayoutParams setting = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams setting = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
         linearLayout3.setLayoutParams(setting);
     }

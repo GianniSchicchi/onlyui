@@ -35,7 +35,7 @@ public class ViewBar {
     Activity mAct;
     RelativeLayout bgReLayout;
     LinearLayout linearLayout1;
-    RelativeLayout relativeLayout;
+    RelativeLayout contentRelaLayout;
     RelativeLayout titleReLayout;
     ImageView titleImgView;
     ImageView lineImgView;
@@ -55,7 +55,7 @@ public class ViewBar {
 
         titleReLayout = new RelativeLayout(mAct);
 
-        relativeLayout = new RelativeLayout(mAct);
+        contentRelaLayout = new RelativeLayout(mAct);
     }
 
     void setTitleLeftButton(boolean show, String imgName, View.OnClickListener onClickListener) {
@@ -175,7 +175,7 @@ public class ViewBar {
     void setBottomReLayout() {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            relativeLayout.setBackground(setRadius(0, 0, 15, 15, Color.WHITE));
+            contentRelaLayout.setBackground(setRadius(0, 0, 15, 15, Color.WHITE));
         }
 
     }
@@ -201,25 +201,26 @@ public class ViewBar {
         return gdDefault;
     }
 
-    LinearLayout.LayoutParams setLinearParams(int wifth, int height) {
-        return new LinearLayout.LayoutParams(wifth, height);
-    }
 
-    void setLinearParams(View view, int width, int height) {
-        view.setLayoutParams(setLinearParams(width,height));
-    }
+
 
     void getView() {
 
         bgReLayout.setGravity(Gravity.CENTER);
 
-        setLinearParams(linearLayout1,getScreenWidth(mAct) * 3 / 4, getScreenHeight(mAct) * 3 / 4);
+
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(getScreenWidth(mAct) * 3 / 4, ViewGroup.LayoutParams.WRAP_CONTENT);
+        linearLayout1.setLayoutParams(layoutParams);
+
+
         linearLayout1.setOrientation(LinearLayout.VERTICAL);
         linearLayout1.addView(titleReLayout);
 
         lineImgView.setBackgroundColor(Color.RED);
         lineImgView.setMinimumHeight(1);
         lineImgView.setMaxHeight(1);
+
+        lineImgView.setPadding(0,0,0,5);
         linearLayout1.addView(lineImgView);
 
         setBottomReLayout();
@@ -252,7 +253,6 @@ public class ViewBar {
         linearLayout.addView(textView);
 
 
-        setViewPadding(linearLayout, 1, 1);
         return linearLayout;
     }
 
@@ -260,16 +260,20 @@ public class ViewBar {
         TextView textView = new TextView(context);
         textView.setText(text);
 
-//        setLinearParams(textView, ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-        setLinearParams(textView, 500,60);
-        setViewPadding(textView, 1, 1);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        layoutParams.setMargins(15, 15, 5, 5);
+        textView.setLayoutParams(layoutParams);
+
         return textView;
     }
 
     EditText setEditText(Context context, String hintText) {
         EditText editText = new EditText(context);
         editText.setHint(hintText);
-        setViewPadding(editText, 1, 1);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        layoutParams.setMargins(15, 15, 5, 5);
+        editText.setLayoutParams(layoutParams);
+
         return editText;
     }
 
@@ -277,10 +281,14 @@ public class ViewBar {
     View setCheckBox(Context context, String text, CompoundButton.OnCheckedChangeListener checkedChangeListener) {
         CheckBox checkBox = new CheckBox(context);
         checkBox.setText(text);
+
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        layoutParams.setMargins(15, 15, 5, 5);
+        checkBox.setLayoutParams(layoutParams);
+
         checkBox.setDrawingCacheBackgroundColor(Color.RED);
         checkBox.setBackgroundColor(Color.WHITE);
         checkBox.setOnCheckedChangeListener(checkedChangeListener);
-        setViewPadding(checkBox, 1, 1);
         return checkBox;
     }
 
@@ -294,8 +302,12 @@ public class ViewBar {
         button.setTextColor(textColor);
         button.setOnClickListener(clickListener);
 
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT,1);
+        layoutParams.setMargins(15, 15, 5, 5);
+        button.setLayoutParams(layoutParams);
+
+
         button.setBackgroundDrawable(setRadius(15, 15, 15, 15, bgColor));
-        setViewPadding(button, 2, 2);
         return button;
     }
 
@@ -317,6 +329,7 @@ public class ViewBar {
 
         Button cancelBtn = (Button) setButton(context, "取消", cancelclickListener, Color.RED, Color.WHITE);
         cancelBtn.setBackgroundDrawable(setRadius(15, 15, 15, 15, Color.WHITE, 3, Color.RED));
+
         Button okBtn = (Button) setButton(context, "確認", okclickListener, Color.WHITE, Color.RED);
 
         LinearLayout bglinLayout = new LinearLayout(context);
@@ -344,6 +357,7 @@ public class ViewBar {
 
     }
 
+
     void setViewPadding(View view, int left_right, int top_bottom) {
         setViewPadding(view, left_right, top_bottom, left_right, top_bottom);
     }
@@ -352,7 +366,8 @@ public class ViewBar {
         int sizeInDp = 15;
         int dpAsPixels = getPixels(sizeInDp);
 
-        view.setPadding(dpAsPixels * left, dpAsPixels * top, dpAsPixels * right, dpAsPixels * bottom);
+//        view.setPadding(dpAsPixels * left, dpAsPixels * top, dpAsPixels * right, dpAsPixels * bottom);
+        view.setPadding(left, top, right, bottom);
 //        return view;
 
     }
