@@ -94,8 +94,8 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    void setLoginViewLayout(Context context) {
-        viewBar = new ViewBar(context);
+    void setLoginViewLayout(Activity activity) {
+        viewBar = new ViewBar(activity);
 //        viewBar.setTitleImgView(true,"logo");
         viewBar.setTitleStringView(true,"登入 / 註冊");
         viewBar.setTitleLeftButton(true,"",null);
@@ -103,12 +103,12 @@ public class LoginActivity extends AppCompatActivity {
 
         viewBar.getView();
 
-        linearLayout2 = new LinearLayout(context);
-        linearLayout3 = new LinearLayout(context);
-        guestView = viewBar.setImageView(context,"遊客體驗","1");
-        registerView = viewBar.setImageView(context,"登入註冊","2");
-        fbView = viewBar.setImageView(context,"Facebook","3");
-        gplusView = viewBar.setImageView(context,"Google","4");
+        linearLayout2 = new LinearLayout(activity);
+        linearLayout3 = new LinearLayout(activity);
+        guestView = viewBar.setImageView(activity,"遊客體驗","1");
+        registerView = viewBar.setImageView(activity,"登入註冊","2");
+        fbView = viewBar.setImageView(activity,"Facebook","3");
+        gplusView = viewBar.setImageView(activity,"Google","4");
 
         linearLayout2.setOrientation(LinearLayout.HORIZONTAL);
         linearLayout3.setOrientation(LinearLayout.HORIZONTAL);

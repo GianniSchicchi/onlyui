@@ -5,7 +5,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.util.DisplayMetrics;
@@ -33,7 +32,7 @@ public class ViewBar {
 
     public static int TITLEREATIVELAYOUT = 10;
 
-    Context mContext;
+    Activity mAct;
     RelativeLayout bgReLayout;
     LinearLayout linearLayout1;
     RelativeLayout relativeLayout;
@@ -46,25 +45,23 @@ public class ViewBar {
     ImageButton leftImgBtn;
     ImageButton rightImgBtn;
 
-    int mWidth;
-    int mHeight;
 
-    ViewBar(Context context) {
-        mContext = context;
-        bgReLayout = new RelativeLayout(mContext);
-        linearLayout1 = new LinearLayout(mContext);
+    ViewBar(Activity activity) {
+        mAct = activity;
+        bgReLayout = new RelativeLayout(mAct);
+        linearLayout1 = new LinearLayout(mAct);
 
-        lineImgView = new ImageButton(mContext);
+        lineImgView = new ImageButton(mAct);
 
-        titleReLayout = new RelativeLayout(mContext);
+        titleReLayout = new RelativeLayout(mAct);
 
-        relativeLayout = new RelativeLayout(mContext);
+        relativeLayout = new RelativeLayout(mAct);
     }
 
     void setTitleLeftButton(boolean show, String imgName, View.OnClickListener onClickListener) {
         if (show) {
             if (leftImgBtn == null) {
-                leftImgBtn = new ImageButton(mContext);
+                leftImgBtn = new ImageButton(mAct);
             }
 
             leftImgBtn.setBackgroundColor(Color.TRANSPARENT);
@@ -80,7 +77,7 @@ public class ViewBar {
 
         left.addRule(RelativeLayout.ALIGN_PARENT_LEFT, TITLEREATIVELAYOUT);
 
-        left.setMargins(15,0,0,0);
+        left.setMargins(15, 0, 0, 0);
         leftImgBtn.setLayoutParams(left);
         titleReLayout.addView(leftImgBtn);
 
@@ -89,7 +86,7 @@ public class ViewBar {
     void setTitleRightButton(boolean show, String imgName, View.OnClickListener onClickListener) {
         if (show) {
             if (rightImgBtn == null) {
-                rightImgBtn = new ImageButton(mContext);
+                rightImgBtn = new ImageButton(mAct);
             }
 
             rightImgBtn.setBackgroundColor(Color.TRANSPARENT);
@@ -105,14 +102,14 @@ public class ViewBar {
 
         left.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, TITLEREATIVELAYOUT);
 
-        left.setMargins(0,0,15,0);
+        left.setMargins(0, 0, 15, 0);
         rightImgBtn.setLayoutParams(left);
         titleReLayout.addView(rightImgBtn);
 
     }
 
     void setTitleImgView(boolean show, String imgName) {
-        titleImgView = new ImageButton(mContext);
+        titleImgView = new ImageButton(mAct);
 
         titleImgView.setBackgroundColor(Color.TRANSPARENT);
         titleImgView.setImageResource(R.mipmap.logo);
@@ -129,10 +126,10 @@ public class ViewBar {
     }
 
     void setTitleStringView(boolean show, String title) {
-        if(show) {
-            if(title != null) {
-                if(titleTxtView == null) {
-                    titleTxtView = new TextView(mContext);
+        if (show) {
+            if (title != null) {
+                if (titleTxtView == null) {
+                    titleTxtView = new TextView(mAct);
                 }
                 titleTxtView.setGravity(Gravity.CENTER);
                 titleTxtView.setTextColor(Color.RED);
@@ -142,8 +139,8 @@ public class ViewBar {
         }
         setTitleReLayout(true);
 
-        RelativeLayout.LayoutParams center = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.MATCH_PARENT);
+        RelativeLayout.LayoutParams center = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
 
         center.addRule(RelativeLayout.CENTER_IN_PARENT, TITLEREATIVELAYOUT);
 
@@ -160,7 +157,7 @@ public class ViewBar {
             titleReLayout.setVisibility(View.INVISIBLE);
         }
 
-        RelativeLayout.LayoutParams setting = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+        RelativeLayout.LayoutParams setting = new RelativeLayout.LayoutParams(getScreenWidth(mAct) / 4 * 3,
                 80);
 
 
@@ -170,7 +167,7 @@ public class ViewBar {
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            titleReLayout.setBackground(setRadius(15,15,0,0,Color.BLACK));
+            titleReLayout.setBackground(setRadius(15, 15, 0, 0, Color.BLACK));
         }
 
     }
@@ -178,40 +175,45 @@ public class ViewBar {
     void setBottomReLayout() {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            relativeLayout.setBackground(setRadius(0,0,15,15,Color.WHITE));
+            relativeLayout.setBackground(setRadius(0, 0, 15, 15, Color.WHITE));
         }
 
     }
 
-    GradientDrawable setRadius(float top_left_right,float bottom_left_right,int bgColor) {
+    GradientDrawable setRadius(float top_left_right, float bottom_left_right, int bgColor) {
 
-        return setRadius(top_left_right,top_left_right,bottom_left_right, bottom_left_right, bgColor);
+        return setRadius(top_left_right, top_left_right, bottom_left_right, bottom_left_right, bgColor);
     }
 
 
-    GradientDrawable setRadius(float top_left,float top_right,float bottom_left, float bottom_right,int bgColor) {
-        return setRadius(top_left,top_right,bottom_left, bottom_right, bgColor , 0,bgColor);
+    GradientDrawable setRadius(float top_left, float top_right, float bottom_left, float bottom_right, int bgColor) {
+        return setRadius(top_left, top_right, bottom_left, bottom_right, bgColor, 0, bgColor);
     }
 
 
-    GradientDrawable setRadius(float top_left,float top_right,float bottom_left, float bottom_right,int bgColor,int strokeWidth,int stroleColor) {
+    GradientDrawable setRadius(float top_left, float top_right, float bottom_left, float bottom_right, int bgColor, int strokeWidth, int stroleColor) {
         GradientDrawable gdDefault = new GradientDrawable();
         gdDefault.setColor(bgColor);
-        float[] radius = {top_left,top_left,top_right,top_right,bottom_right,bottom_right,bottom_left,bottom_left};
+        float[] radius = {top_left, top_left, top_right, top_right, bottom_right, bottom_right, bottom_left, bottom_left};
         gdDefault.setCornerRadii(radius);
         gdDefault.setStroke(strokeWidth, stroleColor);
 
         return gdDefault;
     }
 
+    LinearLayout.LayoutParams setLinearParams(int wifth, int height) {
+        return new LinearLayout.LayoutParams(wifth, height);
+    }
+
+    void setLinearParams(View view, int width, int height) {
+        view.setLayoutParams(setLinearParams(width,height));
+    }
+
     void getView() {
 
         bgReLayout.setGravity(Gravity.CENTER);
 
-//        LinearLayout.LayoutParams setting = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-//                ViewGroup.LayoutParams.MATCH_PARENT);
-//
-//        linearLayout1.setLayoutParams(setting);
+        setLinearParams(linearLayout1,getScreenWidth(mAct) * 3 / 4, getScreenHeight(mAct) * 3 / 4);
         linearLayout1.setOrientation(LinearLayout.VERTICAL);
         linearLayout1.addView(titleReLayout);
 
@@ -257,6 +259,9 @@ public class ViewBar {
     View setTextView(Context context, String text) {
         TextView textView = new TextView(context);
         textView.setText(text);
+
+//        setLinearParams(textView, ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        setLinearParams(textView, 500,60);
         setViewPadding(textView, 1, 1);
         return textView;
     }
@@ -269,33 +274,34 @@ public class ViewBar {
     }
 
 
-
     View setCheckBox(Context context, String text, CompoundButton.OnCheckedChangeListener checkedChangeListener) {
         CheckBox checkBox = new CheckBox(context);
         checkBox.setText(text);
-        checkBox.setBackgroundColor(Color.RED);
+        checkBox.setDrawingCacheBackgroundColor(Color.RED);
+        checkBox.setBackgroundColor(Color.WHITE);
         checkBox.setOnCheckedChangeListener(checkedChangeListener);
         setViewPadding(checkBox, 1, 1);
         return checkBox;
     }
 
     View setButton(Context context, String text, View.OnClickListener clickListener) {
-        return setButton(context,text,clickListener,Color.WHITE,Color.RED);
+        return setButton(context, text, clickListener, Color.WHITE, Color.RED);
     }
 
-    View setButton(Context context, String text, View.OnClickListener clickListener,int textColor,int bgColor) {
+    View setButton(Context context, String text, View.OnClickListener clickListener, int textColor, int bgColor) {
         Button button = new Button(context);
         button.setText(text);
         button.setTextColor(textColor);
         button.setOnClickListener(clickListener);
 
-        button.setBackgroundDrawable(setRadius(15,15,15,15,bgColor));
+        button.setBackgroundDrawable(setRadius(15, 15, 15, 15, bgColor));
         setViewPadding(button, 2, 2);
         return button;
     }
 
     void setConfirmDialog(Context context, String text, View.OnClickListener cancelclickListener, View.OnClickListener okclickListener) {
         Dialog dialog = new Dialog(context);
+        dialog.setCanceledOnTouchOutside(false);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         TextView textView1 = new TextView(context);
@@ -309,9 +315,9 @@ public class ViewBar {
         textView2.setTextSize(20);
         textView3.setTextSize(20);
 
-        Button cancelBtn = (Button) setButton(context,"取消",cancelclickListener,Color.RED,Color.WHITE);
-        cancelBtn.setBackgroundDrawable(setRadius(15,15,15,15,Color.WHITE,3,Color.RED));
-        Button okBtn = (Button) setButton(context,"確認",cancelclickListener,Color.WHITE,Color.RED);
+        Button cancelBtn = (Button) setButton(context, "取消", cancelclickListener, Color.RED, Color.WHITE);
+        cancelBtn.setBackgroundDrawable(setRadius(15, 15, 15, 15, Color.WHITE, 3, Color.RED));
+        Button okBtn = (Button) setButton(context, "確認", okclickListener, Color.WHITE, Color.RED);
 
         LinearLayout bglinLayout = new LinearLayout(context);
         bglinLayout.setOrientation(LinearLayout.VERTICAL);
@@ -330,7 +336,7 @@ public class ViewBar {
 
         bglinLayout.addView(linLayout);
 
-        bglinLayout.setBackgroundDrawable(setRadius(15,15,Color.WHITE));
+        bglinLayout.setBackgroundDrawable(setRadius(15, 15, Color.WHITE));
 
         dialog.setContentView(bglinLayout);
 
@@ -353,11 +359,23 @@ public class ViewBar {
 
 
     int getPixels(int sizeInDp) {
-        float scale = mContext.getResources().getDisplayMetrics().density;
+        float scale = mAct.getResources().getDisplayMetrics().density;
         int dpAsPixels = (int) (sizeInDp * scale + 0.5f);
         return dpAsPixels;
     }
 
+
+    int getScreenWidth(Activity activity) {
+        DisplayMetrics dm = new DisplayMetrics();
+        activity.getWindowManager().getDefaultDisplay().getMetrics(dm);
+        return dm.widthPixels;
+    }
+
+    int getScreenHeight(Activity activity) {
+        DisplayMetrics dm = new DisplayMetrics();
+        activity.getWindowManager().getDefaultDisplay().getMetrics(dm);
+        return dm.heightPixels;
+    }
 
     int getScreenOrientation(Activity activity) {
         int rotation = activity.getWindowManager().getDefaultDisplay().getRotation();
@@ -365,10 +383,8 @@ public class ViewBar {
         activity.getWindowManager().getDefaultDisplay().getMetrics(dm);
         int width = dm.widthPixels;
         int height = dm.heightPixels;
-        mWidth = width;
-        mHeight = height;
 
-        Log.e("GetWandH","width:"+width+" , height:"+height);
+        Log.e("GetWandH", "width:" + width + " , height:" + height);
         int orientation;
         // if the device's natural orientation is portrait:
         if ((rotation == Surface.ROTATION_0

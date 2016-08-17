@@ -45,6 +45,12 @@ public class RegisterActivity extends AppCompatActivity {
         linearLayout2 = new LinearLayout(mAct);
         linearLayout3 = new LinearLayout(mAct);
 
+        LinearLayout.LayoutParams setting = new LinearLayout.LayoutParams(viewBar.getScreenWidth(mAct)*3/4,
+                viewBar.getScreenHeight(mAct)*3/4);
+
+
+        linearLayout2.setLayoutParams(setting);
+
         linearLayout2.setOrientation(LinearLayout.VERTICAL);
         linearLayout2.addView(viewBar.setTextView(mAct, "請輸入帳號及密碼，完成會員註冊或會員登入"));
         accountEdt = viewBar.setEditText(mAct, "輸入Ｅ-MAIL或手機號碼");
