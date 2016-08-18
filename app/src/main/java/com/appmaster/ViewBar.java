@@ -46,6 +46,11 @@ public class ViewBar {
     ImageButton rightImgBtn;
 
 
+    LinearLayout linearLayout2P;
+    LinearLayout linearLayout3L;
+
+
+
     ViewBar(Activity activity) {
         mAct = activity;
         bgReLayout = new RelativeLayout(mAct);
@@ -224,17 +229,110 @@ public class ViewBar {
         linearLayout1.addView(lineImgView);
 
         setBottomReLayout();
+
+
+
+
+
+    }
+
+    void getLinearLayoutPortait2() {
+
+        contentRelaLayout.addView(linearLayout2P);
+        linearLayout1.addView(contentRelaLayout);
+        bgReLayout.addView(linearLayout1);
+
+    }
+
+    void getLinearLayoutPortait2Have3() {
+
+        linearLayout2P.addView(linearLayout3L);
+
+        getLinearLayoutPortait2();
+
     }
 
 
-    View setImageView(Context context, String text, String imageName) {
+    void setLinearLayout2PAddView(View view) {
+
+        linearLayout2P.addView(view);
+    }
+
+    void newLinearLayoutPortait2() {
+
+        linearLayout2P = new LinearLayout(mAct);
+
+        LinearLayout.LayoutParams setting2 = new LinearLayout.LayoutParams(getScreenWidth(mAct)*3/4,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
+
+        setting2.setMargins(20,20,20,20);
+
+        linearLayout2P.setLayoutParams(setting2);
+
+        linearLayout2P.setOrientation(LinearLayout.VERTICAL);
+
+        linearLayout2P.setGravity(Gravity.CENTER);
+
+    }
+
+
+    void setScreenChange(LinearLayout linearLayout) {
+        int iScreenOrientation = getScreenOrientation(mAct);
+        if (iScreenOrientation == 0 || iScreenOrientation == 8) {
+            linearLayout.setOrientation(LinearLayout.HORIZONTAL);
+            LinearLayout.LayoutParams setting = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            linearLayout.setLayoutParams(setting);
+        } else {
+            linearLayout.setOrientation(LinearLayout.VERTICAL);
+        }
+    }
+
+    void newLinearLayout3() {
+        linearLayout3L = new LinearLayout(mAct);
+        linearLayout3L.setGravity(Gravity.CENTER);
+    }
+
+    LinearLayout newLinearLayoutHORIZONTAL() {
+        LinearLayout linearLayout4L = new LinearLayout(mAct);
+        linearLayout4L.setOrientation(LinearLayout.HORIZONTAL);
+        linearLayout4L.setGravity(Gravity.CENTER);
+
+        return linearLayout4L;
+    }
+
+
+    void setLinearLayout3AddView(View view) {
+
+        linearLayout3L.addView(view);
+    }
+
+
+
+
+    View setImageView(Context context, String text, String imageName, View.OnClickListener listener) {
+
+
+        return setImageView(context,text,imageName,listener, LinearLayout.VERTICAL);
+    }
+
+
+    View setImageView(Context context, String text, String imageName, View.OnClickListener listener,int iOrientation) {
         LinearLayout linearLayout = new LinearLayout(context);
-        linearLayout.setOrientation(LinearLayout.VERTICAL);
+        linearLayout.setOrientation(iOrientation);
         linearLayout.setGravity(Gravity.CENTER);
+        LinearLayout.LayoutParams layoutParams;
+        if(iOrientation == LinearLayout.HORIZONTAL) {
+            layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT,1);
+        } else {
+            layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        }
+        layoutParams.setMargins(15, 15, 15, 15);
+        linearLayout.setLayoutParams(layoutParams);
         ImageView imageView = new ImageView(context);
         TextView textView = new TextView(context);
         textView.setGravity(Gravity.CENTER);
         textView.setText(text);
+
 
         if (imageName.equals("1")) {
             imageView.setImageResource(R.mipmap.icon_1);
@@ -248,10 +346,18 @@ public class ViewBar {
         if (imageName.equals("4")) {
             imageView.setImageResource(R.mipmap.icon_5);
         }
+        if (imageName.equals("5")) {
+            imageView.setImageResource(R.mipmap.icon_3);
+        }
+        if (imageName.equals("6")) {
+            imageView.setImageResource(R.mipmap.icon_6);
+        }
+
 
         linearLayout.addView(imageView);
         linearLayout.addView(textView);
 
+        linearLayout.setOnClickListener(listener);
 
         return linearLayout;
     }

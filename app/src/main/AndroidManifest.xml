@@ -8,11 +8,18 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginActivity"></activity>
-        <activity android:name=".RegisterActivity">
+        <activity android:name=".Activity01Login"></activity>
+        <activity android:name=".Activity02Register" />
+        <activity android:name=".Activity04ForgetPassword" />
+        <activity android:name=".Activity05ReLogin" />
+        <activity android:name=".Activity06AccountBind">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-        <activity android:name=".ForgetPasswordActivity">
+        <activity android:name=".Activity07PhoneNBBind">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
