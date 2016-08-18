@@ -13,11 +13,6 @@
         <activity android:name=".Activity04ForgetPassword" />
         <activity android:name=".Activity05ReLogin" />
         <activity android:name=".Activity06AccountBind">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".Activity07PhoneNBBind">
             <intent-filter>

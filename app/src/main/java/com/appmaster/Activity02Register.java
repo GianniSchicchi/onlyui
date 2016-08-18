@@ -11,7 +11,6 @@ public class Activity02Register extends AppCompatActivity {
 
     Activity mAct;
     ViewBar viewBar;
-//    LinearLayout linearLayout3L;
     EditText accountEdt;
     EditText pwdEdt;
     @Override
