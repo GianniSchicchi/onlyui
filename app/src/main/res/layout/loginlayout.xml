@@ -23,6 +23,12 @@
                 android:paddingLeft="111dp"
                 android:layout_marginBottom="111dp" />
 
+            <AutoCompleteTextView
+                android:text="AutoCompleteTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/autoCompleteTextView2" />
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -49,5 +55,11 @@
                 android:id="@+id/imageButton" />
 
         </LinearLayout>
+
+        <AutoCompleteTextView
+            android:text="AutoCompleteTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/autoCompleteTextView" />
     </FrameLayout>
 </LinearLayout>

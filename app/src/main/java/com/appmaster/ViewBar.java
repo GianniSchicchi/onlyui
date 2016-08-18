@@ -257,13 +257,18 @@ public class ViewBar {
     }
 
     View setTextView(Context context, String text) {
+
+        return setTextView(context,text,Color.GRAY);
+    }
+
+    View setTextView(Context context, String text,int textColor) {
         TextView textView = new TextView(context);
         textView.setText(text);
 
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         layoutParams.setMargins(15, 15, 5, 5);
         textView.setLayoutParams(layoutParams);
-
+        textView.setTextColor(textColor);
         return textView;
     }
 
