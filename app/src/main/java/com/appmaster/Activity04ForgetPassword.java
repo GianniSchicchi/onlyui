@@ -26,7 +26,12 @@ public class Activity04ForgetPassword extends AppCompatActivity {
     void setView() {
         viewBar = new ViewBar(mAct);
         viewBar.setTitleStringView(true, "登入 / 註冊");
-        viewBar.setTitleLeftButton(true, "", null);
+        viewBar.setTitleLeftButton(true, "", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         viewBar.getView();
         viewBar.newLinearLayoutPortait2();
         viewBar.setLinearLayout2PAddView(viewBar.setTextView(mAct, "請輸入帳號"));

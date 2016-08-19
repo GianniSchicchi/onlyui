@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.view.Gravity;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -36,7 +37,7 @@ public class TableLayoutPurchaseHistory {
 
     void init() {
         tableLayout = new TableLayout(mContext);
-        TableLayout.LayoutParams params1 = new TableLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        AbsListView.LayoutParams params1 = new AbsListView.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         tableLayout.setLayoutParams(params1);
 
 
@@ -88,7 +89,7 @@ public class TableLayoutPurchaseHistory {
 
         txtItem.setText(info.mItem);
         txtBuyTime.setText(info.mBuyTime);
-        txtMoney.setText(info.mMoney);
+        txtMoney.setText("NT$"+info.mMoney);
         txtTransactionID.setText(info.mTransactionID);
 
 

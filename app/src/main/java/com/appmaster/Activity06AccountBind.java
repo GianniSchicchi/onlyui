@@ -31,7 +31,12 @@ public class Activity06AccountBind extends AppCompatActivity {
     void setView() {
         viewBar = new ViewBar(mAct);
         viewBar.setTitleStringView(true, "帳號綁定");
-        viewBar.setTitleLeftButton(true, "", null);
+        viewBar.setTitleLeftButton(true, "", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         viewBar.getView();
 

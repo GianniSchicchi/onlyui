@@ -45,10 +45,31 @@ public class Activity01Login extends AppCompatActivity {
         viewBar.setScreenChange(viewBar.linearLayout3L);
 
 
-        guestView = viewBar.setImageView(mAct,"遊客體驗","1",null);
-        registerView = viewBar.setImageView(mAct,"登入註冊","2",null);
-        fbView = viewBar.setImageView(mAct,"Facebook","3",null);
-        gplusView = viewBar.setImageView(mAct,"Google","4",null);
+        guestView = viewBar.setImageView(mAct,"遊客體驗","1",new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        registerView = viewBar.setImageView(mAct, "登入註冊", "2", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mAct,Activity02Register.class);
+                startActivity(intent);
+            }
+        });
+        fbView = viewBar.setImageView(mAct,"Facebook","3",new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        gplusView = viewBar.setImageView(mAct,"Google","4",new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         LinearLayout layout1 = viewBar.newLinearLayoutHORIZONTAL();
         layout1.addView(guestView);

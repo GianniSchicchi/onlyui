@@ -9,6 +9,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.util.Size;
 import android.view.Gravity;
 import android.view.Surface;
 import android.view.View;
@@ -380,9 +381,16 @@ public class ViewBar {
     }
 
     View setTextView(Context context, String text,int textColor) {
+        return setTextView(context, text, textColor, 0);
+    }
+
+    View setTextView(Context context, String text,int textColor,float txtSize) {
         TextView textView = new TextView(context);
         textView.setText(text);
-
+        if(txtSize == 0) {
+            txtSize = textView.getTextSize();
+        }
+        textView.setTextSize(txtSize);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         layoutParams.setMargins(15, 15, 5, 5);
         textView.setLayoutParams(layoutParams);

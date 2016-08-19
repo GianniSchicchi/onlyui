@@ -4,22 +4,16 @@ import android.app.Activity;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.GridView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Activity09AnnouncementList extends AppCompatActivity {
+public class Activity11PurchaseHistory extends AppCompatActivity {
 
-
-    List<AnnInfo> mAnnlist =  Collections.synchronizedList(new ArrayList<AnnInfo>());
+    List<PurchaseHistoryInfo> mList =  Collections.synchronizedList(new ArrayList<PurchaseHistoryInfo>());
 
     Activity mAct;
     ViewBar viewBar;
@@ -28,7 +22,7 @@ public class Activity09AnnouncementList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mAct = this;
-        addFalseAnnInfo();
+        addFalseInfo();
     }
     @Override
     protected void onResume() {
@@ -36,10 +30,10 @@ public class Activity09AnnouncementList extends AppCompatActivity {
         setView();
     }
 
-    void addFalseAnnInfo() {
-        if(mAnnlist != null) {
+    void addFalseInfo() {
+        if(mList != null) {
             for (int i = 0; i < 10; i++) {
-                mAnnlist.add(new AnnInfo());
+                mList.add(new PurchaseHistoryInfo());
             }
         }
     }
@@ -66,25 +60,8 @@ public class Activity09AnnouncementList extends AppCompatActivity {
         viewBar.newLinearLayoutPortait2();
 
 
-        LinearLayout linearLayout = viewBar.newLinearLayoutHORIZONTAL();
 
-        linearLayout.addView(viewBar.setButton(mAct, "系統", new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                    }
-                })
-        );
-
-        linearLayout.addView(viewBar.setButton(mAct, "活動", new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                    }
-                }, Color.RED,Color.WHITE,3,Color.RED)
-        );
-
-        viewBar.setLinearLayout2PAddView(linearLayout);
+        viewBar.setLinearLayout2PAddView(viewBar.setTextView(mAct,"僅供查詢近三個月內的購買記錄", Color.BLACK,20));
 
 
         ListView listView = new ListView(mAct);
@@ -93,15 +70,8 @@ public class Activity09AnnouncementList extends AppCompatActivity {
 
 
 
-        listView.setAdapter(new ListViewTxtAdapter(this,mAnnlist));
+        listView.setAdapter(new ListTableAdapter(this, mList));
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View v,
-                                    int position, long id) {
-                Toast.makeText(mAct, "" + position,
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
 
         viewBar.setLinearLayout2PAddView(listView);
 

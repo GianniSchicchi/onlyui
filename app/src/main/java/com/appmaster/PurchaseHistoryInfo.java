@@ -14,9 +14,9 @@ public class PurchaseHistoryInfo {
     public String mTransactionID;
 
     PurchaseHistoryInfo() {
-        mItem = "元寶30個 \tGoogle Play";
-        mBuyTime = "2015/07/07 \t10:00:12";
-        mMoney = "60";
+        mItem = "元寶30個 \nGoogle Play";
+        mBuyTime = "2015/07/07 \n10:00:12";
+        mMoney = "60\n";
         mTransactionID = "92015073000000715";
     }
 }

@@ -1,6 +1,7 @@
 package com.appmaster;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -26,7 +27,12 @@ public class Activity02Register extends AppCompatActivity {
     void setView() {
         viewBar = new ViewBar(mAct);
         viewBar.setTitleStringView(true, "登入 / 註冊");
-        viewBar.setTitleLeftButton(true, "", null);
+        viewBar.setTitleLeftButton(true, "", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         viewBar.getView();
 
        viewBar.newLinearLayout3();
@@ -49,7 +55,8 @@ public class Activity02Register extends AppCompatActivity {
         viewBar.setLinearLayout3AddView(viewBar.setButton(mAct, "忘記密碼", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(mAct,Activity04ForgetPassword.class);
+                startActivity(intent);
             }
         }));
 

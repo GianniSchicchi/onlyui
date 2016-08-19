@@ -29,7 +29,12 @@ public class Activity08MainMenu extends AppCompatActivity {
     void setView() {
         viewBar = new ViewBar(mAct);
         viewBar.setTitleStringView(true, "手機號碼綁定");
-        viewBar.setTitleRightButton(true, "", null);
+        viewBar.setTitleRightButton(true, "", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         viewBar.getView();
 
         viewBar.newLinearLayout3();

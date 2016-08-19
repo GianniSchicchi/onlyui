@@ -26,7 +26,12 @@ public class Activity07PhoneNBBind extends AppCompatActivity {
     void setView() {
         viewBar = new ViewBar(mAct);
         viewBar.setTitleStringView(true, "手機號碼綁定");
-        viewBar.setTitleLeftButton(true, "", null);
+        viewBar.setTitleLeftButton(true, "", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         viewBar.getView();
 
         viewBar.newLinearLayout3();
