@@ -8,13 +8,14 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity01Login"></activity>
+        <activity android:name=".Activity01Login" />
         <activity android:name=".Activity02Register" />
         <activity android:name=".Activity04ForgetPassword" />
         <activity android:name=".Activity05ReLogin" />
-        <activity android:name=".Activity06AccountBind">
-        </activity>
+        <activity android:name=".Activity06AccountBind"></activity>
         <activity android:name=".Activity07PhoneNBBind">
+        </activity>
+        <activity android:name=".Activity08MainMenu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

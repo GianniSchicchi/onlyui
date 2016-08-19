@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -56,7 +57,7 @@ public class ViewBar {
         bgReLayout = new RelativeLayout(mAct);
         linearLayout1 = new LinearLayout(mAct);
 
-        lineImgView = new ImageButton(mAct);
+        lineImgView = new ImageView(mAct);
 
         titleReLayout = new RelativeLayout(mAct);
 
@@ -234,6 +235,16 @@ public class ViewBar {
 
 
 
+    }
+
+
+    ImageView newLineImageView() {
+        ImageView newImageView = new ImageView(mAct);
+        newImageView.setBackgroundColor(Color.BLACK);
+        newImageView.setMinimumHeight(1);
+        newImageView.setMaxHeight(1);
+        newImageView.setPadding(0,0,0,5);
+        return newImageView;
     }
 
     void getLinearLayoutPortait2() {
@@ -566,5 +577,12 @@ public class ViewBar {
         }
 
         return orientation;
+    }
+
+
+
+    GridView setGridView() {
+
+        return new GridView(mAct);
     }
 }
