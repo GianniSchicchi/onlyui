@@ -12,10 +12,11 @@
         <activity android:name=".Activity02Register" />
         <activity android:name=".Activity04ForgetPassword" />
         <activity android:name=".Activity05ReLogin" />
-        <activity android:name=".Activity06AccountBind"></activity>
-        <activity android:name=".Activity07PhoneNBBind">
-        </activity>
+        <activity android:name=".Activity06AccountBind" />
+        <activity android:name=".Activity07PhoneNBBind"></activity>
         <activity android:name=".Activity08MainMenu">
+        </activity>
+        <activity android:name=".Activity09AnnouncementList">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

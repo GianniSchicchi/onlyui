@@ -29,7 +29,7 @@ public class Activity08MainMenu extends AppCompatActivity {
     void setView() {
         viewBar = new ViewBar(mAct);
         viewBar.setTitleStringView(true, "手機號碼綁定");
-        viewBar.setTitleLeftButton(true, "", null);
+        viewBar.setTitleRightButton(true, "", null);
         viewBar.getView();
 
         viewBar.newLinearLayout3();
@@ -66,7 +66,7 @@ public class Activity08MainMenu extends AppCompatActivity {
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-                Toast.makeText(Activity08MainMenu.this, "" + position,
+                Toast.makeText(mAct, "" + position,
                         Toast.LENGTH_SHORT).show();
             }
         });

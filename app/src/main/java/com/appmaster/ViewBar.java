@@ -197,7 +197,7 @@ public class ViewBar {
     }
 
 
-    GradientDrawable setRadius(float top_left, float top_right, float bottom_left, float bottom_right, int bgColor, int strokeWidth, int stroleColor) {
+    public static GradientDrawable setRadius(float top_left, float top_right, float bottom_left, float bottom_right, int bgColor, int strokeWidth, int stroleColor) {
         GradientDrawable gdDefault = new GradientDrawable();
         gdDefault.setColor(bgColor);
         float[] radius = {top_left, top_left, top_right, top_right, bottom_right, bottom_right, bottom_left, bottom_left};
@@ -278,6 +278,7 @@ public class ViewBar {
 
         setting2.setMargins(20,20,20,20);
 
+        linearLayout2P.setVerticalScrollBarEnabled(true);
         linearLayout2P.setLayoutParams(setting2);
 
         linearLayout2P.setOrientation(LinearLayout.VERTICAL);
@@ -430,6 +431,21 @@ public class ViewBar {
 
 
         button.setBackgroundDrawable(setRadius(15, 15, 15, 15, bgColor));
+        return setButton(context, text, clickListener, textColor, bgColor,0,bgColor);
+    }
+
+    View setButton(Context context, String text, View.OnClickListener clickListener, int textColor, int bgColor, int strokeWidth, int stroleColo) {
+        Button button = new Button(context);
+        button.setText(text);
+        button.setTextColor(textColor);
+        button.setOnClickListener(clickListener);
+
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT,1);
+        layoutParams.setMargins(15, 15, 5, 5);
+        button.setLayoutParams(layoutParams);
+
+
+        button.setBackgroundDrawable(setRadius(15, 15, 15, 15, bgColor,strokeWidth, stroleColo));
         return button;
     }
 
