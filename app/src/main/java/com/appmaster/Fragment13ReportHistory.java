@@ -1,18 +1,21 @@
 package com.appmaster;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.Toast;
 
-import com.appmaster.dummy.DummyContent;
 import com.appmaster.dummy.DummyContent.DummyItem;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -29,6 +32,8 @@ public class Fragment13ReportHistory extends Fragment {
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
 
+    List<InfoReport> mList =  Collections.synchronizedList(new ArrayList<InfoReport>());
+    private Activity mAct;
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
@@ -54,25 +59,56 @@ public class Fragment13ReportHistory extends Fragment {
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
+
+        mAct = getActivity();
+        addFalseInfo();
+    }
+
+    void addFalseInfo() {
+        if(mList != null) {
+            for (int i = 0; i < 30; i++) {
+                if(i%2 == 0) {
+                    mList.add(new InfoReport());
+                }else {
+                    mList.add(new InfoReport(true));
+                }
+
+
+            }
+        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_itemreport_list, container, false);
 
-        // Set the adapter
-        if (view instanceof RecyclerView) {
-            Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
-            if (mColumnCount <= 1) {
-                recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            } else {
-                recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
+
+        ListView listView = new ListView(mAct);
+
+
+        listView.setAdapter(new AdapterListViewReportHistory(mAct,mList));
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View v,
+                                    int position, long id) {
+                Toast.makeText(mAct, "" + position,
+                        Toast.LENGTH_SHORT).show();
             }
-            recyclerView.setAdapter(new ItemReportHistoryAdapter(DummyContent.ITEMS, mListener));
-        }
-        return view;
+        });
+
+
+        ViewLayoutFactory.setListViewHeightBasedOnChildren(listView);
+
+
+        LinearLayout layout = ViewLayoutFactory.createNewLinearLayoutVERTICAL(mAct);
+
+
+
+        layout.addView(ViewFactory.createNewTextView(mAct, "僅供查詢近三個月內的回報記錄"));
+        layout.addView(listView);
+
+
+        return layout;
     }
 
 

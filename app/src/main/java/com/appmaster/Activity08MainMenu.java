@@ -64,7 +64,7 @@ public class Activity08MainMenu extends AppCompatActivity {
 
         gridview.setStretchMode(GridView.STRETCH_COLUMN_WIDTH);
 
-        gridview.setAdapter(new GridViewImgTxtAdapter(this));
+        gridview.setAdapter(new AdapterGridViewImgTxt(this));
 
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,

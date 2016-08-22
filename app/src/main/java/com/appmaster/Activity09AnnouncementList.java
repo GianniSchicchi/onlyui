@@ -17,7 +17,7 @@ import java.util.List;
 public class Activity09AnnouncementList extends AppCompatActivity {
 
 
-    List<AnnInfo> mAnnlist =  Collections.synchronizedList(new ArrayList<AnnInfo>());
+    List<InfoAnn> mAnnlist =  Collections.synchronizedList(new ArrayList<InfoAnn>());
 
     Activity mAct;
     ViewBar viewBar;
@@ -37,7 +37,7 @@ public class Activity09AnnouncementList extends AppCompatActivity {
     void addFalseAnnInfo() {
         if(mAnnlist != null) {
             for (int i = 0; i < 10; i++) {
-                mAnnlist.add(new AnnInfo());
+                mAnnlist.add(new InfoAnn());
             }
         }
     }
@@ -91,7 +91,7 @@ public class Activity09AnnouncementList extends AppCompatActivity {
 
 
 
-        listView.setAdapter(new ListViewTxtAdapter(this,mAnnlist));
+        listView.setAdapter(new AdapterListViewTxt(this,mAnnlist));
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,

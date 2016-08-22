@@ -3,28 +3,23 @@ package com.appmaster;
 import android.content.Context;
 import android.graphics.Color;
 import android.text.TextUtils;
-import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.BaseAdapter;
-import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Gianni on 2016/8/18.
  */
 
-public class ListViewTxtAdapter extends BaseAdapter {
+public class AdapterListViewTxt extends BaseAdapter {
     private Context mContext;
-    private List<AnnInfo> mList;
+    private List<InfoAnn> mList;
 
-    public ListViewTxtAdapter(Context c, List<AnnInfo> list) {
+    public AdapterListViewTxt(Context c, List<InfoAnn> list) {
         mContext = c;
         mList = list;
     }

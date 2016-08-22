@@ -1,25 +1,12 @@
 package com.appmaster;
 
 import android.app.Activity;
-import android.app.Dialog;
-import android.content.Context;
-import android.content.pm.ActivityInfo;
 import android.graphics.Color;
-import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.util.DisplayMetrics;
-import android.util.Log;
-import android.util.Size;
 import android.view.Gravity;
-import android.view.Surface;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.EditText;
-import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -179,8 +166,6 @@ public class ViewBar {
 
 
         titleReLayout.setLayoutParams(setting);
-//        titleReLayout.setGravity(Gravity.CENTER);
-//        titleReLayout.setMinimumWidth(mWidth/2);
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
@@ -196,10 +181,6 @@ public class ViewBar {
         }
 
     }
-
-
-
-
 
 
     void getView() {
@@ -218,28 +199,22 @@ public class ViewBar {
         lineImgView.setMinimumHeight(1);
         lineImgView.setMaxHeight(1);
 
-        lineImgView.setPadding(0,0,0,5);
+        lineImgView.setPadding(0, 0, 0, 5);
         linearLayout1.addView(lineImgView);
 
         setBottomReLayout();
 
 
-
-
-
     }
-
-
 
 
     void getLinearLayoutPortait2() {
 
-        if(scrollEnable) {
+        if (scrollEnable) {
             scrollView.addView(linearLayout2P);
             contentRelaLayout.addView(scrollView);
             linearLayout1.addView(contentRelaLayout);
-        }else {
-            scrollView.addView(linearLayout2P);
+        } else {
             contentRelaLayout.addView(linearLayout2P);
             linearLayout1.addView(contentRelaLayout);
         }
@@ -256,6 +231,9 @@ public class ViewBar {
 
     }
 
+    void setContentRelaLayoutAddView(View view) {
+        contentRelaLayout.addView(view);
+    }
 
     void setLinearLayout2PAddView(View view) {
 
@@ -266,10 +244,10 @@ public class ViewBar {
 
         linearLayout2P = new LinearLayout(mAct);
 
-        LinearLayout.LayoutParams setting2 = new LinearLayout.LayoutParams(getScreenWidth(mAct)*3/4,
+        LinearLayout.LayoutParams setting2 = new LinearLayout.LayoutParams(getScreenWidth(mAct) * 3 / 4,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
 
-        setting2.setMargins(20,20,20,20);
+        setting2.setMargins(20, 20, 20, 20);
 
         linearLayout2P.setVerticalScrollBarEnabled(true);
         linearLayout2P.setLayoutParams(setting2);
@@ -298,17 +276,10 @@ public class ViewBar {
     }
 
 
-
     void setLinearLayout3AddView(View view) {
 
         linearLayout3L.addView(view);
     }
-
-
-
-
-
-
 
 
     void setViewPadding(View view, int left, int top, int right, int bottom) {
@@ -329,10 +300,6 @@ public class ViewBar {
         activity.getWindowManager().getDefaultDisplay().getMetrics(dm);
         return dm.widthPixels;
     }
-
-
-
-
 
 
 }

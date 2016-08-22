@@ -16,11 +16,11 @@ import java.util.List;
  * Created by Gianni on 2016/8/18.
  */
 
-public class ListTableAdapter extends BaseAdapter {
+public class AdapterListTable extends BaseAdapter {
     private Context mContext;
     private List<PurchaseHistoryInfo> mList;
 
-    public ListTableAdapter(Context c, List<PurchaseHistoryInfo> list) {
+    public AdapterListTable(Context c, List<PurchaseHistoryInfo> list) {
         mContext = c;
         mList = list;
     }

@@ -15,10 +15,10 @@ import android.widget.TextView;
  * Created by Gianni on 2016/8/18.
  */
 
-public class GridViewImgTxtAdapter extends BaseAdapter {
+public class AdapterGridViewImgTxt extends BaseAdapter {
     private Context mContext;
 
-    public GridViewImgTxtAdapter(Context c) {
+    public AdapterGridViewImgTxt(Context c) {
         mContext = c;
     }
 

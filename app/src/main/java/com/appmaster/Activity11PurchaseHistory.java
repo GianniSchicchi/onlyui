@@ -70,7 +70,7 @@ public class Activity11PurchaseHistory extends AppCompatActivity {
 
 
 
-        listView.setAdapter(new ListTableAdapter(this, mList));
+        listView.setAdapter(new AdapterListTable(this, mList));
 
 
         viewBar.setLinearLayout2PAddView(listView);

@@ -1,12 +1,14 @@
 package com.appmaster;
 
+import android.app.Activity;
+import android.app.Fragment;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 /**
@@ -27,6 +29,7 @@ public class Fragment12Report extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    private Activity mAct;
     private OnFragmentInteractionListener mListener;
 
     public Fragment12Report() {
@@ -58,16 +61,34 @@ public class Fragment12Report extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        mAct = getActivity();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        TextView textView = new TextView(getActivity());
-        textView.setText(R.string.hello_blank_fragment);
+
+        LinearLayout layout = ViewLayoutFactory.createNewLinearLayoutVERTICAL(mAct);
+
+        layout.addView(ViewFactory.createNewTextView(mAct, "若您遇到任何問題，請隨時與我們聯繫！\n我們會儘快回覆您的問題，回覆內容請至「回報記錄」查看。"));
+        layout.addView(ViewFactory.createNewTextView(mAct, "\n聯絡電話"));
+        layout.addView(ViewFactory.createNewEditText(mAct, "請填入市話或手機號碼"));
+        layout.addView(ViewFactory.createNewTextView(mAct, "E-mail"));
+        layout.addView(ViewFactory.createNewEditText(mAct, "請填入電子郵件"));
+        layout.addView(ViewFactory.createNewTextView(mAct, "問題類型"));
+        layout.addView(ViewFactory.createNewEditText(mAct, "請選擇問題類型"));
+        layout.addView(ViewFactory.createNewTextView(mAct, "問題描述"));
+        layout.addView(ViewFactory.createNewEditText(mAct, "請清楚的簡述您的問題"));
+        layout.addView(ViewFactory.createNewButton(mAct, "確認送出", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        }));
 
 
-        return textView;
+        return layout;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
