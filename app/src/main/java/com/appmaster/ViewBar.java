@@ -24,6 +24,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 /**
@@ -37,6 +38,8 @@ public class ViewBar {
     Activity mAct;
     RelativeLayout bgReLayout;
     LinearLayout linearLayout1;
+
+    ScrollView scrollView;
     RelativeLayout contentRelaLayout;
     RelativeLayout titleReLayout;
     ImageView titleImgView;
@@ -51,6 +54,12 @@ public class ViewBar {
     LinearLayout linearLayout2P;
     LinearLayout linearLayout3L;
 
+    boolean scrollEnable = false;
+
+
+    void setScrollEnable(boolean enable) {
+        scrollEnable = enable;
+    }
 
 
     ViewBar(Activity activity) {
@@ -62,6 +71,7 @@ public class ViewBar {
 
         titleReLayout = new RelativeLayout(mAct);
 
+        scrollView = new ScrollView(mAct);
         contentRelaLayout = new RelativeLayout(mAct);
     }
 
@@ -174,7 +184,7 @@ public class ViewBar {
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            titleReLayout.setBackground(setRadius(15, 15, 0, 0, Color.BLACK));
+            titleReLayout.setBackground(ViewFactory.setRadius(15, 15, 0, 0, Color.BLACK));
         }
 
     }
@@ -182,31 +192,12 @@ public class ViewBar {
     void setBottomReLayout() {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            contentRelaLayout.setBackground(setRadius(0, 0, 15, 15, Color.WHITE));
+            contentRelaLayout.setBackground(ViewFactory.setRadius(0, 0, 15, 15, Color.WHITE));
         }
 
     }
 
-    GradientDrawable setRadius(float top_left_right, float bottom_left_right, int bgColor) {
 
-        return setRadius(top_left_right, top_left_right, bottom_left_right, bottom_left_right, bgColor);
-    }
-
-
-    GradientDrawable setRadius(float top_left, float top_right, float bottom_left, float bottom_right, int bgColor) {
-        return setRadius(top_left, top_right, bottom_left, bottom_right, bgColor, 0, bgColor);
-    }
-
-
-    public static GradientDrawable setRadius(float top_left, float top_right, float bottom_left, float bottom_right, int bgColor, int strokeWidth, int stroleColor) {
-        GradientDrawable gdDefault = new GradientDrawable();
-        gdDefault.setColor(bgColor);
-        float[] radius = {top_left, top_left, top_right, top_right, bottom_right, bottom_right, bottom_left, bottom_left};
-        gdDefault.setCornerRadii(radius);
-        gdDefault.setStroke(strokeWidth, stroleColor);
-
-        return gdDefault;
-    }
 
 
 
@@ -239,19 +230,20 @@ public class ViewBar {
     }
 
 
-    ImageView newLineImageView() {
-        ImageView newImageView = new ImageView(mAct);
-        newImageView.setBackgroundColor(Color.BLACK);
-        newImageView.setMinimumHeight(1);
-        newImageView.setMaxHeight(1);
-        newImageView.setPadding(0,0,0,5);
-        return newImageView;
-    }
+
 
     void getLinearLayoutPortait2() {
 
-        contentRelaLayout.addView(linearLayout2P);
-        linearLayout1.addView(contentRelaLayout);
+        if(scrollEnable) {
+            scrollView.addView(linearLayout2P);
+            contentRelaLayout.addView(scrollView);
+            linearLayout1.addView(contentRelaLayout);
+        }else {
+            scrollView.addView(linearLayout2P);
+            contentRelaLayout.addView(linearLayout2P);
+            linearLayout1.addView(contentRelaLayout);
+        }
+
         bgReLayout.addView(linearLayout1);
 
     }
@@ -290,7 +282,7 @@ public class ViewBar {
 
 
     void setScreenChange(LinearLayout linearLayout) {
-        int iScreenOrientation = getScreenOrientation(mAct);
+        int iScreenOrientation = ViewFactory.getScreenOrientation(mAct);
         if (iScreenOrientation == 0 || iScreenOrientation == 8) {
             linearLayout.setOrientation(LinearLayout.HORIZONTAL);
             LinearLayout.LayoutParams setting = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -305,13 +297,6 @@ public class ViewBar {
         linearLayout3L.setGravity(Gravity.CENTER);
     }
 
-    LinearLayout newLinearLayoutHORIZONTAL() {
-        LinearLayout linearLayout4L = new LinearLayout(mAct);
-        linearLayout4L.setOrientation(LinearLayout.HORIZONTAL);
-        linearLayout4L.setGravity(Gravity.CENTER);
-
-        return linearLayout4L;
-    }
 
 
     void setLinearLayout3AddView(View view) {
@@ -322,199 +307,12 @@ public class ViewBar {
 
 
 
-    View setImageView(Context context, String text, String imageName, View.OnClickListener listener) {
 
 
-        return setImageView(context,text,imageName,listener, LinearLayout.VERTICAL);
-    }
 
-
-    View setImageView(Context context, String text, String imageName, View.OnClickListener listener,int iOrientation) {
-        LinearLayout linearLayout = new LinearLayout(context);
-        linearLayout.setOrientation(iOrientation);
-        linearLayout.setGravity(Gravity.CENTER);
-        LinearLayout.LayoutParams layoutParams;
-        if(iOrientation == LinearLayout.HORIZONTAL) {
-            layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT,1);
-        } else {
-            layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        }
-        layoutParams.setMargins(15, 15, 15, 15);
-        linearLayout.setLayoutParams(layoutParams);
-        ImageView imageView = new ImageView(context);
-        TextView textView = new TextView(context);
-        textView.setGravity(Gravity.CENTER);
-        textView.setText(text);
-
-
-        if (imageName.equals("1")) {
-            imageView.setImageResource(R.mipmap.icon_1);
-        }
-        if (imageName.equals("2")) {
-            imageView.setImageResource(R.mipmap.icon_2);
-        }
-        if (imageName.equals("3")) {
-            imageView.setImageResource(R.mipmap.icon_4);
-        }
-        if (imageName.equals("4")) {
-            imageView.setImageResource(R.mipmap.icon_5);
-        }
-        if (imageName.equals("5")) {
-            imageView.setImageResource(R.mipmap.icon_3);
-        }
-        if (imageName.equals("6")) {
-            imageView.setImageResource(R.mipmap.icon_6);
-        }
-
-
-        linearLayout.addView(imageView);
-        linearLayout.addView(textView);
-
-        linearLayout.setOnClickListener(listener);
-
-        return linearLayout;
-    }
-
-    View setTextView(Context context, String text) {
-
-        return setTextView(context,text,Color.GRAY);
-    }
-
-    View setTextView(Context context, String text,int textColor) {
-        return setTextView(context, text, textColor, 0);
-    }
-
-    View setTextView(Context context, String text,int textColor,float txtSize) {
-        TextView textView = new TextView(context);
-        textView.setText(text);
-        if(txtSize == 0) {
-            txtSize = textView.getTextSize();
-        }
-        textView.setTextSize(txtSize);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        layoutParams.setMargins(15, 15, 5, 5);
-        textView.setLayoutParams(layoutParams);
-        textView.setTextColor(textColor);
-        return textView;
-    }
-
-    EditText setEditText(Context context, String hintText) {
-        EditText editText = new EditText(context);
-        editText.setHint(hintText);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        layoutParams.setMargins(15, 15, 5, 5);
-        editText.setLayoutParams(layoutParams);
-
-        return editText;
-    }
-
-
-    View setCheckBox(Context context, String text, CompoundButton.OnCheckedChangeListener checkedChangeListener) {
-        CheckBox checkBox = new CheckBox(context);
-        checkBox.setText(text);
-
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        layoutParams.setMargins(15, 15, 5, 5);
-        checkBox.setLayoutParams(layoutParams);
-
-        checkBox.setDrawingCacheBackgroundColor(Color.RED);
-        checkBox.setBackgroundColor(Color.WHITE);
-        checkBox.setOnCheckedChangeListener(checkedChangeListener);
-        return checkBox;
-    }
-
-    View setButton(Context context, String text, View.OnClickListener clickListener) {
-        return setButton(context, text, clickListener, Color.WHITE, Color.RED);
-    }
-
-    View setButton(Context context, String text, View.OnClickListener clickListener, int textColor, int bgColor) {
-        Button button = new Button(context);
-        button.setText(text);
-        button.setTextColor(textColor);
-        button.setOnClickListener(clickListener);
-
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT,1);
-        layoutParams.setMargins(15, 15, 5, 5);
-        button.setLayoutParams(layoutParams);
-
-
-        button.setBackgroundDrawable(setRadius(15, 15, 15, 15, bgColor));
-        return setButton(context, text, clickListener, textColor, bgColor,0,bgColor);
-    }
-
-    View setButton(Context context, String text, View.OnClickListener clickListener, int textColor, int bgColor, int strokeWidth, int stroleColo) {
-        Button button = new Button(context);
-        button.setText(text);
-        button.setTextColor(textColor);
-        button.setOnClickListener(clickListener);
-
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT,1);
-        layoutParams.setMargins(15, 15, 5, 5);
-        button.setLayoutParams(layoutParams);
-
-
-        button.setBackgroundDrawable(setRadius(15, 15, 15, 15, bgColor,strokeWidth, stroleColo));
-        return button;
-    }
-
-    void setConfirmDialog(Context context, String text, View.OnClickListener cancelclickListener, View.OnClickListener okclickListener) {
-        Dialog dialog = new Dialog(context);
-        dialog.setCanceledOnTouchOutside(false);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-
-        TextView textView1 = new TextView(context);
-        textView1.setText("請確認是否使用");
-        TextView textView2 = new TextView(context);
-        textView2.setTextColor(Color.BLUE);
-        textView2.setText(text);
-        TextView textView3 = new TextView(context);
-        textView3.setText("為您的會員帳號");
-        textView1.setTextSize(20);
-        textView2.setTextSize(20);
-        textView3.setTextSize(20);
-
-        Button cancelBtn = (Button) setButton(context, "取消", cancelclickListener, Color.RED, Color.WHITE);
-        cancelBtn.setBackgroundDrawable(setRadius(15, 15, 15, 15, Color.WHITE, 3, Color.RED));
-
-        Button okBtn = (Button) setButton(context, "確認", okclickListener, Color.WHITE, Color.RED);
-
-        LinearLayout bglinLayout = new LinearLayout(context);
-        bglinLayout.setOrientation(LinearLayout.VERTICAL);
-        textView1.setGravity(Gravity.CENTER);
-        textView2.setGravity(Gravity.CENTER);
-        textView3.setGravity(Gravity.CENTER);
-        bglinLayout.addView(textView1);
-        bglinLayout.addView(textView2);
-        bglinLayout.addView(textView3);
-
-        LinearLayout linLayout = new LinearLayout(context);
-        linLayout.setOrientation(LinearLayout.HORIZONTAL);
-
-        linLayout.addView(cancelBtn);
-        linLayout.addView(okBtn);
-
-        bglinLayout.addView(linLayout);
-
-        bglinLayout.setBackgroundDrawable(setRadius(15, 15, Color.WHITE));
-
-        dialog.setContentView(bglinLayout);
-
-        dialog.show();
-
-    }
-
-
-    void setViewPadding(View view, int left_right, int top_bottom) {
-        setViewPadding(view, left_right, top_bottom, left_right, top_bottom);
-    }
 
     void setViewPadding(View view, int left, int top, int right, int bottom) {
-        int sizeInDp = 15;
-        int dpAsPixels = getPixels(sizeInDp);
-
-//        view.setPadding(dpAsPixels * left, dpAsPixels * top, dpAsPixels * right, dpAsPixels * bottom);
         view.setPadding(left, top, right, bottom);
-//        return view;
 
     }
 
@@ -532,81 +330,9 @@ public class ViewBar {
         return dm.widthPixels;
     }
 
-    int getScreenHeight(Activity activity) {
-        DisplayMetrics dm = new DisplayMetrics();
-        activity.getWindowManager().getDefaultDisplay().getMetrics(dm);
-        return dm.heightPixels;
-    }
-
-    int getScreenOrientation(Activity activity) {
-        int rotation = activity.getWindowManager().getDefaultDisplay().getRotation();
-        DisplayMetrics dm = new DisplayMetrics();
-        activity.getWindowManager().getDefaultDisplay().getMetrics(dm);
-        int width = dm.widthPixels;
-        int height = dm.heightPixels;
-
-        Log.e("GetWandH", "width:" + width + " , height:" + height);
-        int orientation;
-        // if the device's natural orientation is portrait:
-        if ((rotation == Surface.ROTATION_0
-                || rotation == Surface.ROTATION_180) && height > width ||
-                (rotation == Surface.ROTATION_90
-                        || rotation == Surface.ROTATION_270) && width > height) {
-            switch (rotation) {
-                case Surface.ROTATION_0:
-                    orientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
-                    break;
-                case Surface.ROTATION_90:
-                    orientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
-                    break;
-                case Surface.ROTATION_180:
-                    orientation =
-                            ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT;
-                    break;
-                case Surface.ROTATION_270:
-                    orientation =
-                            ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE;
-                    break;
-                default:
-                    Log.d("Unity - AMLoginView", "Unknown screen orientation. Defaulting to " +
-                            "portrait.");
-                    orientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
-                    break;
-            }
-        }
-        // if the device's natural orientation is landscape or if the device
-        // is square:
-        else {
-            switch (rotation) {
-                case Surface.ROTATION_0:
-                    orientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
-                    break;
-                case Surface.ROTATION_90:
-                    orientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
-                    break;
-                case Surface.ROTATION_180:
-                    orientation =
-                            ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE;
-                    break;
-                case Surface.ROTATION_270:
-                    orientation =
-                            ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT;
-                    break;
-                default:
-                    Log.d("Unity - AMLoginView", "Unknown screen orientation. Defaulting to " +
-                            "landscape.");
-                    orientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
-                    break;
-            }
-        }
-
-        return orientation;
-    }
 
 
 
-    GridView setGridView() {
 
-        return new GridView(mAct);
-    }
+
 }

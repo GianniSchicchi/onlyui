@@ -6,9 +6,7 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.GridView;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 public class Activity08MainMenu extends AppCompatActivity {
@@ -45,10 +43,10 @@ public class Activity08MainMenu extends AppCompatActivity {
         String acc2 = "123456@facebook";
         String accType = "Facebook";
 
-        viewBar.setLinearLayout2PAddView(viewBar.setTextView(mAct, "會員帳戶：" + acc));
-        viewBar.setLinearLayout2PAddView(viewBar.setTextView(mAct, "會員帳號：" + acc2));
-        viewBar.setLinearLayout2PAddView(viewBar.setTextView(mAct, "帳號類型：" + accType));
-        viewBar.setLinearLayout2PAddView(viewBar.newLineImageView());
+        viewBar.setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "會員帳戶：" + acc));
+        viewBar.setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "會員帳號：" + acc2));
+        viewBar.setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "帳號類型：" + accType));
+        viewBar.setLinearLayout2PAddView(ViewFactory.createNewLineImageView(mAct));
 
         GridView gridview = new GridView(mAct);
 
@@ -56,7 +54,7 @@ public class Activity08MainMenu extends AppCompatActivity {
         gridview.setGravity(Gravity.CENTER);
 
 
-        int iScreenOrientation = viewBar.getScreenOrientation(mAct);
+        int iScreenOrientation = ViewFactory.getScreenOrientation(mAct);
         if (iScreenOrientation == 0 || iScreenOrientation == 8) {
             gridview.setNumColumns(4);
         } else {

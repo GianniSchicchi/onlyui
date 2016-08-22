@@ -4,10 +4,8 @@ import android.app.Activity;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -66,9 +64,9 @@ public class Activity09AnnouncementList extends AppCompatActivity {
         viewBar.newLinearLayoutPortait2();
 
 
-        LinearLayout linearLayout = viewBar.newLinearLayoutHORIZONTAL();
+        LinearLayout linearLayout = ViewLayoutFactory.createNewLinearLayoutHORIZONTAL(mAct);
 
-        linearLayout.addView(viewBar.setButton(mAct, "系統", new View.OnClickListener() {
+        linearLayout.addView(ViewFactory.createNewButton(mAct, "系統", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
 
@@ -76,7 +74,7 @@ public class Activity09AnnouncementList extends AppCompatActivity {
                 })
         );
 
-        linearLayout.addView(viewBar.setButton(mAct, "活動", new View.OnClickListener() {
+        linearLayout.addView(ViewFactory.createNewButton(mAct, "活動", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
 

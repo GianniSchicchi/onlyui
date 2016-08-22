@@ -34,11 +34,11 @@ public class Activity04ForgetPassword extends AppCompatActivity {
         });
         viewBar.getView();
         viewBar.newLinearLayoutPortait2();
-        viewBar.setLinearLayout2PAddView(viewBar.setTextView(mAct, "請輸入帳號"));
-        accountEdt = viewBar.setEditText(mAct, "Ｅ-MAIL或手機號碼");
+        viewBar.setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "請輸入帳號"));
+        accountEdt = ViewFactory.createNewEditText(mAct, "Ｅ-MAIL或手機號碼");
         viewBar.setLinearLayout2PAddView(accountEdt);
-        viewBar.setLinearLayout2PAddView(viewBar.setTextView(mAct, "※確認送出後，系統將自動發送臨時密碼至您的信箱或手機，請於三小時內登入並重新設定新密碼。", Color.RED));
-        viewBar.setLinearLayout2PAddView(viewBar.setButton(mAct, "確認送出", new View.OnClickListener() {
+        viewBar.setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "※確認送出後，系統將自動發送臨時密碼至您的信箱或手機，請於三小時內登入並重新設定新密碼。", Color.RED));
+        viewBar.setLinearLayout2PAddView(ViewFactory.createNewButton(mAct, "確認送出", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 

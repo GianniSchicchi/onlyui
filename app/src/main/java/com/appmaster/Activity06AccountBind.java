@@ -46,7 +46,7 @@ public class Activity06AccountBind extends AppCompatActivity {
 
         viewBar.setScreenChange(viewBar.linearLayout3L);
 
-        viewBar.setLinearLayout2PAddView(viewBar.setTextView(mAct, "請儘速綁定帳號，避免遊戲資料遺失！"));
+        viewBar.setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "請儘速綁定帳號，避免遊戲資料遺失！"));
 
 
         setScreenChange();
@@ -64,17 +64,17 @@ public class Activity06AccountBind extends AppCompatActivity {
 
 
     void setScreenChange() {
-        int iScreenOrientation = viewBar.getScreenOrientation(mAct);
+        int iScreenOrientation = ViewFactory.getScreenOrientation(mAct);
         if (iScreenOrientation == 0 || iScreenOrientation == 8) {
-            phoneNBView = viewBar.setImageView(mAct, "手機號碼", "5", null);
-            emailView = viewBar.setImageView(mAct, "E-Mail", "6", null);
-            fbView = viewBar.setImageView(mAct, "Facebook", "3", null);
-            gplusView = viewBar.setImageView(mAct, "Google", "4", null);
+            phoneNBView = ViewFactory.createNewImageView(mAct, "手機號碼", "5", null);
+            emailView = ViewFactory.createNewImageView(mAct, "E-Mail", "6", null);
+            fbView = ViewFactory.createNewImageView(mAct, "Facebook", "3", null);
+            gplusView = ViewFactory.createNewImageView(mAct, "Google", "4", null);
         } else {
-            phoneNBView = viewBar.setImageView(mAct, "手機號碼", "5", null, LinearLayout.HORIZONTAL);
-            emailView = viewBar.setImageView(mAct, "E-Mail", "6", null, LinearLayout.HORIZONTAL);
-            fbView = viewBar.setImageView(mAct, "Facebook", "3", null, LinearLayout.HORIZONTAL);
-            gplusView = viewBar.setImageView(mAct, "Google", "4", null, LinearLayout.HORIZONTAL);
+            phoneNBView = ViewFactory.createNewImageView(mAct, "手機號碼", "5", null, LinearLayout.HORIZONTAL);
+            emailView = ViewFactory.createNewImageView(mAct, "E-Mail", "6", null, LinearLayout.HORIZONTAL);
+            fbView = ViewFactory.createNewImageView(mAct, "Facebook", "3", null, LinearLayout.HORIZONTAL);
+            gplusView = ViewFactory.createNewImageView(mAct, "Google", "4", null, LinearLayout.HORIZONTAL);
 
         }
     }

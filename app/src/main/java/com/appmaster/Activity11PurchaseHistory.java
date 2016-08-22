@@ -61,7 +61,7 @@ public class Activity11PurchaseHistory extends AppCompatActivity {
 
 
 
-        viewBar.setLinearLayout2PAddView(viewBar.setTextView(mAct,"僅供查詢近三個月內的購買記錄", Color.BLACK,20));
+        viewBar.setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct,"僅供查詢近三個月內的購買記錄", Color.BLACK,20));
 
 
         ListView listView = new ListView(mAct);

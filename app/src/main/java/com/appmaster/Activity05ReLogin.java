@@ -34,21 +34,21 @@ public class Activity05ReLogin extends AppCompatActivity {
         viewBar.setTitleImgView(true, "logo");
         viewBar.getView();
         viewBar.newLinearLayoutPortait2();
-        accountEdt = viewBar.setEditText(mAct, "Ｅ-MAIL或手機號碼");
+        accountEdt = ViewFactory.createNewEditText(mAct, "Ｅ-MAIL或手機號碼");
         viewBar.setLinearLayout2PAddView(accountEdt);
-        viewBar.setLinearLayout2PAddView(viewBar.setButton(mAct, "登入", new View.OnClickListener() {
+        viewBar.setLinearLayout2PAddView(ViewFactory.createNewButton(mAct, "登入", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
             }
         }));
-        viewBar.setLinearLayout2PAddView(viewBar.setButton(mAct, "綁定（成為正式會員）", new View.OnClickListener() {
+        viewBar.setLinearLayout2PAddView(ViewFactory.createNewButton(mAct, "綁定（成為正式會員）", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
             }
         }));
-        viewBar.setLinearLayout2PAddView(viewBar.setButton(mAct, "其他帳號登入", new View.OnClickListener() {
+        viewBar.setLinearLayout2PAddView(ViewFactory.createNewButton(mAct, "其他帳號登入", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 

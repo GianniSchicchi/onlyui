@@ -4,13 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.CompoundButton;
-import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 public class Activity01Login extends AppCompatActivity {
 
@@ -45,39 +40,39 @@ public class Activity01Login extends AppCompatActivity {
         viewBar.setScreenChange(viewBar.linearLayout3L);
 
 
-        guestView = viewBar.setImageView(mAct,"遊客體驗","1",new View.OnClickListener() {
+        guestView = ViewFactory.createNewImageView(mAct,"遊客體驗","1",new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
             }
         });
-        registerView = viewBar.setImageView(mAct, "登入註冊", "2", new View.OnClickListener() {
+        registerView = ViewFactory.createNewImageView(mAct, "登入註冊", "2", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mAct,Activity02Register.class);
                 startActivity(intent);
             }
         });
-        fbView = viewBar.setImageView(mAct,"Facebook","3",new View.OnClickListener() {
+        fbView = ViewFactory.createNewImageView(mAct,"Facebook","3",new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
             }
         });
-        gplusView = viewBar.setImageView(mAct,"Google","4",new View.OnClickListener() {
+        gplusView = ViewFactory.createNewImageView(mAct,"Google","4",new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
             }
         });
 
-        LinearLayout layout1 = viewBar.newLinearLayoutHORIZONTAL();
+        LinearLayout layout1 = ViewLayoutFactory.createNewLinearLayoutHORIZONTAL(mAct);
         layout1.addView(guestView);
         layout1.addView(registerView);
 
         viewBar.setLinearLayout3AddView(layout1);
 
-        LinearLayout layout2 = viewBar.newLinearLayoutHORIZONTAL();
+        LinearLayout layout2 = ViewLayoutFactory.createNewLinearLayoutHORIZONTAL(mAct);
         layout2.addView(fbView);
         layout2.addView(gplusView);
 
