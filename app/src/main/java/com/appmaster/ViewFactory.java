@@ -123,16 +123,41 @@ public class ViewFactory {
     }
 
     public static View createNewTextView(Context context, String text, int textColor, float txtSize) {
+        return createNewTextView(context, text, textColor, txtSize, 5566);
+    }
+
+    public static View createNewTextView(Context context, String text, int textColor, float txtSize, int weight) {
+        return createNewTextView(context, text, textColor, txtSize, weight, 5566);
+    }
+
+    public static View createNewTextView(Context context, String text, int textColor, float txtSize, int weight, int bgColor) {
+        return createNewTextView(context, text, textColor, txtSize, weight, bgColor, true);
+    }
+
+    public static View createNewTextView(Context context, String text, int textColor, float txtSize, int weight, int bgColor, boolean margin) {
         TextView textView = new TextView(context);
         textView.setText(text);
         if(txtSize == 0) {
             txtSize = textView.getTextSize();
         }
         textView.setTextSize(txtSize);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        layoutParams.setMargins(15, 15, 5, 5);
+        LinearLayout.LayoutParams layoutParams;
+        if(weight == 5566) {
+            layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        }else {
+            layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT,weight);
+        }
+
+        if(margin) {
+            layoutParams.setMargins(15, 15, 5, 5);
+        }
+
         textView.setLayoutParams(layoutParams);
         textView.setTextColor(textColor);
+        if(bgColor != 5566) {
+            textView.setBackgroundColor(bgColor);
+        }
+
         return textView;
     }
 

@@ -17,7 +17,18 @@ import android.widget.ScrollView;
 public class ViewLayoutFactory {
 
     public static LinearLayout createNewLinearLayoutHORIZONTAL(Context context) {
+        return createNewLinearLayoutHORIZONTAL(context,5566);
+    }
+
+    public static LinearLayout createNewLinearLayoutHORIZONTAL(Context context, int weight) {
         LinearLayout layout = new LinearLayout(context);
+        if(weight == 5566) {
+
+        }else {
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT,weight);
+            layout.setLayoutParams(params);
+
+        }
         layout.setOrientation(LinearLayout.HORIZONTAL);
         layout.setGravity(Gravity.CENTER);
 
