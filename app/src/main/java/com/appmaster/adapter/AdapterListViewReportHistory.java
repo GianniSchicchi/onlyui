@@ -5,9 +5,13 @@ import android.graphics.Color;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.appmaster.R;
 import com.appmaster.data.InfoReport;
 
 import java.util.List;
@@ -39,8 +43,13 @@ public class AdapterListViewReportHistory extends BaseAdapter {
 
     // create a new ImageView for each item referenced by the Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
-        LinearLayout linearLayoutP;
 
+        RelativeLayout layout;
+
+        FrameLayout frameLayout;
+        ImageView imageView;
+
+        LinearLayout linearLayoutP;
         LinearLayout linearLayoutH1;
         TextView txtDate;
         TextView txtRead;
@@ -50,7 +59,16 @@ public class AdapterListViewReportHistory extends BaseAdapter {
         TextView txtTitlePriority;
         if (convertView == null) {
             // if it's not recycled, initialize some attributes
+
+            layout = new RelativeLayout(mContext);
+            frameLayout = new FrameLayout(mContext);
+            imageView = new ImageView(mContext);
+
+            frameLayout.addView(imageView);
+
             linearLayoutP = new LinearLayout(mContext);
+            LinearLayout.LayoutParams paramsLin = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            linearLayoutP.setLayoutParams(paramsLin);
             linearLayoutP.setOrientation(LinearLayout.VERTICAL);
 
             linearLayoutH1 = new LinearLayout(mContext);
@@ -75,9 +93,20 @@ public class AdapterListViewReportHistory extends BaseAdapter {
             linearLayoutP.addView(linearLayoutH1);
             linearLayoutP.addView(linearLayoutH2);
 
+            layout.addView(linearLayoutP);
+            layout.addView(frameLayout);
+
 
         } else {
-            linearLayoutP = (LinearLayout) convertView;
+
+
+
+            layout = (RelativeLayout) convertView;
+
+            frameLayout = (FrameLayout) layout.getChildAt(1);
+            imageView = (ImageView) frameLayout.getChildAt(0);
+
+            linearLayoutP = (LinearLayout) layout.getChildAt(0);
 
 
             linearLayoutH1 = (LinearLayout) linearLayoutP.getChildAt(0);
@@ -95,6 +124,16 @@ public class AdapterListViewReportHistory extends BaseAdapter {
         } else {
             linearLayoutP.setBackgroundColor(Color.WHITE);
         }
+
+
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+        params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+        params.addRule(RelativeLayout.CENTER_VERTICAL);
+        frameLayout.setLayoutParams(params);
+        frameLayout.setPadding(0,0,20,0);
+
+        imageView.setImageResource(R.mipmap.arrow);
 
         txtTitleType.setTextColor(Color.RED);
 
@@ -121,7 +160,7 @@ public class AdapterListViewReportHistory extends BaseAdapter {
         txtTitleType.setText("【" + mList.get(position).mTitleType + "】");
         txtTitlePriority.setText("" + mList.get(position).mTitlePriority + "");
 
-        return linearLayoutP;
+        return layout;
     }
 
 

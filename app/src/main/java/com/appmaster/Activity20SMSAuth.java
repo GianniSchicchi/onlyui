@@ -1,15 +1,14 @@
 package com.appmaster;
 
-import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
+import com.appmaster.layout.AuthView;
 import com.appmaster.tools.ActivityGViewBar;
 import com.appmaster.tools.ViewFactory;
 
-public class Activity16Tasks extends ActivityGViewBar {
+public class Activity20SMSAuth extends ActivityGViewBar {
 
 
     @Override
@@ -22,7 +21,7 @@ public class Activity16Tasks extends ActivityGViewBar {
 
 
     void setView() {
-        setTitleStringView(true, "聯繫客服");
+        setTitleStringView(true, "簡訊認證");
         setTitleLeftButton(true, "", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,17 +44,20 @@ public class Activity16Tasks extends ActivityGViewBar {
 
 
 
-        setLinearLayout2PAddView(ViewFactory.createNewImageButton(mAct, "領獎中心", "1", new View.OnClickListener() {
+        setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct,"註冊簡訊已發送至您的手機，請於10分鐘內輸入認證簡訊中的認証碼", Color.BLACK));
+        AuthView authView = new AuthView(mAct,"p");
+        authView.getTextView().setText("0911-111-111");
+        setLinearLayout2PAddView(authView);
+        setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct,"認証碼", Color.BLACK));
+        setLinearLayout2PAddView(ViewFactory.createNewEditText(mAct,"請輸入認証碼"));
+        setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct,"如果沒有收到認證簡訊，請於10分鐘後重新操作", Color.BLACK));
+        setLinearLayout2PAddView(ViewFactory.createNewButton(mAct, "確認", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mAct, "" + "1",
-                        Toast.LENGTH_SHORT).show();
+
             }
         }));
-        setLinearLayout2PAddView(ViewFactory.createNewImageButton(mAct,"粉絲團按讚","2",null));
-        setLinearLayout2PAddView(ViewFactory.createNewImageButton(mAct,"前往五星評價任務","3",null));
-        setLinearLayout2PAddView(ViewFactory.createNewImageButton(mAct,"分享遊戲","4",null));
-        setLinearLayout2PAddView(ViewFactory.createNewImageButton(mAct,"邀請好友","5",null));
+
 
         getLinearLayoutPortait2();
         setContentView(bgReLayout);

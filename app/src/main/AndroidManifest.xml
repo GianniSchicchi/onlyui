@@ -25,19 +25,28 @@
         <activity android:name=".Activity08MainMenu" />
         <activity android:name=".Activity09AnnouncementList" />
         <activity android:name=".Activity11PurchaseHistory" />
-        <activity android:name=".Activity12ContactCustomerService" />
+        <activity android:name=".Activity12ContactCustomerService"></activity>
         <activity android:name=".Activity14ContactCusService" />
-        <activity android:name=".Activity15ChangePWD"></activity>
-        <activity android:name=".Activity16Tasks">
-
-        </activity>
-        <activity android:name=".Activity17MissionPrizeList">
+        <activity android:name=".Activity15ChangePWD" />
+        <activity android:name=".Activity16Tasks" />
+        <activity android:name=".Activity17MissionPrizeList"></activity>
+        <activity android:name=".Activity19FansClub">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Activity20SMSAuth">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Activity21EmailAuth" />
+        <activity android:name=".Activity22PaymentList"></activity>
+
     </application>
 
 </manifest>

@@ -177,7 +177,11 @@ public class ViewFactory {
     }
 
     public static TextView createNewTextView(Context context, String text, int textColor) {
-        return createNewTextView(context, text, textColor, 0);
+        return createNewTextView(context, text, textColor, 5566);
+    }
+
+    public static TextView createNewTextView(Context context, String text, int textColor, int bgColor) {
+        return createNewTextView(context, text, textColor, 5566, 5566, bgColor, true);
     }
 
     public static TextView createNewTextView(Context context, String text, int textColor, float txtSize) {
@@ -195,7 +199,7 @@ public class ViewFactory {
     public static TextView createNewTextView(Context context, String text, int textColor, float txtSize, int weight, int bgColor, boolean margin) {
         TextView textView = new TextView(context);
         textView.setText(text);
-        if (txtSize == 0) {
+        if (txtSize == 5566) {
             txtSize = textView.getTextSize();
         }
         textView.setTextSize(txtSize);
