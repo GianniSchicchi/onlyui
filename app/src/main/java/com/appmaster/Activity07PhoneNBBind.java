@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.appmaster.tools.ViewBar;
+import com.appmaster.tools.ViewFactory;
+
 public class Activity07PhoneNBBind extends AppCompatActivity {
 
     Activity mAct;

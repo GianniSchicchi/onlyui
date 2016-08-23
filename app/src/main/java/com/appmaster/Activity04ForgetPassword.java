@@ -7,6 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 
+import com.appmaster.tools.ViewBar;
+import com.appmaster.tools.ViewFactory;
+
 public class Activity04ForgetPassword extends AppCompatActivity {
     Activity mAct;
     ViewBar viewBar;

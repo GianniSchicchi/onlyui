@@ -1,16 +1,16 @@
-package com.appmaster;
+package com.appmaster.layout;
 
 import android.content.Context;
-import android.content.res.ObbInfo;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.view.Gravity;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
-import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+
+import com.appmaster.data.PurchaseHistoryInfo;
 
 /**
  * Created by Gianni on 2016/8/19.

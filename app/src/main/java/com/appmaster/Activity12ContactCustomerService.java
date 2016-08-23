@@ -11,9 +11,9 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import com.appmaster.tools.ViewBar;
+import com.appmaster.tools.ViewFactory;
+import com.appmaster.tools.ViewLayoutFactory;
 
 public class Activity12ContactCustomerService extends AppCompatActivity {
 

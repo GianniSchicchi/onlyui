@@ -7,6 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 
+import com.appmaster.adapter.AdapterListTable;
+import com.appmaster.data.PurchaseHistoryInfo;
+import com.appmaster.tools.ViewBar;
+import com.appmaster.tools.ViewFactory;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

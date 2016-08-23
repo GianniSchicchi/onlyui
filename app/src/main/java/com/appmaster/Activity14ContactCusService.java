@@ -1,18 +1,17 @@
 package com.appmaster;
 
 import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.graphics.Color;
-import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.appmaster.tools.ViewBar;
+import com.appmaster.tools.ViewFactory;
+import com.appmaster.tools.ViewLayoutFactory;
 
 public class Activity14ContactCusService extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.appmaster;
+package com.appmaster.tools;
 
 import android.content.Context;
 import android.view.Gravity;

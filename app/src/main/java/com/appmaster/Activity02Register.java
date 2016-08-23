@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 
+import com.appmaster.tools.ViewBar;
+import com.appmaster.tools.ViewFactory;
+
 public class Activity02Register extends AppCompatActivity {
 
     Activity mAct;

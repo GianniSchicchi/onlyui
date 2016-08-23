@@ -1,4 +1,4 @@
-package com.appmaster;
+package com.appmaster.data;
 
 /**
  * Created by Gianni on 2016/8/22.

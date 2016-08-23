@@ -1,4 +1,4 @@
-package com.appmaster;
+package com.appmaster.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.appmaster.data.InfoReport;
 
 import java.util.List;
 

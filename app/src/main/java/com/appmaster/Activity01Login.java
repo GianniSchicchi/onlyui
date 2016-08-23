@@ -7,6 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.appmaster.tools.ViewBar;
+import com.appmaster.tools.ViewFactory;
+import com.appmaster.tools.ViewLayoutFactory;
+
 public class Activity01Login extends AppCompatActivity {
 
 

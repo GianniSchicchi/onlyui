@@ -1,4 +1,4 @@
-package com.appmaster;
+package com.appmaster.tools;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -18,11 +18,12 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.appmaster.R;
 
 /**
  * Created by Gianni on 2016/8/22.

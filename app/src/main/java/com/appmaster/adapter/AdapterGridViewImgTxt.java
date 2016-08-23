@@ -1,4 +1,4 @@
-package com.appmaster;
+package com.appmaster.adapter;
 
 import android.content.Context;
 import android.view.Gravity;
@@ -10,6 +10,8 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.appmaster.R;
 
 /**
  * Created by Gianni on 2016/8/18.

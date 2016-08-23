@@ -1,4 +1,4 @@
-package com.appmaster;
+package com.appmaster.tools;
 
 import android.app.Activity;
 import android.graphics.Color;
@@ -13,6 +13,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+
+import com.appmaster.R;
 
 /**
  * Created by Gianni on 2016/8/15.

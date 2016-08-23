@@ -1,4 +1,4 @@
-package com.appmaster;
+package com.appmaster.data;
 
 import android.widget.TextView;
 

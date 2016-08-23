@@ -20,8 +20,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Activity09AnnouncementList extends AppCompatActivity {
-
+public class Activity17MissionPrizeList extends AppCompatActivity {
 
     List<InfoAnn> mAnnlist =  Collections.synchronizedList(new ArrayList<InfoAnn>());
 

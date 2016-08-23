@@ -1,14 +1,13 @@
-package com.appmaster;
+package com.appmaster.adapter;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.LinearLayout;
 import android.widget.TableLayout;
-import android.widget.TextView;
+
+import com.appmaster.layout.TableLayoutPurchaseHistory;
+import com.appmaster.data.PurchaseHistoryInfo;
 
 import java.util.List;
 

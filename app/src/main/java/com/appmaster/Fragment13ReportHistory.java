@@ -12,7 +12,11 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.appmaster.adapter.AdapterListViewReportHistory;
+import com.appmaster.data.InfoReport;
 import com.appmaster.dummy.DummyContent.DummyItem;
+import com.appmaster.tools.ViewFactory;
+import com.appmaster.tools.ViewLayoutFactory;
 
 import java.util.ArrayList;
 import java.util.Collections;

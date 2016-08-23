@@ -9,6 +9,10 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
+import com.appmaster.adapter.AdapterGridViewImgTxt;
+import com.appmaster.tools.ViewBar;
+import com.appmaster.tools.ViewFactory;
+
 public class Activity08MainMenu extends AppCompatActivity {
 
     Activity mAct;

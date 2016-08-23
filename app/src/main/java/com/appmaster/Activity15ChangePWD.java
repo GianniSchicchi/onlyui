@@ -6,8 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.appmaster.tools.ViewBar;
+import com.appmaster.tools.ViewFactory;
 
 public class Activity15ChangePWD extends AppCompatActivity {
 

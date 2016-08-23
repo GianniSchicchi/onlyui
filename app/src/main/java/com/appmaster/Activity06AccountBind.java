@@ -6,6 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.appmaster.tools.ViewBar;
+import com.appmaster.tools.ViewFactory;
+
 public class Activity06AccountBind extends AppCompatActivity {
 
     View phoneNBView;
