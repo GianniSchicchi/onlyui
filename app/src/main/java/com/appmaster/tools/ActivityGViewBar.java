@@ -3,6 +3,9 @@ package com.appmaster.tools;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Build;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.View;
@@ -20,39 +23,40 @@ import com.appmaster.R;
  * Created by Gianni on 2016/8/15.
  */
 
-public class ViewBar {
+public class ActivityGViewBar extends AppCompatActivity {
 
     public static int TITLEREATIVELAYOUT = 10;
 
-    Activity mAct;
+    public Activity mAct;
     public RelativeLayout bgReLayout;
     public LinearLayout linearLayout1;
 
-    ScrollView scrollView;
-    RelativeLayout contentRelaLayout;
-    RelativeLayout titleReLayout;
-    ImageView titleImgView;
-    ImageView lineImgView;
+    public ScrollView scrollView;
+    public RelativeLayout contentRelaLayout;
+    public RelativeLayout titleReLayout;
+    public ImageView titleImgView;
+    public ImageView lineImgView;
 
-    TextView titleTxtView;
+    public TextView titleTxtView;
 
-    ImageButton leftImgBtn;
-    ImageButton rightImgBtn;
+    public ImageButton leftImgBtn;
+    public ImageButton rightImgBtn;
 
 
-    LinearLayout linearLayout2P;
+    public LinearLayout linearLayout2P;
     public LinearLayout linearLayout3L;
 
-    boolean scrollEnable = false;
+    public boolean scrollEnable = false;
 
 
     public void setScrollEnable(boolean enable) {
         scrollEnable = enable;
     }
 
-
-    public ViewBar(Activity activity) {
-        mAct = activity;
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mAct = this;
         bgReLayout = new RelativeLayout(mAct);
         linearLayout1 = new LinearLayout(mAct);
 
@@ -62,7 +66,12 @@ public class ViewBar {
 
         scrollView = new ScrollView(mAct);
         contentRelaLayout = new RelativeLayout(mAct);
+
     }
+
+
+
+
 
     public void setTitleLeftButton(boolean show, String imgName, View.OnClickListener onClickListener) {
         if (show) {

@@ -29,13 +29,15 @@
         <activity android:name=".Activity14ContactCusService" />
         <activity android:name=".Activity15ChangePWD"></activity>
         <activity android:name=".Activity16Tasks">
+
+        </activity>
+        <activity android:name=".Activity17MissionPrizeList">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity17MissionPrizeList"></activity>
     </application>
 
 </manifest>

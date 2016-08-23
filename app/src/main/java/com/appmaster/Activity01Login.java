@@ -7,11 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import com.appmaster.tools.ViewBar;
+import com.appmaster.tools.ActivityGViewBar;
 import com.appmaster.tools.ViewFactory;
 import com.appmaster.tools.ViewLayoutFactory;
 
-public class Activity01Login extends AppCompatActivity {
+public class Activity01Login extends ActivityGViewBar {
 
 
     View     guestView;
@@ -19,13 +19,10 @@ public class Activity01Login extends AppCompatActivity {
     View     fbView;
     View     gplusView;
 
-    Activity mAct;
-    ViewBar viewBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mAct = this;
     }
     @Override
     protected void onResume() {
@@ -33,15 +30,14 @@ public class Activity01Login extends AppCompatActivity {
         setView();
     }
     void setView() {
-        viewBar = new ViewBar(mAct);
-        viewBar.setTitleImgView(true,"logo");
-        viewBar.getView();
+         setTitleImgView(true,"logo");
+         getView();
 
-        viewBar.newLinearLayout3();
+         newLinearLayout3();
 
-        viewBar.newLinearLayoutPortait2();
+         newLinearLayoutPortait2();
 
-        viewBar.setScreenChange(viewBar.linearLayout3L);
+         setScreenChange( linearLayout3L);
 
 
         guestView = ViewFactory.createNewImageView(mAct,"遊客體驗","1",new View.OnClickListener() {
@@ -74,17 +70,17 @@ public class Activity01Login extends AppCompatActivity {
         layout1.addView(guestView);
         layout1.addView(registerView);
 
-        viewBar.setLinearLayout3AddView(layout1);
+         setLinearLayout3AddView(layout1);
 
         LinearLayout layout2 = ViewLayoutFactory.createNewLinearLayoutHORIZONTAL(mAct);
         layout2.addView(fbView);
         layout2.addView(gplusView);
 
-        viewBar.setLinearLayout3AddView(layout2);
+         setLinearLayout3AddView(layout2);
 
 
-        viewBar.getLinearLayoutPortait2Have3();
-        setContentView(viewBar.bgReLayout);
+         getLinearLayoutPortait2Have3();
+        setContentView( bgReLayout);
     }
 
 

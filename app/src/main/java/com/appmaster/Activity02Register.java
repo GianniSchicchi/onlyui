@@ -8,19 +8,16 @@ import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 
-import com.appmaster.tools.ViewBar;
+import com.appmaster.tools.ActivityGViewBar;
 import com.appmaster.tools.ViewFactory;
 
-public class Activity02Register extends AppCompatActivity {
+public class Activity02Register extends ActivityGViewBar {
 
-    Activity mAct;
-    ViewBar viewBar;
     EditText accountEdt;
     EditText pwdEdt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mAct = this;
     }
     @Override
     protected void onResume() {
@@ -28,34 +25,33 @@ public class Activity02Register extends AppCompatActivity {
         setView();
     }
     void setView() {
-        viewBar = new ViewBar(mAct);
-        viewBar.setTitleStringView(true, "登入 / 註冊");
-        viewBar.setTitleLeftButton(true, "", new View.OnClickListener() {
+         setTitleStringView(true, "登入 / 註冊");
+         setTitleLeftButton(true, "", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-        viewBar.getView();
+         getView();
 
-       viewBar.newLinearLayout3();
+        newLinearLayout3();
 
-        viewBar.newLinearLayoutPortait2();
-        viewBar.setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "請輸入帳號及密碼，完成會員註冊或會員登入"));
+         newLinearLayoutPortait2();
+         setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "請輸入帳號及密碼，完成會員註冊或會員登入"));
         accountEdt = ViewFactory.createNewEditText(mAct, "輸入Ｅ-MAIL或手機號碼");
         pwdEdt =  ViewFactory.createNewEditText(mAct, "6-20半形英數字組合");
-        viewBar.setLinearLayout2PAddView(accountEdt);
-        viewBar.setLinearLayout2PAddView(pwdEdt);
-        viewBar.setLinearLayout2PAddView(ViewFactory.createNewCheckBox(mAct, "我已閱讀並同意使用者合約及個人資料保護暨隱私權政策", new CompoundButton.OnCheckedChangeListener() {
+         setLinearLayout2PAddView(accountEdt);
+         setLinearLayout2PAddView(pwdEdt);
+         setLinearLayout2PAddView(ViewFactory.createNewCheckBox(mAct, "我已閱讀並同意使用者合約及個人資料保護暨隱私權政策", new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
             }
         }));
 
-        viewBar.setScreenChange(viewBar.linearLayout3L);
+         setScreenChange( linearLayout3L);
 
-        viewBar.setLinearLayout3AddView(ViewFactory.createNewButton(mAct, "忘記密碼", new View.OnClickListener() {
+         setLinearLayout3AddView(ViewFactory.createNewButton(mAct, "忘記密碼", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mAct,Activity04ForgetPassword.class);
@@ -63,15 +59,15 @@ public class Activity02Register extends AppCompatActivity {
             }
         }));
 
-        viewBar.setLinearLayout3AddView(ViewFactory.createNewButton(mAct, "確認送出", new View.OnClickListener() {
+         setLinearLayout3AddView(ViewFactory.createNewButton(mAct, "確認送出", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ViewFactory.createNewConfirmDialog(mAct,accountEdt.getText().toString(),null,null);
             }
         }));
 
-        viewBar.getLinearLayoutPortait2Have3();
-        setContentView(viewBar.bgReLayout);
+         getLinearLayoutPortait2Have3();
+        setContentView( bgReLayout);
     }
 
 

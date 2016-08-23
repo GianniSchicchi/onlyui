@@ -10,18 +10,15 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 import com.appmaster.adapter.AdapterGridViewImgTxt;
-import com.appmaster.tools.ViewBar;
+import com.appmaster.tools.ActivityGViewBar;
 import com.appmaster.tools.ViewFactory;
 
-public class Activity08MainMenu extends AppCompatActivity {
+public class Activity08MainMenu extends ActivityGViewBar {
 
-    Activity mAct;
-    ViewBar viewBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mAct = this;
     }
     @Override
     protected void onResume() {
@@ -29,28 +26,27 @@ public class Activity08MainMenu extends AppCompatActivity {
         setView();
     }
     void setView() {
-        viewBar = new ViewBar(mAct);
-        viewBar.setTitleStringView(true, "手機號碼綁定");
-        viewBar.setTitleRightButton(true, "", new View.OnClickListener() {
+        setTitleStringView(true, "手機號碼綁定");
+        setTitleRightButton(true, "", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-        viewBar.getView();
+        getView();
 
-        viewBar.newLinearLayout3();
+        newLinearLayout3();
 
-        viewBar.newLinearLayoutPortait2();
+        newLinearLayoutPortait2();
 
         String acc = "123456789";
         String acc2 = "123456@facebook";
         String accType = "Facebook";
 
-        viewBar.setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "會員帳戶：" + acc));
-        viewBar.setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "會員帳號：" + acc2));
-        viewBar.setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "帳號類型：" + accType));
-        viewBar.setLinearLayout2PAddView(ViewFactory.createNewLineImageView(mAct));
+        setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "會員帳戶：" + acc));
+        setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "會員帳號：" + acc2));
+        setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "帳號類型：" + accType));
+        setLinearLayout2PAddView(ViewFactory.createNewLineImageView(mAct));
 
         GridView gridview = new GridView(mAct);
 
@@ -78,10 +74,10 @@ public class Activity08MainMenu extends AppCompatActivity {
             }
         });
 
-        viewBar.setLinearLayout2PAddView(gridview);
+        setLinearLayout2PAddView(gridview);
 
-        viewBar.getLinearLayoutPortait2();
-        setContentView(viewBar.bgReLayout);
+        getLinearLayoutPortait2();
+        setContentView(bgReLayout);
     }
 
 

@@ -9,14 +9,12 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.appmaster.tools.ViewBar;
+import com.appmaster.tools.ActivityGViewBar;
 import com.appmaster.tools.ViewFactory;
 import com.appmaster.tools.ViewLayoutFactory;
 
-public class Activity14ContactCusService extends AppCompatActivity {
+public class Activity14ContactCusService extends ActivityGViewBar {
 
-    Activity mAct;
-    ViewBar viewBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,26 +27,25 @@ public class Activity14ContactCusService extends AppCompatActivity {
 
 
     void setView() {
-        viewBar = new ViewBar(mAct);
-        viewBar.setTitleStringView(true, "聯繫客服");
-        viewBar.setTitleLeftButton(true, "", new View.OnClickListener() {
+        setTitleStringView(true, "聯繫客服");
+        setTitleLeftButton(true, "", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-        viewBar.setTitleRightButton(true, "", new View.OnClickListener() {
+        setTitleRightButton(true, "", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-        viewBar.getView();
+        getView();
 
-        viewBar.setScrollEnable(true);
-        viewBar.newLinearLayout3();
+        setScrollEnable(true);
+        newLinearLayout3();
 
-        viewBar.newLinearLayoutPortait2();
+        newLinearLayoutPortait2();
 
 
         LinearLayout linearLayout = ViewLayoutFactory.createNewLinearLayoutHORIZONTAL(mAct);
@@ -59,12 +56,12 @@ public class Activity14ContactCusService extends AppCompatActivity {
         textView.setGravity(Gravity.RIGHT);
         linearLayout.addView(textView);
 
-        viewBar.linearLayout1.addView(linearLayout);
+        linearLayout1.addView(linearLayout);
 
 
-        viewBar.setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "回復內容回復內容回復內容回復內容回復內容回復內容回復內容回復內容回復內容回復內容回復內容回復內容回復內容回復內容回復內容回復內容回復內容"));
+        setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "回復內容回復內容回復內容回復內容回復內容回復內容回復內容回復內容回復內容回復內容回復內容回復內容回復內容回復內容回復內容回復內容回復內容"));
 
-        viewBar.getLinearLayoutPortait2();
-        setContentView(viewBar.bgReLayout);
+        getLinearLayoutPortait2();
+        setContentView(bgReLayout);
     }
 }

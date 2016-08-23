@@ -6,19 +6,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
-import com.appmaster.tools.ViewBar;
+import com.appmaster.tools.ActivityGViewBar;
 import com.appmaster.tools.ViewFactory;
 
-public class Activity07PhoneNBBind extends AppCompatActivity {
+public class Activity07PhoneNBBind extends ActivityGViewBar {
 
-    Activity mAct;
-    ViewBar viewBar;
     EditText accountEdt;
     EditText pwdEdt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mAct = this;
     }
     @Override
     protected void onResume() {
@@ -26,45 +23,44 @@ public class Activity07PhoneNBBind extends AppCompatActivity {
         setView();
     }
     void setView() {
-        viewBar = new ViewBar(mAct);
-        viewBar.setTitleStringView(true, "手機號碼綁定");
-        viewBar.setTitleLeftButton(true, "", new View.OnClickListener() {
+        setTitleStringView(true, "手機號碼綁定");
+        setTitleLeftButton(true, "", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-        viewBar.getView();
+        getView();
 
-        viewBar.newLinearLayout3();
+        newLinearLayout3();
 
-        viewBar.newLinearLayoutPortait2();
+        newLinearLayoutPortait2();
 
-        viewBar.setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "帳號"));
+        setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "帳號"));
         accountEdt = ViewFactory.createNewEditText(mAct, "請輸入手機號碼");
-        viewBar.setLinearLayout2PAddView(accountEdt);
+        setLinearLayout2PAddView(accountEdt);
 
-        viewBar.setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "密碼"));
+        setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "密碼"));
         pwdEdt =  ViewFactory.createNewEditText(mAct, "請輸入密碼");
-        viewBar.setLinearLayout2PAddView(pwdEdt);
+        setLinearLayout2PAddView(pwdEdt);
 
-        viewBar.setScreenChange(viewBar.linearLayout3L);
+        setScreenChange(linearLayout3L);
 
-        viewBar.setLinearLayout3AddView(ViewFactory.createNewButton(mAct, "忘記密碼", new View.OnClickListener() {
+        setLinearLayout3AddView(ViewFactory.createNewButton(mAct, "忘記密碼", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
             }
         }));
 
-        viewBar.setLinearLayout3AddView(ViewFactory.createNewButton(mAct, "綁定", new View.OnClickListener() {
+        setLinearLayout3AddView(ViewFactory.createNewButton(mAct, "綁定", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ViewFactory.createNewConfirmDialog(mAct,accountEdt.getText().toString(),null,null);
             }
         }));
 
-        viewBar.getLinearLayoutPortait2Have3();
-        setContentView(viewBar.bgReLayout);
+        getLinearLayoutPortait2Have3();
+        setContentView(bgReLayout);
     }
 }

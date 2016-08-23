@@ -11,15 +11,13 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
-import com.appmaster.tools.ViewBar;
+import com.appmaster.tools.ActivityGViewBar;
 import com.appmaster.tools.ViewFactory;
 import com.appmaster.tools.ViewLayoutFactory;
 
-public class Activity12ContactCustomerService extends AppCompatActivity {
+public class Activity12ContactCustomerService extends ActivityGViewBar {
 
 
-    Activity mAct;
-    ViewBar viewBar;
 
     private static Fragment fragment12;
     private static Fragment fragment13;
@@ -69,26 +67,25 @@ public class Activity12ContactCustomerService extends AppCompatActivity {
 
 
     void setView() {
-        viewBar = new ViewBar(mAct);
-        viewBar.setTitleStringView(true, "公告訊息");
-        viewBar.setTitleLeftButton(true, "", new View.OnClickListener() {
+        setTitleStringView(true, "公告訊息");
+        setTitleLeftButton(true, "", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-        viewBar.setTitleRightButton(true, "", new View.OnClickListener() {
+        setTitleRightButton(true, "", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-        viewBar.getView();
+        getView();
 
-        viewBar.setScrollEnable(true);
-        viewBar.newLinearLayout3();
+        setScrollEnable(true);
+        newLinearLayout3();
 
-        viewBar.newLinearLayoutPortait2();
+        newLinearLayoutPortait2();
 
 
         LinearLayout linearLayout = ViewLayoutFactory.createNewLinearLayoutHORIZONTAL(mAct);
@@ -122,27 +119,27 @@ public class Activity12ContactCustomerService extends AppCompatActivity {
                 }, Color.RED,Color.WHITE,3,Color.RED)
         );
 
-        viewBar.linearLayout1.addView(linearLayout);
+        linearLayout1.addView(linearLayout);
 
 
-//        viewBar.setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "若您遇到任何問題，請隨時與我們聯繫！\n我們會儘快回覆您的問題，回覆內容請至「回報記錄」查看。"));
-//        viewBar.setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "\n聯絡電話"));
-//        viewBar.setLinearLayout2PAddView(ViewFactory.createNewEditText(mAct, "請填入市話或手機號碼"));
-//        viewBar.setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "E-mail"));
-//        viewBar.setLinearLayout2PAddView(ViewFactory.createNewEditText(mAct, "請填入電子郵件"));
-//        viewBar.setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "問題類型"));
-//        viewBar.setLinearLayout2PAddView(ViewFactory.createNewEditText(mAct, "請選擇問題類型"));
-//        viewBar.setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "問題描述"));
-//        viewBar.setLinearLayout2PAddView(ViewFactory.createNewEditText(mAct, "請清楚的簡述您的問題"));
-//        viewBar.setLinearLayout2PAddView(ViewFactory.createNewButton(mAct, "確認送出", new View.OnClickListener() {
+//        setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "若您遇到任何問題，請隨時與我們聯繫！\n我們會儘快回覆您的問題，回覆內容請至「回報記錄」查看。"));
+//        setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "\n聯絡電話"));
+//        setLinearLayout2PAddView(ViewFactory.createNewEditText(mAct, "請填入市話或手機號碼"));
+//        setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "E-mail"));
+//        setLinearLayout2PAddView(ViewFactory.createNewEditText(mAct, "請填入電子郵件"));
+//        setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "問題類型"));
+//        setLinearLayout2PAddView(ViewFactory.createNewEditText(mAct, "請選擇問題類型"));
+//        setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "問題描述"));
+//        setLinearLayout2PAddView(ViewFactory.createNewEditText(mAct, "請清楚的簡述您的問題"));
+//        setLinearLayout2PAddView(ViewFactory.createNewButton(mAct, "確認送出", new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
 //
 //            }
 //        }));
 
-        viewBar.setLinearLayout2PAddView(frame);
-        viewBar.getLinearLayoutPortait2Have3();
-        setContentView(viewBar.bgReLayout);
+        setLinearLayout2PAddView(frame);
+        getLinearLayoutPortait2Have3();
+        setContentView(bgReLayout);
     }
 }

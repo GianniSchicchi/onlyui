@@ -6,13 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 
-import com.appmaster.tools.ViewBar;
+import com.appmaster.tools.ActivityGViewBar;
 import com.appmaster.tools.ViewFactory;
 
-public class Activity05ReLogin extends AppCompatActivity {
+public class Activity05ReLogin extends ActivityGViewBar {
 
-    Activity mAct;
-    ViewBar viewBar;
 
 
     EditText accountEdt;
@@ -21,7 +19,6 @@ public class Activity05ReLogin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mAct = this;
 
     }
 
@@ -33,31 +30,30 @@ public class Activity05ReLogin extends AppCompatActivity {
     }
 
     void setView() {
-        viewBar = new ViewBar(mAct);
-        viewBar.setTitleImgView(true, "logo");
-        viewBar.getView();
-        viewBar.newLinearLayoutPortait2();
+        setTitleImgView(true, "logo");
+        getView();
+        newLinearLayoutPortait2();
         accountEdt = ViewFactory.createNewEditText(mAct, "Ｅ-MAIL或手機號碼");
-        viewBar.setLinearLayout2PAddView(accountEdt);
-        viewBar.setLinearLayout2PAddView(ViewFactory.createNewButton(mAct, "登入", new View.OnClickListener() {
+        setLinearLayout2PAddView(accountEdt);
+        setLinearLayout2PAddView(ViewFactory.createNewButton(mAct, "登入", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
             }
         }));
-        viewBar.setLinearLayout2PAddView(ViewFactory.createNewButton(mAct, "綁定（成為正式會員）", new View.OnClickListener() {
+        setLinearLayout2PAddView(ViewFactory.createNewButton(mAct, "綁定（成為正式會員）", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
             }
         }));
-        viewBar.setLinearLayout2PAddView(ViewFactory.createNewButton(mAct, "其他帳號登入", new View.OnClickListener() {
+        setLinearLayout2PAddView(ViewFactory.createNewButton(mAct, "其他帳號登入", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
             }
         }));
-        viewBar.getLinearLayoutPortait2();
-        setContentView(viewBar.bgReLayout);
+        getLinearLayoutPortait2();
+        setContentView(bgReLayout);
     }
 }

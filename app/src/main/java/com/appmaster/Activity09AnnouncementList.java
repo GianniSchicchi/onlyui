@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import com.appmaster.adapter.AdapterListViewTxt;
 import com.appmaster.data.InfoAnn;
-import com.appmaster.tools.ViewBar;
+import com.appmaster.tools.ActivityGViewBar;
 import com.appmaster.tools.ViewFactory;
 import com.appmaster.tools.ViewLayoutFactory;
 
@@ -20,18 +20,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Activity09AnnouncementList extends AppCompatActivity {
+public class Activity09AnnouncementList extends ActivityGViewBar {
 
 
     List<InfoAnn> mAnnlist =  Collections.synchronizedList(new ArrayList<InfoAnn>());
 
-    Activity mAct;
-    ViewBar viewBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mAct = this;
         addFalseAnnInfo();
     }
     @Override
@@ -49,25 +46,24 @@ public class Activity09AnnouncementList extends AppCompatActivity {
     }
 
     void setView() {
-        viewBar = new ViewBar(mAct);
-        viewBar.setTitleStringView(true, "公告訊息");
-        viewBar.setTitleLeftButton(true, "", new View.OnClickListener() {
+        setTitleStringView(true, "公告訊息");
+        setTitleLeftButton(true, "", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-        viewBar.setTitleRightButton(true, "", new View.OnClickListener() {
+        setTitleRightButton(true, "", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-        viewBar.getView();
+        getView();
 
-        viewBar.newLinearLayout3();
+        newLinearLayout3();
 
-        viewBar.newLinearLayoutPortait2();
+        newLinearLayoutPortait2();
 
 
         LinearLayout linearLayout = ViewLayoutFactory.createNewLinearLayoutHORIZONTAL(mAct);
@@ -88,7 +84,7 @@ public class Activity09AnnouncementList extends AppCompatActivity {
                 }, Color.RED,Color.WHITE,3,Color.RED)
         );
 
-        viewBar.setLinearLayout2PAddView(linearLayout);
+        setLinearLayout2PAddView(linearLayout);
 
 
         ListView listView = new ListView(mAct);
@@ -107,9 +103,9 @@ public class Activity09AnnouncementList extends AppCompatActivity {
             }
         });
 
-        viewBar.setLinearLayout2PAddView(listView);
+        setLinearLayout2PAddView(listView);
 
-        viewBar.getLinearLayoutPortait2Have3();
-        setContentView(viewBar.bgReLayout);
+        getLinearLayoutPortait2Have3();
+        setContentView(bgReLayout);
     }
 }

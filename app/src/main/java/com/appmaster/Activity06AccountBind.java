@@ -6,23 +6,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import com.appmaster.tools.ViewBar;
+import com.appmaster.tools.ActivityGViewBar;
 import com.appmaster.tools.ViewFactory;
 
-public class Activity06AccountBind extends AppCompatActivity {
+public class Activity06AccountBind extends ActivityGViewBar {
 
     View phoneNBView;
     View emailView;
     View fbView;
     View gplusView;
 
-    Activity mAct;
-    ViewBar viewBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mAct = this;
     }
 
     @Override
@@ -32,37 +29,36 @@ public class Activity06AccountBind extends AppCompatActivity {
     }
 
     void setView() {
-        viewBar = new ViewBar(mAct);
-        viewBar.setTitleStringView(true, "帳號綁定");
-        viewBar.setTitleLeftButton(true, "", new View.OnClickListener() {
+        setTitleStringView(true, "帳號綁定");
+        setTitleLeftButton(true, "", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
 
-        viewBar.getView();
+        getView();
 
-        viewBar.newLinearLayout3();
+        newLinearLayout3();
 
-        viewBar.newLinearLayoutPortait2();
+        newLinearLayoutPortait2();
 
-        viewBar.setScreenChange(viewBar.linearLayout3L);
+        setScreenChange(linearLayout3L);
 
-        viewBar.setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "請儘速綁定帳號，避免遊戲資料遺失！"));
+        setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "請儘速綁定帳號，避免遊戲資料遺失！"));
 
 
         setScreenChange();
 
-        viewBar.setLinearLayout3AddView(phoneNBView);
-        viewBar.setLinearLayout3AddView(emailView);
+        setLinearLayout3AddView(phoneNBView);
+        setLinearLayout3AddView(emailView);
 
-        viewBar.setLinearLayout3AddView(fbView);
-        viewBar.setLinearLayout3AddView(gplusView);
+        setLinearLayout3AddView(fbView);
+        setLinearLayout3AddView(gplusView);
 
 
-        viewBar.getLinearLayoutPortait2Have3();
-        setContentView(viewBar.bgReLayout);
+        getLinearLayoutPortait2Have3();
+        setContentView(bgReLayout);
     }
 
 

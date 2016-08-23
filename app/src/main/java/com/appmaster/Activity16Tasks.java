@@ -6,13 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.appmaster.tools.ViewBar;
+import com.appmaster.tools.ActivityGViewBar;
 import com.appmaster.tools.ViewFactory;
 
-public class Activity16Tasks extends AppCompatActivity {
+public class Activity16Tasks extends ActivityGViewBar {
 
-    Activity mAct;
-    ViewBar viewBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,43 +23,42 @@ public class Activity16Tasks extends AppCompatActivity {
 
 
     void setView() {
-        viewBar = new ViewBar(mAct);
-        viewBar.setTitleStringView(true, "聯繫客服");
-        viewBar.setTitleLeftButton(true, "", new View.OnClickListener() {
+        setTitleStringView(true, "聯繫客服");
+        setTitleLeftButton(true, "", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-        viewBar.setTitleRightButton(true, "", new View.OnClickListener() {
+        setTitleRightButton(true, "", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-        viewBar.getView();
+        getView();
 
-        viewBar.setScrollEnable(true);
-        viewBar.newLinearLayout3();
+        setScrollEnable(true);
+        newLinearLayout3();
 
-        viewBar.newLinearLayoutPortait2();
-
-
+        newLinearLayoutPortait2();
 
 
-        viewBar.setLinearLayout2PAddView(ViewFactory.createNewImageButton(mAct, "領獎中心", "1", new View.OnClickListener() {
+
+
+        setLinearLayout2PAddView(ViewFactory.createNewImageButton(mAct, "領獎中心", "1", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(mAct, "" + "1",
                         Toast.LENGTH_SHORT).show();
             }
         }));
-        viewBar.setLinearLayout2PAddView(ViewFactory.createNewImageButton(mAct,"粉絲團按讚","2",null));
-        viewBar.setLinearLayout2PAddView(ViewFactory.createNewImageButton(mAct,"前往五星評價任務","3",null));
-        viewBar.setLinearLayout2PAddView(ViewFactory.createNewImageButton(mAct,"分享遊戲","4",null));
-        viewBar.setLinearLayout2PAddView(ViewFactory.createNewImageButton(mAct,"邀請好友","5",null));
+        setLinearLayout2PAddView(ViewFactory.createNewImageButton(mAct,"粉絲團按讚","2",null));
+        setLinearLayout2PAddView(ViewFactory.createNewImageButton(mAct,"前往五星評價任務","3",null));
+        setLinearLayout2PAddView(ViewFactory.createNewImageButton(mAct,"分享遊戲","4",null));
+        setLinearLayout2PAddView(ViewFactory.createNewImageButton(mAct,"邀請好友","5",null));
 
-        viewBar.getLinearLayoutPortait2();
-        setContentView(viewBar.bgReLayout);
+        getLinearLayoutPortait2();
+        setContentView(bgReLayout);
     }
 }
