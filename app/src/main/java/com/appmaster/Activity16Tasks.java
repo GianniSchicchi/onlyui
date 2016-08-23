@@ -1,20 +1,16 @@
 package com.appmaster;
 
 import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.graphics.Color;
-import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class Activity14ContactCusService extends AppCompatActivity {
+public class Activity16Tasks extends AppCompatActivity {
 
     Activity mAct;
     ViewBar viewBar;
@@ -52,18 +48,19 @@ public class Activity14ContactCusService extends AppCompatActivity {
         viewBar.newLinearLayoutPortait2();
 
 
-        LinearLayout linearLayout = ViewLayoutFactory.createNewLinearLayoutHORIZONTAL(mAct);
-
-        linearLayout.addView(ViewFactory.createNewTextView(mAct,"客服回覆", Color.WHITE,20,2,Color.parseColor("#981800"),false));
-
-        TextView textView = (TextView) ViewFactory.createNewTextView(mAct,"2015-7-02", Color.WHITE,20,1,Color.parseColor("#e52e2d"),false);
-        textView.setGravity(Gravity.RIGHT);
-        linearLayout.addView(textView);
-
-        viewBar.linearLayout1.addView(linearLayout);
 
 
-        viewBar.setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "回復內容回復內容回復內容回復內容回復內容回復內容回復內容回復內容回復內容回復內容回復內容回復內容回復內容回復內容回復內容回復內容回復內容"));
+        viewBar.setLinearLayout2PAddView(ViewFactory.createNewImageButton(mAct, "領獎中心", "1", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(mAct, "" + "1",
+                        Toast.LENGTH_SHORT).show();
+            }
+        }));
+        viewBar.setLinearLayout2PAddView(ViewFactory.createNewImageButton(mAct,"粉絲團按讚","2",null));
+        viewBar.setLinearLayout2PAddView(ViewFactory.createNewImageButton(mAct,"前往五星評價任務","3",null));
+        viewBar.setLinearLayout2PAddView(ViewFactory.createNewImageButton(mAct,"分享遊戲","4",null));
+        viewBar.setLinearLayout2PAddView(ViewFactory.createNewImageButton(mAct,"邀請好友","5",null));
 
         viewBar.getLinearLayoutPortait2();
         setContentView(viewBar.bgReLayout);

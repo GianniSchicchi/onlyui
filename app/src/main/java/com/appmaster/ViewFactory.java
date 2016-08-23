@@ -17,8 +17,11 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 /**
@@ -54,16 +57,70 @@ public class ViewFactory {
         newImageView.setBackgroundColor(Color.BLACK);
         newImageView.setMinimumHeight(1);
         newImageView.setMaxHeight(1);
-        newImageView.setPadding(0,0,0,5);
+        newImageView.setPadding(0, 0, 0, 5);
         return newImageView;
     }
 
+
+    public static View createNewImageButton(Context context, String text, String imageName, View.OnClickListener listener) {
+
+        RelativeLayout layout = new RelativeLayout(context);
+        layout.setGravity(Gravity.LEFT);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.FILL_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+        layoutParams.setMargins(25, 5, 25, 5);
+
+        ImageView imageView = new ImageView(context);
+
+        imageView.setLayoutParams(layoutParams);
+
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, 60, Gravity.CENTER);
+        imageView.setLayoutParams(params);
+        imageView.setPadding(25,10,0,0);
+
+        TextView textView = createNewTextView(context,text);
+        textView.setTextColor(Color.WHITE);
+        textView.setTextSize(25);
+        textView.setPadding(175,10,0,0);
+        textView.setGravity(Gravity.CENTER_VERTICAL | Gravity.LEFT);
+        textView.setLayoutParams(layoutParams);
+
+
+
+        Button button = createNewButton(context, "" ,listener);
+
+        button.setLayoutParams(layoutParams);
+
+        if (imageName.equals("1")) {
+            imageView.setImageResource(R.mipmap.icon_14);
+        }
+        if (imageName.equals("2")) {
+            imageView.setImageResource(R.mipmap.icon_15);
+        }
+        if (imageName.equals("3")) {
+            imageView.setImageResource(R.mipmap.icon_16);
+        }
+        if (imageName.equals("4")) {
+            imageView.setImageResource(R.mipmap.icon_17);
+        }
+        if (imageName.equals("5")) {
+            imageView.setImageResource(R.mipmap.icon_18);
+        }
+
+
+
+        layout.addView(button);
+        layout.addView(imageView);
+        layout.addView(textView);
+        layout.setLayoutParams(layoutParams);
+
+        return layout;
+    }
 
 
     public static View createNewImageView(Context context, String text, String imageName, View.OnClickListener listener) {
 
 
-        return createNewImageView(context,text,imageName,listener, LinearLayout.VERTICAL);
+        return createNewImageView(context, text, imageName, listener, LinearLayout.VERTICAL);
     }
 
 
@@ -72,8 +129,8 @@ public class ViewFactory {
         linearLayout.setOrientation(iOrientation);
         linearLayout.setGravity(Gravity.CENTER);
         LinearLayout.LayoutParams layoutParams;
-        if(iOrientation == LinearLayout.HORIZONTAL) {
-            layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT,1);
+        if (iOrientation == LinearLayout.HORIZONTAL) {
+            layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, 1);
         } else {
             layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         }
@@ -113,48 +170,48 @@ public class ViewFactory {
         return linearLayout;
     }
 
-    public static View createNewTextView(Context context, String text) {
+    public static TextView createNewTextView(Context context, String text) {
 
-        return createNewTextView(context,text, Color.GRAY);
+        return createNewTextView(context, text, Color.GRAY);
     }
 
-    public static View createNewTextView(Context context, String text, int textColor) {
+    public static TextView createNewTextView(Context context, String text, int textColor) {
         return createNewTextView(context, text, textColor, 0);
     }
 
-    public static View createNewTextView(Context context, String text, int textColor, float txtSize) {
+    public static TextView createNewTextView(Context context, String text, int textColor, float txtSize) {
         return createNewTextView(context, text, textColor, txtSize, 5566);
     }
 
-    public static View createNewTextView(Context context, String text, int textColor, float txtSize, int weight) {
+    public static TextView createNewTextView(Context context, String text, int textColor, float txtSize, int weight) {
         return createNewTextView(context, text, textColor, txtSize, weight, 5566);
     }
 
-    public static View createNewTextView(Context context, String text, int textColor, float txtSize, int weight, int bgColor) {
+    public static TextView createNewTextView(Context context, String text, int textColor, float txtSize, int weight, int bgColor) {
         return createNewTextView(context, text, textColor, txtSize, weight, bgColor, true);
     }
 
-    public static View createNewTextView(Context context, String text, int textColor, float txtSize, int weight, int bgColor, boolean margin) {
+    public static TextView createNewTextView(Context context, String text, int textColor, float txtSize, int weight, int bgColor, boolean margin) {
         TextView textView = new TextView(context);
         textView.setText(text);
-        if(txtSize == 0) {
+        if (txtSize == 0) {
             txtSize = textView.getTextSize();
         }
         textView.setTextSize(txtSize);
         LinearLayout.LayoutParams layoutParams;
-        if(weight == 5566) {
+        if (weight == 5566) {
             layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        }else {
-            layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT,weight);
+        } else {
+            layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, weight);
         }
 
-        if(margin) {
+        if (margin) {
             layoutParams.setMargins(15, 15, 5, 5);
         }
 
         textView.setLayoutParams(layoutParams);
         textView.setTextColor(textColor);
-        if(bgColor != 5566) {
+        if (bgColor != 5566) {
             textView.setBackgroundColor(bgColor);
         }
 
@@ -172,7 +229,7 @@ public class ViewFactory {
     }
 
 
-    public static View createNewCheckBox(Context context, String text, CompoundButton.OnCheckedChangeListener checkedChangeListener) {
+    public static CheckBox createNewCheckBox(Context context, String text, CompoundButton.OnCheckedChangeListener checkedChangeListener) {
         CheckBox checkBox = new CheckBox(context);
         checkBox.setText(text);
 
@@ -186,37 +243,37 @@ public class ViewFactory {
         return checkBox;
     }
 
-    public static View createNewButton(Context context, String text, View.OnClickListener clickListener) {
+    public static Button createNewButton(Context context, String text, View.OnClickListener clickListener) {
         return createNewButton(context, text, clickListener, Color.WHITE, Color.RED);
     }
 
-    public static View createNewButton(Context context, String text, View.OnClickListener clickListener, int textColor, int bgColor) {
+    public static Button createNewButton(Context context, String text, View.OnClickListener clickListener, int textColor, int bgColor) {
         Button button = new Button(context);
         button.setText(text);
         button.setTextColor(textColor);
         button.setOnClickListener(clickListener);
 
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT,1);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, 1);
         layoutParams.setMargins(15, 15, 5, 5);
         button.setLayoutParams(layoutParams);
 
 
         button.setBackgroundDrawable(ViewFactory.setRadius(15, 15, 15, 15, bgColor));
-        return createNewButton(context, text, clickListener, textColor, bgColor,0,bgColor);
+        return createNewButton(context, text, clickListener, textColor, bgColor, 0, bgColor);
     }
 
-    public static View createNewButton(Context context, String text, View.OnClickListener clickListener, int textColor, int bgColor, int strokeWidth, int stroleColo) {
+    public static Button createNewButton(Context context, String text, View.OnClickListener clickListener, int textColor, int bgColor, int strokeWidth, int stroleColo) {
         Button button = new Button(context);
         button.setText(text);
         button.setTextColor(textColor);
         button.setOnClickListener(clickListener);
 
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT,1);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, 1);
         layoutParams.setMargins(15, 15, 5, 5);
         button.setLayoutParams(layoutParams);
 
 
-        button.setBackgroundDrawable(ViewFactory.setRadius(15, 15, 15, 15, bgColor,strokeWidth, stroleColo));
+        button.setBackgroundDrawable(ViewFactory.setRadius(15, 15, 15, 15, bgColor, strokeWidth, stroleColo));
         return button;
     }
 
@@ -265,12 +322,6 @@ public class ViewFactory {
         dialog.show();
 
     }
-
-
-
-
-
-
 
 
     public static int getScreenOrientation(Activity activity) {

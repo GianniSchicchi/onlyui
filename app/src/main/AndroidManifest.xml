@@ -25,10 +25,11 @@
         <activity android:name=".Activity08MainMenu" />
         <activity android:name=".Activity09AnnouncementList" />
         <activity android:name=".Activity11PurchaseHistory" />
-        <activity android:name=".Activity12ContactCustomerService"></activity>
-        <activity android:name=".Activity14ContactCusService">
-        </activity>
+        <activity android:name=".Activity12ContactCustomerService" />
+        <activity android:name=".Activity14ContactCusService"></activity>
         <activity android:name=".Activity15ChangePWD">
+        </activity>
+        <activity android:name=".Activity16Tasks">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
