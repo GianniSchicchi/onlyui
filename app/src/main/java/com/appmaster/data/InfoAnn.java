@@ -11,7 +11,7 @@ public class InfoAnn {
     public String mTitlePriority;
     public String mTitleContent;
 
-    InfoAnn() {
+    public InfoAnn() {
         mDate = "2016-08-19";
         mTitleType = "系統";
         mTitlePriority = "重要提醒";

@@ -12,7 +12,7 @@ public class InfoReport {
     public String mTitleType;
     public String mTitlePriority;
 
-    InfoReport() {
+    public InfoReport() {
         mDate = "2016-08-22";
         mIsRead = false;
 
@@ -20,7 +20,7 @@ public class InfoReport {
         mTitlePriority = "帳號問題";
     }
 
-    InfoReport(boolean isRead) {
+    public InfoReport(boolean isRead) {
         mDate = "2016-08-22";
         mIsRead = isRead;
 

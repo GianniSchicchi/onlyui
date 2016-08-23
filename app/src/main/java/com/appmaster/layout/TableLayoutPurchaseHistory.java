@@ -10,7 +10,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-import com.appmaster.data.PurchaseHistoryInfo;
+import com.appmaster.data.InfoPurchaseHistory;
 
 /**
  * Created by Gianni on 2016/8/19.
@@ -31,11 +31,11 @@ public class TableLayoutPurchaseHistory {
     TextView txtTransactionID;
 
 
-    TableLayoutPurchaseHistory(Context context) {
+    public TableLayoutPurchaseHistory(Context context) {
         mContext = context;
     }
 
-    void init() {
+    public void init() {
         tableLayout = new TableLayout(mContext);
         AbsListView.LayoutParams params1 = new AbsListView.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         tableLayout.setLayoutParams(params1);
@@ -85,7 +85,7 @@ public class TableLayoutPurchaseHistory {
 
     }
 
-    public void setDataInfo(PurchaseHistoryInfo info) {
+    public void setDataInfo(InfoPurchaseHistory info) {
 
         txtItem.setText(info.mItem);
         txtBuyTime.setText(info.mBuyTime);

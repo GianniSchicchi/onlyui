@@ -7,7 +7,7 @@ import android.widget.BaseAdapter;
 import android.widget.TableLayout;
 
 import com.appmaster.layout.TableLayoutPurchaseHistory;
-import com.appmaster.data.PurchaseHistoryInfo;
+import com.appmaster.data.InfoPurchaseHistory;
 
 import java.util.List;
 
@@ -17,9 +17,9 @@ import java.util.List;
 
 public class AdapterListTable extends BaseAdapter {
     private Context mContext;
-    private List<PurchaseHistoryInfo> mList;
+    private List<InfoPurchaseHistory> mList;
 
-    public AdapterListTable(Context c, List<PurchaseHistoryInfo> list) {
+    public AdapterListTable(Context c, List<InfoPurchaseHistory> list) {
         mContext = c;
         mList = list;
     }

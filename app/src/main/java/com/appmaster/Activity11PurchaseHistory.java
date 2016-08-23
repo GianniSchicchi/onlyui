@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.ListView;
 
 import com.appmaster.adapter.AdapterListTable;
-import com.appmaster.data.PurchaseHistoryInfo;
+import com.appmaster.data.InfoPurchaseHistory;
 import com.appmaster.tools.ViewBar;
 import com.appmaster.tools.ViewFactory;
 
@@ -18,7 +18,7 @@ import java.util.List;
 
 public class Activity11PurchaseHistory extends AppCompatActivity {
 
-    List<PurchaseHistoryInfo> mList =  Collections.synchronizedList(new ArrayList<PurchaseHistoryInfo>());
+    List<InfoPurchaseHistory> mList =  Collections.synchronizedList(new ArrayList<InfoPurchaseHistory>());
 
     Activity mAct;
     ViewBar viewBar;
@@ -38,7 +38,7 @@ public class Activity11PurchaseHistory extends AppCompatActivity {
     void addFalseInfo() {
         if(mList != null) {
             for (int i = 0; i < 10; i++) {
-                mList.add(new PurchaseHistoryInfo());
+                mList.add(new InfoPurchaseHistory());
             }
         }
     }

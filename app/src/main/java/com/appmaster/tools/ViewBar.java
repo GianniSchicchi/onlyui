@@ -25,8 +25,8 @@ public class ViewBar {
     public static int TITLEREATIVELAYOUT = 10;
 
     Activity mAct;
-    RelativeLayout bgReLayout;
-    LinearLayout linearLayout1;
+    public RelativeLayout bgReLayout;
+    public LinearLayout linearLayout1;
 
     ScrollView scrollView;
     RelativeLayout contentRelaLayout;
@@ -41,17 +41,17 @@ public class ViewBar {
 
 
     LinearLayout linearLayout2P;
-    LinearLayout linearLayout3L;
+    public LinearLayout linearLayout3L;
 
     boolean scrollEnable = false;
 
 
-    void setScrollEnable(boolean enable) {
+    public void setScrollEnable(boolean enable) {
         scrollEnable = enable;
     }
 
 
-    ViewBar(Activity activity) {
+    public ViewBar(Activity activity) {
         mAct = activity;
         bgReLayout = new RelativeLayout(mAct);
         linearLayout1 = new LinearLayout(mAct);
@@ -64,7 +64,7 @@ public class ViewBar {
         contentRelaLayout = new RelativeLayout(mAct);
     }
 
-    void setTitleLeftButton(boolean show, String imgName, View.OnClickListener onClickListener) {
+    public void setTitleLeftButton(boolean show, String imgName, View.OnClickListener onClickListener) {
         if (show) {
             if (leftImgBtn == null) {
                 leftImgBtn = new ImageButton(mAct);
@@ -89,7 +89,7 @@ public class ViewBar {
 
     }
 
-    void setTitleRightButton(boolean show, String imgName, View.OnClickListener onClickListener) {
+    public void setTitleRightButton(boolean show, String imgName, View.OnClickListener onClickListener) {
         if (show) {
             if (rightImgBtn == null) {
                 rightImgBtn = new ImageButton(mAct);
@@ -114,7 +114,7 @@ public class ViewBar {
 
     }
 
-    void setTitleImgView(boolean show, String imgName) {
+    public void setTitleImgView(boolean show, String imgName) {
         titleImgView = new ImageButton(mAct);
 
         titleImgView.setBackgroundColor(Color.TRANSPARENT);
@@ -131,7 +131,7 @@ public class ViewBar {
         setTitleReLayout(true);
     }
 
-    void setTitleStringView(boolean show, String title) {
+    public void setTitleStringView(boolean show, String title) {
         if (show) {
             if (title != null) {
                 if (titleTxtView == null) {
@@ -156,7 +156,7 @@ public class ViewBar {
 
     }
 
-    void setTitleReLayout(boolean show) {
+    public void setTitleReLayout(boolean show) {
         if (show) {
             titleReLayout.setVisibility(View.VISIBLE);
         } else {
@@ -176,7 +176,7 @@ public class ViewBar {
 
     }
 
-    void setBottomReLayout() {
+    public void setBottomReLayout() {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             contentRelaLayout.setBackground(ViewFactory.setRadius(0, 0, 15, 15, Color.WHITE));
@@ -185,7 +185,7 @@ public class ViewBar {
     }
 
 
-    void getView() {
+    public void getView() {
 
         bgReLayout.setGravity(Gravity.CENTER);
 
@@ -210,7 +210,7 @@ public class ViewBar {
     }
 
 
-    void getLinearLayoutPortait2() {
+    public void getLinearLayoutPortait2() {
 
         if (scrollEnable) {
             scrollView.addView(linearLayout2P);
@@ -225,7 +225,7 @@ public class ViewBar {
 
     }
 
-    void getLinearLayoutPortait2Have3() {
+    public void getLinearLayoutPortait2Have3() {
 
         linearLayout2P.addView(linearLayout3L);
 
@@ -233,16 +233,16 @@ public class ViewBar {
 
     }
 
-    void setContentRelaLayoutAddView(View view) {
+    public void setContentRelaLayoutAddView(View view) {
         contentRelaLayout.addView(view);
     }
 
-    void setLinearLayout2PAddView(View view) {
+    public void setLinearLayout2PAddView(View view) {
 
         linearLayout2P.addView(view);
     }
 
-    void newLinearLayoutPortait2() {
+    public void newLinearLayoutPortait2() {
 
         linearLayout2P = new LinearLayout(mAct);
 
@@ -261,7 +261,7 @@ public class ViewBar {
     }
 
 
-    void setScreenChange(LinearLayout linearLayout) {
+    public void setScreenChange(LinearLayout linearLayout) {
         int iScreenOrientation = ViewFactory.getScreenOrientation(mAct);
         if (iScreenOrientation == 0 || iScreenOrientation == 8) {
             linearLayout.setOrientation(LinearLayout.HORIZONTAL);
@@ -272,19 +272,19 @@ public class ViewBar {
         }
     }
 
-    void newLinearLayout3() {
+    public void newLinearLayout3() {
         linearLayout3L = new LinearLayout(mAct);
         linearLayout3L.setGravity(Gravity.CENTER);
     }
 
 
-    void setLinearLayout3AddView(View view) {
+    public void setLinearLayout3AddView(View view) {
 
         linearLayout3L.addView(view);
     }
 
 
-    void setViewPadding(View view, int left, int top, int right, int bottom) {
+    public void setViewPadding(View view, int left, int top, int right, int bottom) {
         view.setPadding(left, top, right, bottom);
 
     }
@@ -297,7 +297,7 @@ public class ViewBar {
     }
 
 
-    int getScreenWidth(Activity activity) {
+    public int getScreenWidth(Activity activity) {
         DisplayMetrics dm = new DisplayMetrics();
         activity.getWindowManager().getDefaultDisplay().getMetrics(dm);
         return dm.widthPixels;
