@@ -48,7 +48,7 @@ public class AdapterNewList extends BaseAdapter {
         } else {
             itemView.setBackgroundColor(Color.WHITE);
         }
-        itemView.setInfo(mList.get(position).mDate, mList.get(position).mTitleType, mList.get(position).mTitlePriority, mList.get(position).mTitleContent);
+        itemView.setInfo(mList.get(position));
         return itemView;
     }
 }

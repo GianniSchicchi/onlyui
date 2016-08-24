@@ -246,6 +246,8 @@ public class ActivityGViewBar extends AppCompatActivity {
         contentRelaLayout.addView(view);
     }
 
+
+
     public void setLinearLayout2PAddView(View view) {
 
         linearLayout2P.addView(view);

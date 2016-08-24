@@ -7,6 +7,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.appmaster.data.InfoAnn;
+
 /**
  * Created by Gianni on 2016/8/24.
  */
@@ -60,6 +62,13 @@ public class NewsItemView extends RelativeLayout {
         txtTitleType.setText("【" + titleType + "】");
         txtTitlePriority.setText("【" + titlePriority + "】");
         txtTitleContent.setText(titleContent);
+    }
+
+    public void setInfo(InfoAnn info) {
+        txtDate.setText(info.mDate);
+        txtTitleType.setText("【" + info.mTitleType + "】");
+        txtTitlePriority.setText("【" + info.mTitlePriority + "】");
+        txtTitleContent.setText(info.mTitleContent);
     }
 
     public TextView getTxtDate() {
