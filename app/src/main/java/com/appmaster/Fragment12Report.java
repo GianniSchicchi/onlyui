@@ -5,13 +5,18 @@ import android.app.Fragment;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 
 import com.appmaster.tools.ViewFactory;
 import com.appmaster.tools.ViewLayoutFactory;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -72,6 +77,7 @@ public class Fragment12Report extends Fragment {
                              Bundle savedInstanceState) {
 
         LinearLayout layout = ViewLayoutFactory.createNewLinearLayoutVERTICAL(mAct);
+        layout.setGravity(Gravity.CENTER);
 
         layout.addView(ViewFactory.createNewTextView(mAct, "若您遇到任何問題，請隨時與我們聯繫！\n我們會儘快回覆您的問題，回覆內容請至「回報記錄」查看。"));
         layout.addView(ViewFactory.createNewTextView(mAct, "\n聯絡電話"));
@@ -79,7 +85,26 @@ public class Fragment12Report extends Fragment {
         layout.addView(ViewFactory.createNewTextView(mAct, "E-mail"));
         layout.addView(ViewFactory.createNewEditText(mAct, "請填入電子郵件"));
         layout.addView(ViewFactory.createNewTextView(mAct, "問題類型"));
+
+
+        ArrayList<String> spinnerArray = new ArrayList<String>();
+        spinnerArray.add("請選擇問題類型");
+        spinnerArray.add("問題類型1");
+        spinnerArray.add("問題類型2");
+        spinnerArray.add("問題類型3");
+        spinnerArray.add("問題類型4");
+
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(mAct, android.R.layout.simple_spinner_dropdown_item, spinnerArray);
+
+
+        Spinner spinner = ViewFactory.createNewSpinner(mAct,"");
+        spinner.setAdapter(spinnerArrayAdapter);
+
+        layout.addView(spinner);
+
         layout.addView(ViewFactory.createNewEditText(mAct, "請選擇問題類型"));
+
+
         layout.addView(ViewFactory.createNewTextView(mAct, "問題描述"));
         layout.addView(ViewFactory.createNewEditText(mAct, "請清楚的簡述您的問題"));
         layout.addView(ViewFactory.createNewButton(mAct, "確認送出", new View.OnClickListener() {

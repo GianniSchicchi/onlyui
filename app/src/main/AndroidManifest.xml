@@ -24,15 +24,15 @@
         <activity android:name=".Activity07PhoneNBBind" />
         <activity android:name=".Activity08MainMenu" />
         <activity android:name=".Activity09NewsList"></activity>
-        <activity android:name=".Activity10NewsDetail">
+        <activity android:name=".Activity10NewsDetail"></activity>
+        <activity android:name=".Activity11PurchaseHistory" />
+        <activity android:name=".Activity12ContactCustomerService">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity11PurchaseHistory" />
-        <activity android:name=".Activity12ContactCustomerService" />
         <activity android:name=".Activity14ContactCusService" />
         <activity android:name=".Activity15ChangePWD" />
         <activity android:name=".Activity16Tasks" />

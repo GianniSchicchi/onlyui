@@ -29,16 +29,8 @@ public class Activity12ContactCustomerService extends ActivityGViewBar {
         super.onCreate(savedInstanceState);
         mAct = this;
 
-
         frame = new FrameLayout(this);
         frame.setId(CONTENT_VIEW_ID);
-
-
-
-
-
-
-
         setView();
 
         FragmentManager fragmentManager = getFragmentManager();
@@ -50,8 +42,8 @@ public class Activity12ContactCustomerService extends ActivityGViewBar {
             fragment12 = new Fragment12Report();
             fragment13 = new Fragment13ReportHistory();
 
-//            transaction.add(CONTENT_VIEW_ID, fragment12,"f12");
-            transaction.add(CONTENT_VIEW_ID, fragment13,"f13");
+            transaction.add(CONTENT_VIEW_ID, fragment12,"f12");
+//            transaction.add(CONTENT_VIEW_ID, fragment13,"f13");
 
 
             transaction.addToBackStack(null);
@@ -121,22 +113,6 @@ public class Activity12ContactCustomerService extends ActivityGViewBar {
 
         linearLayout1.addView(linearLayout);
 
-
-//        setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "若您遇到任何問題，請隨時與我們聯繫！\n我們會儘快回覆您的問題，回覆內容請至「回報記錄」查看。"));
-//        setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "\n聯絡電話"));
-//        setLinearLayout2PAddView(ViewFactory.createNewEditText(mAct, "請填入市話或手機號碼"));
-//        setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "E-mail"));
-//        setLinearLayout2PAddView(ViewFactory.createNewEditText(mAct, "請填入電子郵件"));
-//        setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "問題類型"));
-//        setLinearLayout2PAddView(ViewFactory.createNewEditText(mAct, "請選擇問題類型"));
-//        setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "問題描述"));
-//        setLinearLayout2PAddView(ViewFactory.createNewEditText(mAct, "請清楚的簡述您的問題"));
-//        setLinearLayout2PAddView(ViewFactory.createNewButton(mAct, "確認送出", new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        }));
 
         setLinearLayout2PAddView(frame);
         getLinearLayoutPortait2Have3();

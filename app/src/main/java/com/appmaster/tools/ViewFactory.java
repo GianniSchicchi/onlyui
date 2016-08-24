@@ -21,6 +21,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.appmaster.R;
@@ -231,6 +232,15 @@ public class ViewFactory {
         editText.setLayoutParams(layoutParams);
 
         return editText;
+    }
+
+    public static Spinner createNewSpinner(Context context, String hintText) {
+        Spinner spinner = new Spinner(context);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        layoutParams.setMargins(15, 15, 5, 5);
+        spinner.setLayoutParams(layoutParams);
+
+        return spinner;
     }
 
 
