@@ -23,7 +23,13 @@
         <activity android:name=".Activity06AccountBind" />
         <activity android:name=".Activity07PhoneNBBind" />
         <activity android:name=".Activity08MainMenu" />
-        <activity android:name=".Activity09AnnouncementList" />
+        <activity android:name=".Activity09NewsList" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
         <activity android:name=".Activity11PurchaseHistory" />
         <activity android:name=".Activity12ContactCustomerService"></activity>
         <activity android:name=".Activity14ContactCusService" />

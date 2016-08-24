@@ -10,9 +10,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.appmaster.adapter.AdapterListViewTxt;
 import com.appmaster.adapter.AdapterPayList;
-import com.appmaster.data.InfoAnn;
 import com.appmaster.tools.ActivityGViewBar;
 import com.appmaster.tools.ViewFactory;
 import com.appmaster.tools.ViewLayoutFactory;

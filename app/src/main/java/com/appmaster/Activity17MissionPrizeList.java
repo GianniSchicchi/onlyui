@@ -7,11 +7,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.appmaster.adapter.AdapterListMission;
-import com.appmaster.adapter.AdapterListViewTxt;
-import com.appmaster.data.InfoAnn;
 import com.appmaster.data.InfoMission;
 import com.appmaster.data.MissiongPrizeStatus;
-import com.appmaster.layout.MissionItemView;
 import com.appmaster.tools.ActivityGViewBar;
 
 import java.util.ArrayList;
