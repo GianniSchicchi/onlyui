@@ -24,6 +24,7 @@ public class Activity10NewsDetail extends ActivityGViewBar {
         super.onCreate(savedInstanceState);
         info = new InfoNews();
     }
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -61,7 +62,6 @@ public class Activity10NewsDetail extends ActivityGViewBar {
         linearLayout.addView(newsItemView);
 
 
-
         setLinearLayout2PAddView(linearLayout);
 
         TextView textView = ViewFactory.createNewTextView(mAct, info.mDate);
@@ -72,10 +72,6 @@ public class Activity10NewsDetail extends ActivityGViewBar {
         setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文"));
 
         ListView listView = new ListView(mAct);
-
-
-
-
 
 
         getLinearLayoutPortait2Have3();

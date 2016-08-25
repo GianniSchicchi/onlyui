@@ -17,15 +17,15 @@ import android.widget.ScrollView;
 public class ViewLayoutFactory {
 
     public static LinearLayout createNewLinearLayoutHORIZONTAL(Context context) {
-        return createNewLinearLayoutHORIZONTAL(context,5566);
+        return createNewLinearLayoutHORIZONTAL(context, 5566);
     }
 
     public static LinearLayout createNewLinearLayoutHORIZONTAL(Context context, int weight) {
         LinearLayout layout = new LinearLayout(context);
-        if(weight == 5566) {
+        if (weight == 5566) {
 
-        }else {
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT,weight);
+        } else {
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, weight);
             layout.setLayoutParams(params);
 
         }
@@ -59,7 +59,6 @@ public class ViewLayoutFactory {
     }
 
 
-
     public static void setListViewHeightBasedOnChildren(ListView listView) {
         ListAdapter listAdapter = listView.getAdapter();
         if (listAdapter == null)
@@ -77,7 +76,7 @@ public class ViewLayoutFactory {
             totalHeight += view.getMeasuredHeight();
         }
         ViewGroup.LayoutParams params = listView.getLayoutParams();
-        if(params == null) {
+        if (params == null) {
             params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         }
 

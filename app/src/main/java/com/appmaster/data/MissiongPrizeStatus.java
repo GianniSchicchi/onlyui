@@ -14,9 +14,11 @@ public enum MissiongPrizeStatus {
 
 
     private int value;
+
     private MissiongPrizeStatus(int value) {
         this.value = value;
     }
+
     public int getValue() {
         return value;
     }

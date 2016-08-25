@@ -21,7 +21,7 @@ import java.util.List;
 public class Activity09NewsList extends ActivityGViewBar {
 
 
-    List<InfoNews> mAnnlist =  Collections.synchronizedList(new ArrayList<InfoNews>());
+    List<InfoNews> mAnnlist = Collections.synchronizedList(new ArrayList<InfoNews>());
 
 
     @Override
@@ -29,6 +29,7 @@ public class Activity09NewsList extends ActivityGViewBar {
         super.onCreate(savedInstanceState);
         addFalseAnnInfo();
     }
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -36,7 +37,7 @@ public class Activity09NewsList extends ActivityGViewBar {
     }
 
     void addFalseAnnInfo() {
-        if(mAnnlist != null) {
+        if (mAnnlist != null) {
             for (int i = 0; i < 10; i++) {
                 mAnnlist.add(new InfoNews());
             }
@@ -79,7 +80,7 @@ public class Activity09NewsList extends ActivityGViewBar {
                     public void onClick(View v) {
 
                     }
-                }, Color.RED,Color.WHITE,3,Color.RED)
+                }, Color.RED, Color.WHITE, 3, Color.RED)
         );
 
         setLinearLayout2PAddView(linearLayout);
@@ -88,10 +89,7 @@ public class Activity09NewsList extends ActivityGViewBar {
         ListView listView = new ListView(mAct);
 
 
-
-
-
-        listView.setAdapter(new AdapterNewList(this,mAnnlist));
+        listView.setAdapter(new AdapterNewList(this, mAnnlist));
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,

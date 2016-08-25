@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.appmaster.R;
 import com.appmaster.data.InfoAcconut;
-import com.appmaster.tools.ViewFactory;
 
 /**
  * Created by Gianni on 2016/8/24.
@@ -22,7 +21,7 @@ public class ReloginView extends RelativeLayout {
     FrameLayout frameLayoutX;
 
     public ReloginView(Context context) {
-        this(context,new InfoAcconut());
+        this(context, new InfoAcconut());
     }
 
     public ReloginView(Context context, InfoAcconut acconut) {
@@ -46,14 +45,14 @@ public class ReloginView extends RelativeLayout {
         params.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
         params.addRule(RelativeLayout.CENTER_VERTICAL);
         frameLayout.setLayoutParams(params);
-        frameLayout.setPadding(25,0,0,0);
+        frameLayout.setPadding(25, 0, 0, 0);
 
         RelativeLayout.LayoutParams paramsX = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
         paramsX.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
         paramsX.addRule(RelativeLayout.CENTER_VERTICAL);
         frameLayoutX.setLayoutParams(paramsX);
-        frameLayoutX.setPadding(0,0,25,0);
+        frameLayoutX.setPadding(0, 0, 25, 0);
 
         RelativeLayout.LayoutParams params1 = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 

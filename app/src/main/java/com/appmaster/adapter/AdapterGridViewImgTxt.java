@@ -19,6 +19,23 @@ import com.appmaster.R;
 
 public class AdapterGridViewImgTxt extends BaseAdapter {
     private Context mContext;
+    // references to our images
+    private Integer[] mThumbIds = {
+            R.mipmap.icon_12,
+            R.mipmap.icon_8,
+            R.mipmap.icon_10,
+            R.mipmap.icon_11,
+            R.mipmap.icon_13,
+            R.mipmap.icon_9
+    };
+    private String[] mStrings = {
+            "帳號綁定",
+            "活動任務",
+            "遊戲論壇",
+            "公告資訊",
+            "購買記錄",
+            "聯繫客服"
+    };
 
     public AdapterGridViewImgTxt(Context c) {
         mContext = c;
@@ -74,24 +91,5 @@ public class AdapterGridViewImgTxt extends BaseAdapter {
         textView.setText(mStrings[position]);
         return linearLayout;
     }
-
-    // references to our images
-    private Integer[] mThumbIds = {
-            R.mipmap.icon_12,
-            R.mipmap.icon_8,
-            R.mipmap.icon_10,
-            R.mipmap.icon_11,
-            R.mipmap.icon_13,
-            R.mipmap.icon_9
-    };
-
-    private String[] mStrings = {
-            "帳號綁定",
-            "活動任務",
-            "遊戲論壇",
-            "公告資訊",
-            "購買記錄",
-            "聯繫客服"
-    };
 
 }

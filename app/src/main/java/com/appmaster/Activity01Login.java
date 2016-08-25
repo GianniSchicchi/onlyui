@@ -1,8 +1,6 @@
 package com.appmaster;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -14,33 +12,35 @@ import com.appmaster.tools.ViewLayoutFactory;
 public class Activity01Login extends ActivityGViewBar {
 
 
-    View     guestView;
-    View     registerView;
-    View     fbView;
-    View     gplusView;
+    View guestView;
+    View registerView;
+    View fbView;
+    View gplusView;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
+
     @Override
     protected void onResume() {
         super.onResume();
         setView();
     }
+
     void setView() {
-         setTitleImgView(true,"logo");
-         getView();
+        setTitleImgView(true, "logo");
+        getView();
 
-         newLinearLayout3();
+        newLinearLayout3();
 
-         newLinearLayoutPortait2();
+        newLinearLayoutPortait2();
 
-         setScreenChange( linearLayout3L);
+        setScreenChange(linearLayout3L);
 
 
-        guestView = ViewFactory.createNewImageView(mAct,"遊客體驗","1",new View.OnClickListener() {
+        guestView = ViewFactory.createNewImageView(mAct, "遊客體驗", "1", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -49,17 +49,17 @@ public class Activity01Login extends ActivityGViewBar {
         registerView = ViewFactory.createNewImageView(mAct, "登入註冊", "2", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mAct,Activity02Register.class);
+                Intent intent = new Intent(mAct, Activity02Register.class);
                 startActivity(intent);
             }
         });
-        fbView = ViewFactory.createNewImageView(mAct,"Facebook","3",new View.OnClickListener() {
+        fbView = ViewFactory.createNewImageView(mAct, "Facebook", "3", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
             }
         });
-        gplusView = ViewFactory.createNewImageView(mAct,"Google","4",new View.OnClickListener() {
+        gplusView = ViewFactory.createNewImageView(mAct, "Google", "4", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -70,19 +70,18 @@ public class Activity01Login extends ActivityGViewBar {
         layout1.addView(guestView);
         layout1.addView(registerView);
 
-         setLinearLayout3AddView(layout1);
+        setLinearLayout3AddView(layout1);
 
         LinearLayout layout2 = ViewLayoutFactory.createNewLinearLayoutHORIZONTAL(mAct);
         layout2.addView(fbView);
         layout2.addView(gplusView);
 
-         setLinearLayout3AddView(layout2);
+        setLinearLayout3AddView(layout2);
 
 
-         getLinearLayoutPortait2Have3();
-        setContentView( bgReLayout);
+        getLinearLayoutPortait2Have3();
+        setContentView(bgReLayout);
     }
-
 
 
 }

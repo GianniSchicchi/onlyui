@@ -1,7 +1,6 @@
 package com.appmaster;
 
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
@@ -43,13 +42,11 @@ public class Activity21EmailAuth extends ActivityGViewBar {
         newLinearLayoutPortait2();
 
 
-
-
-        setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct,"註冊簡訊已發送至您的電子郵件，請於24小時內輸入認證信中的連結完成認証", Color.BLACK));
-        AuthView authView = new AuthView(mAct,"p");
+        setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "註冊簡訊已發送至您的電子郵件，請於24小時內輸入認證信中的連結完成認証", Color.BLACK));
+        AuthView authView = new AuthView(mAct, "p");
         authView.getTextView().setText("xxx@gmail.com");
         setLinearLayout2PAddView(authView);
-        setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct,"如果沒有收到認證簡訊，請於10分鐘後重新操作", Color.BLACK));
+        setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "如果沒有收到認證簡訊，請於10分鐘後重新操作", Color.BLACK));
         setLinearLayout2PAddView(ViewFactory.createNewButton(mAct, "確認", new View.OnClickListener() {
             @Override
             public void onClick(View v) {

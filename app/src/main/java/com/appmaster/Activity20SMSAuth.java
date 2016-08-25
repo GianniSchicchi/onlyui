@@ -42,15 +42,13 @@ public class Activity20SMSAuth extends ActivityGViewBar {
         newLinearLayoutPortait2();
 
 
-
-
-        setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct,"註冊簡訊已發送至您的手機，請於10分鐘內輸入認證簡訊中的認証碼", Color.BLACK));
-        AuthView authView = new AuthView(mAct,"p");
+        setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "註冊簡訊已發送至您的手機，請於10分鐘內輸入認證簡訊中的認証碼", Color.BLACK));
+        AuthView authView = new AuthView(mAct, "p");
         authView.getTextView().setText("0911-111-111");
         setLinearLayout2PAddView(authView);
-        setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct,"認証碼", Color.BLACK));
-        setLinearLayout2PAddView(ViewFactory.createNewEditText(mAct,"請輸入認証碼"));
-        setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct,"如果沒有收到認證簡訊，請於10分鐘後重新操作", Color.BLACK));
+        setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "認証碼", Color.BLACK));
+        setLinearLayout2PAddView(ViewFactory.createNewEditText(mAct, "請輸入認証碼"));
+        setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "如果沒有收到認證簡訊，請於10分鐘後重新操作", Color.BLACK));
         setLinearLayout2PAddView(ViewFactory.createNewButton(mAct, "確認", new View.OnClickListener() {
             @Override
             public void onClick(View v) {

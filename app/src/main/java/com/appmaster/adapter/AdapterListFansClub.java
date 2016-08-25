@@ -10,7 +10,6 @@ import android.widget.Toast;
 import com.appmaster.R;
 import com.appmaster.data.InfoFansClub;
 import com.appmaster.layout.MissionItemView;
-import com.appmaster.tools.ViewFactory;
 
 import java.util.List;
 
@@ -50,23 +49,23 @@ public class AdapterListFansClub extends BaseAdapter {
 
         }
 
-        if(position % 2 != 0) {
+        if (position % 2 != 0) {
             view.setBackgroundColor(Color.parseColor("#F0F0F0"));
         } else {
             view.setBackgroundColor(Color.WHITE);
         }
 
         switch (mList.get(position).mIConType) {
-            case 0 :
+            case 0:
                 view.getImageView().setImageResource(R.mipmap.icon_20);
                 break;
-            case 1 :
+            case 1:
                 view.getImageView().setImageResource(R.mipmap.icon_20);
                 break;
-            case 2 :
+            case 2:
                 view.getImageView().setImageResource(R.mipmap.icon_20);
                 break;
-            case 3 :
+            case 3:
                 view.getImageView().setImageResource(R.mipmap.icon_20);
                 break;
         }
@@ -106,7 +105,6 @@ public class AdapterListFansClub extends BaseAdapter {
 
         return view;
     }
-
 
 
 }

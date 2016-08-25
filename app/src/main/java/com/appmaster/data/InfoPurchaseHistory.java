@@ -1,7 +1,5 @@
 package com.appmaster.data;
 
-import android.widget.TextView;
-
 /**
  * Created by Gianni on 2016/8/19.
  */

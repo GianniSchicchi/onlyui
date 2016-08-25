@@ -1,9 +1,7 @@
 package com.appmaster;
 
-import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 
@@ -12,6 +10,7 @@ import com.appmaster.tools.ViewFactory;
 
 public class Activity04ForgetPassword extends ActivityGViewBar {
     EditText accountEdt;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

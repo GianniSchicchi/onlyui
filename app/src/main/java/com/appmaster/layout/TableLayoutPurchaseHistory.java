@@ -41,7 +41,6 @@ public class TableLayoutPurchaseHistory {
         tableLayout.setLayoutParams(params1);
 
 
-
 //        TableRow.LayoutParams params2 = new TableRow.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
         tableRow1 = new TableRow(mContext);
@@ -51,14 +50,13 @@ public class TableLayoutPurchaseHistory {
 //        tableRow2.setLayoutParams(params2);
 //        tableRow3.setLayoutParams(params2);
 
-        txtItem = setTitleTxtView("項目",Gravity.CENTER,Color.BLACK,Color.parseColor("#F0F0F0"));
-        txtBuyTime = setTitleTxtView("購買時間",Gravity.CENTER,Color.BLACK,Color.parseColor("#F0F0F0"));
-        txtMoney = setTitleTxtView("金額",Gravity.CENTER,Color.BLACK,Color.parseColor("#F0F0F0"));
-        txtTransactionID = setTitleTxtView("交易序號",Gravity.CENTER,Color.BLACK,Color.parseColor("#F0F0F0"),2);
+        txtItem = setTitleTxtView("項目", Gravity.CENTER, Color.BLACK, Color.parseColor("#F0F0F0"));
+        txtBuyTime = setTitleTxtView("購買時間", Gravity.CENTER, Color.BLACK, Color.parseColor("#F0F0F0"));
+        txtMoney = setTitleTxtView("金額", Gravity.CENTER, Color.BLACK, Color.parseColor("#F0F0F0"));
+        txtTransactionID = setTitleTxtView("交易序號", Gravity.CENTER, Color.BLACK, Color.parseColor("#F0F0F0"), 2);
 
         TextView txtTitleTransactionID = new TextView(mContext);
         txtTitleTransactionID.setText("交易序號");
-
 
 
         tableRow1.addView(setTitleTxtView("項目"));
@@ -70,10 +68,10 @@ public class TableLayoutPurchaseHistory {
         tableRow2.addView(txtMoney);
 
 
-        tableRow3.addView(setTitleTxtView("交易序號",Gravity.CENTER,Color.BLACK,Color.parseColor("#F0F0F0"),1));
+        tableRow3.addView(setTitleTxtView("交易序號", Gravity.CENTER, Color.BLACK, Color.parseColor("#F0F0F0"), 1));
         tableRow3.addView(txtTransactionID);
 
-        TableRow.LayoutParams params = (TableRow.LayoutParams)txtTransactionID.getLayoutParams();
+        TableRow.LayoutParams params = (TableRow.LayoutParams) txtTransactionID.getLayoutParams();
         params.span = 2;
         txtTransactionID.setLayoutParams(params); // causes layout update
 
@@ -89,7 +87,7 @@ public class TableLayoutPurchaseHistory {
 
         txtItem.setText(info.mItem);
         txtBuyTime.setText(info.mBuyTime);
-        txtMoney.setText("NT$"+info.mMoney);
+        txtMoney.setText("NT$" + info.mMoney);
         txtTransactionID.setText(info.mTransactionID);
 
 
@@ -105,13 +103,13 @@ public class TableLayoutPurchaseHistory {
     }
 
 
-    TextView setTitleTxtView(String name,int gravity,int txtColor, int bgColor) {
-        return setTitleTxtView(name, gravity, txtColor, bgColor,1);
+    TextView setTitleTxtView(String name, int gravity, int txtColor, int bgColor) {
+        return setTitleTxtView(name, gravity, txtColor, bgColor, 1);
     }
 
 
-    TextView setTitleTxtView(String name,int gravity,int txtColor, int bgColor, int initWeight) {
-        TableRow.LayoutParams params = new TableRow.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT,initWeight);
+    TextView setTitleTxtView(String name, int gravity, int txtColor, int bgColor, int initWeight) {
+        TableRow.LayoutParams params = new TableRow.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, initWeight);
         TextView txtTitle = new TextView(mContext);
         txtTitle.setGravity(gravity);
         txtTitle.setTextColor(txtColor);
@@ -122,7 +120,7 @@ public class TableLayoutPurchaseHistory {
         gdDefault.setColor(bgColor);
         gdDefault.setStroke(1, Color.BLACK);
         txtTitle.setBackgroundDrawable(gdDefault);
-        if(params != null) {
+        if (params != null) {
             txtTitle.setLayoutParams(params);
         }
 

@@ -100,7 +100,6 @@ public class AdapterListViewReportHistory extends BaseAdapter {
         } else {
 
 
-
             layout = (RelativeLayout) convertView;
 
             frameLayout = (FrameLayout) layout.getChildAt(1);
@@ -119,7 +118,7 @@ public class AdapterListViewReportHistory extends BaseAdapter {
             txtTitlePriority = (TextView) linearLayoutH2.getChildAt(1);
         }
 
-        if(position % 2 != 0) {
+        if (position % 2 != 0) {
             linearLayoutP.setBackgroundColor(Color.parseColor("#F0F0F0"));
         } else {
             linearLayoutP.setBackgroundColor(Color.WHITE);
@@ -131,7 +130,7 @@ public class AdapterListViewReportHistory extends BaseAdapter {
         params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
         params.addRule(RelativeLayout.CENTER_VERTICAL);
         frameLayout.setLayoutParams(params);
-        frameLayout.setPadding(0,0,20,0);
+        frameLayout.setPadding(0, 0, 20, 0);
 
         imageView.setImageResource(R.mipmap.arrow);
 
@@ -148,7 +147,7 @@ public class AdapterListViewReportHistory extends BaseAdapter {
         txtDate.setText(mList.get(position).mDate);
 
 
-        txtRead.setText(mList.get(position).mIsRead?"    已回復":"    未回復");
+        txtRead.setText(mList.get(position).mIsRead ? "    已回復" : "    未回復");
         if (mList.get(position).mIsRead) {
             txtRead.setTextColor(Color.parseColor("#7700BB"));
         } else {
@@ -156,13 +155,11 @@ public class AdapterListViewReportHistory extends BaseAdapter {
         }
 
 
-
         txtTitleType.setText("【" + mList.get(position).mTitleType + "】");
         txtTitlePriority.setText("" + mList.get(position).mTitlePriority + "");
 
         return layout;
     }
-
 
 
 }

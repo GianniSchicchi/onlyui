@@ -6,8 +6,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TableLayout;
 
-import com.appmaster.layout.TableLayoutPurchaseHistory;
 import com.appmaster.data.InfoPurchaseHistory;
+import com.appmaster.layout.TableLayoutPurchaseHistory;
 
 import java.util.List;
 
@@ -51,14 +51,13 @@ public class AdapterListTable extends BaseAdapter {
         }
 
 
-        if(tableLayoutPurchaseHistory != null) {
-            tableLayoutPurchaseHistory.setDataInfo(mList.get(position));    
+        if (tableLayoutPurchaseHistory != null) {
+            tableLayoutPurchaseHistory.setDataInfo(mList.get(position));
         }
-        
-                
+
+
         return tableLayout;
     }
-
 
 
 }

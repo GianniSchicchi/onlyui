@@ -1,10 +1,8 @@
 package com.appmaster.adapter;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.SpinnerAdapter;
 import android.widget.Toast;
@@ -18,7 +16,7 @@ import java.util.List;
  * Created by Gianni on 2016/8/24.
  */
 
-public class AdapterReLogin<T> extends BaseAdapter implements SpinnerAdapter{
+public class AdapterReLogin<T> extends BaseAdapter implements SpinnerAdapter {
 
     private Context mContext;
     private List<T> mList;
@@ -29,7 +27,7 @@ public class AdapterReLogin<T> extends BaseAdapter implements SpinnerAdapter{
     }
 
 
-        @Override
+    @Override
     public int getCount() {
         return mList.size();
     }
@@ -49,8 +47,8 @@ public class AdapterReLogin<T> extends BaseAdapter implements SpinnerAdapter{
 
         ReloginView reloginView;
         if (convertView == null) {
-            reloginView = new ReloginView(mContext,(InfoAcconut) mList.get(position));
-        }else {
+            reloginView = new ReloginView(mContext, (InfoAcconut) mList.get(position));
+        } else {
             reloginView = (ReloginView) convertView;
         }
         reloginView.setInfo((InfoAcconut) mList.get(position));
@@ -64,8 +62,8 @@ public class AdapterReLogin<T> extends BaseAdapter implements SpinnerAdapter{
     public View getDropDownView(final int position, View convertView, ViewGroup parent) {
         ReloginView reloginView;
         if (convertView == null) {
-            reloginView = new ReloginView(mContext,(InfoAcconut) mList.get(position));
-        }else {
+            reloginView = new ReloginView(mContext, (InfoAcconut) mList.get(position));
+        } else {
             reloginView = (ReloginView) convertView;
         }
         reloginView.setInfo((InfoAcconut) mList.get(position));

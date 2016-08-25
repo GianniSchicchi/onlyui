@@ -70,9 +70,6 @@ public class ActivityGViewBar extends AppCompatActivity {
     }
 
 
-
-
-
     public void setTitleLeftButton(boolean show, String imgName, View.OnClickListener onClickListener) {
         if (show) {
             if (leftImgBtn == null) {
@@ -245,7 +242,6 @@ public class ActivityGViewBar extends AppCompatActivity {
     public void setContentRelaLayoutAddView(View view) {
         contentRelaLayout.addView(view);
     }
-
 
 
     public void setLinearLayout2PAddView(View view) {

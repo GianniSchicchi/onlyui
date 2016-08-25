@@ -32,12 +32,12 @@ public class Fragment13ReportHistory extends Fragment {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "5column-count";
+    List<InfoReport> mList = Collections.synchronizedList(new ArrayList<InfoReport>());
     // TODO: Customize parameters
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
-
-    List<InfoReport> mList =  Collections.synchronizedList(new ArrayList<InfoReport>());
     private Activity mAct;
+
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
@@ -69,11 +69,11 @@ public class Fragment13ReportHistory extends Fragment {
     }
 
     void addFalseInfo() {
-        if(mList != null) {
+        if (mList != null) {
             for (int i = 0; i < 30; i++) {
-                if(i%2 == 0) {
+                if (i % 2 == 0) {
                     mList.add(new InfoReport());
-                }else {
+                } else {
                     mList.add(new InfoReport(true));
                 }
 
@@ -90,7 +90,7 @@ public class Fragment13ReportHistory extends Fragment {
         ListView listView = new ListView(mAct);
 
 
-        listView.setAdapter(new AdapterListViewReportHistory(mAct,mList));
+        listView.setAdapter(new AdapterListViewReportHistory(mAct, mList));
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
@@ -105,7 +105,6 @@ public class Fragment13ReportHistory extends Fragment {
 
 
         LinearLayout layout = ViewLayoutFactory.createNewLinearLayoutVERTICAL(mAct);
-
 
 
         layout.addView(ViewFactory.createNewTextView(mAct, "僅供查詢近三個月內的回報記錄"));

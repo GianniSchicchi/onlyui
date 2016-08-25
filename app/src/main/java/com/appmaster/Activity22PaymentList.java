@@ -21,7 +21,7 @@ import java.util.List;
 
 public class Activity22PaymentList extends ActivityGViewBar {
 
-    List<String> list =  Collections.synchronizedList(new ArrayList<String>());
+    List<String> list = Collections.synchronizedList(new ArrayList<String>());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,7 @@ public class Activity22PaymentList extends ActivityGViewBar {
     }
 
     void addPayInfo() {
-        if(list != null) {
+        if (list != null) {
             list.add("信用卡付款");
             list.add("ATM轉帳付款");
             list.add("全家條碼立即儲");
@@ -72,9 +72,9 @@ public class Activity22PaymentList extends ActivityGViewBar {
 
         LinearLayout linearLayout = ViewLayoutFactory.createNewLinearLayoutHORIZONTAL(mAct);
 
-        linearLayout.addView(ViewFactory.createNewTextView(mAct,"購買", Color.WHITE,20,2,Color.parseColor("#981800"),false));
+        linearLayout.addView(ViewFactory.createNewTextView(mAct, "購買", Color.WHITE, 20, 2, Color.parseColor("#981800"), false));
 
-        TextView textView = ViewFactory.createNewTextView(mAct,"XXXX(NT$XXX)", Color.WHITE,20,1,Color.parseColor("#e52e2d"),false);
+        TextView textView = ViewFactory.createNewTextView(mAct, "XXXX(NT$XXX)", Color.WHITE, 20, 1, Color.parseColor("#e52e2d"), false);
         textView.setGravity(Gravity.RIGHT);
         linearLayout.addView(textView);
 
@@ -82,9 +82,6 @@ public class Activity22PaymentList extends ActivityGViewBar {
 
 
         ListView listView = new ListView(mAct);
-
-
-
 
 
         listView.setAdapter(new AdapterPayList(this, list));

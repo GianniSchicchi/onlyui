@@ -28,7 +28,7 @@ public class InfoReport {
         mTitlePriority = "帳號問題";
     }
 
-    InfoReport(String date, boolean isRead , String titleType, String titlePriority, String titlecontent) {
+    InfoReport(String date, boolean isRead, String titleType, String titlePriority, String titlecontent) {
         mDate = date;
         mIsRead = isRead;
 

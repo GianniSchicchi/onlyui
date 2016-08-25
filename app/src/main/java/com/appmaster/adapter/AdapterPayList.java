@@ -62,7 +62,6 @@ public class AdapterPayList extends BaseAdapter {
             layout.addView(frameLayout);
 
 
-
         } else {
             layout = (RelativeLayout) convertView;
 
@@ -71,7 +70,7 @@ public class AdapterPayList extends BaseAdapter {
             imageView = (ImageView) frameLayout.getChildAt(0);
         }
 
-        if(position % 2 != 0) {
+        if (position % 2 != 0) {
             layout.setBackgroundColor(Color.parseColor("#F0F0F0"));
         } else {
             layout.setBackgroundColor(Color.WHITE);
@@ -83,20 +82,19 @@ public class AdapterPayList extends BaseAdapter {
         params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
         params.addRule(RelativeLayout.CENTER_VERTICAL);
         frameLayout.setLayoutParams(params);
-        frameLayout.setPadding(0,0,20,0);
+        frameLayout.setPadding(0, 0, 20, 0);
 
         imageView.setImageResource(R.mipmap.arrow);
 
 
         txtTitle.setTextColor(Color.RED);
 
-        txtTitle.setPadding(20,10,0,10);
+        txtTitle.setPadding(20, 10, 0, 10);
         txtTitle.setTextSize(20);
 
         txtTitle.setText(mList.get(position));
         return layout;
     }
-
 
 
 }

@@ -77,18 +77,17 @@ public class ViewFactory {
 
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, 60, Gravity.CENTER);
         imageView.setLayoutParams(params);
-        imageView.setPadding(25,10,0,0);
+        imageView.setPadding(25, 10, 0, 0);
 
-        TextView textView = createNewTextView(context,text);
+        TextView textView = createNewTextView(context, text);
         textView.setTextColor(Color.WHITE);
         textView.setTextSize(25);
-        textView.setPadding(175,10,0,0);
+        textView.setPadding(175, 10, 0, 0);
         textView.setGravity(Gravity.CENTER_VERTICAL | Gravity.LEFT);
         textView.setLayoutParams(layoutParams);
 
 
-
-        Button button = createNewButton(context, "" ,listener);
+        Button button = createNewButton(context, "", listener);
 
         button.setLayoutParams(layoutParams);
 
@@ -107,7 +106,6 @@ public class ViewFactory {
         if (imageName.equals("5")) {
             imageView.setImageResource(R.mipmap.icon_18);
         }
-
 
 
         layout.addView(button);

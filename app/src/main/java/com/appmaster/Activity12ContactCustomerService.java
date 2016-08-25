@@ -1,11 +1,9 @@
 package com.appmaster;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -18,12 +16,11 @@ import com.appmaster.tools.ViewLayoutFactory;
 public class Activity12ContactCustomerService extends ActivityGViewBar {
 
 
-
+    private static final int CONTENT_VIEW_ID = 99;
     private static Fragment fragment12;
     private static Fragment fragment13;
-
-    private static final int CONTENT_VIEW_ID = 99;
     private static FrameLayout frame;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +39,7 @@ public class Activity12ContactCustomerService extends ActivityGViewBar {
             fragment12 = new Fragment12Report();
             fragment13 = new Fragment13ReportHistory();
 
-            transaction.add(CONTENT_VIEW_ID, fragment12,"f12");
+            transaction.add(CONTENT_VIEW_ID, fragment12, "f12");
 //            transaction.add(CONTENT_VIEW_ID, fragment13,"f13");
 
 
@@ -51,6 +48,7 @@ public class Activity12ContactCustomerService extends ActivityGViewBar {
             transaction.commit();
         }
     }
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -108,7 +106,7 @@ public class Activity12ContactCustomerService extends ActivityGViewBar {
                         transaction.commit();
 
                     }
-                }, Color.RED,Color.WHITE,3,Color.RED)
+                }, Color.RED, Color.WHITE, 3, Color.RED)
         );
 
         linearLayout1.addView(linearLayout);

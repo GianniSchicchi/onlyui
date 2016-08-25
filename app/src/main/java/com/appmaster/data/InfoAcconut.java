@@ -9,12 +9,12 @@ public class InfoAcconut {
     public AccountType mAccountType;
     public String mAccount;
 
-    public InfoAcconut () {
+    public InfoAcconut() {
         mAccountType = AccountType.TYPE0;
         mAccount = "asdf23";
     }
 
-    public InfoAcconut (AccountType accountType,String account) {
+    public InfoAcconut(AccountType accountType, String account) {
         mAccountType = accountType;
         mAccount = account;
     }

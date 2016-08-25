@@ -13,9 +13,11 @@ public enum FansClubStatus {
 
 
     private int value;
+
     private FansClubStatus(int value) {
         this.value = value;
     }
+
     public int getValue() {
         return value;
     }

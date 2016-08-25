@@ -1,7 +1,5 @@
 package com.appmaster;
 
-import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -20,11 +18,13 @@ public class Activity08MainMenu extends ActivityGViewBar {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
+
     @Override
     protected void onResume() {
         super.onResume();
         setView();
     }
+
     void setView() {
         setTitleStringView(true, "手機號碼綁定");
         setTitleRightButton(true, "", new View.OnClickListener() {

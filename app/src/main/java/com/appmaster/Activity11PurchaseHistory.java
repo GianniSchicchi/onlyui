@@ -1,8 +1,6 @@
 package com.appmaster;
 
-import android.app.Activity;
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
@@ -18,7 +16,7 @@ import java.util.List;
 
 public class Activity11PurchaseHistory extends ActivityGViewBar {
 
-    List<InfoPurchaseHistory> mList =  Collections.synchronizedList(new ArrayList<InfoPurchaseHistory>());
+    List<InfoPurchaseHistory> mList = Collections.synchronizedList(new ArrayList<InfoPurchaseHistory>());
 
 
     @Override
@@ -27,6 +25,7 @@ public class Activity11PurchaseHistory extends ActivityGViewBar {
         mAct = this;
         addFalseInfo();
     }
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -34,7 +33,7 @@ public class Activity11PurchaseHistory extends ActivityGViewBar {
     }
 
     void addFalseInfo() {
-        if(mList != null) {
+        if (mList != null) {
             for (int i = 0; i < 10; i++) {
                 mList.add(new InfoPurchaseHistory());
             }
@@ -62,14 +61,10 @@ public class Activity11PurchaseHistory extends ActivityGViewBar {
         newLinearLayoutPortait2();
 
 
-
-        setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct,"僅供查詢近三個月內的購買記錄", Color.BLACK,20));
+        setLinearLayout2PAddView(ViewFactory.createNewTextView(mAct, "僅供查詢近三個月內的購買記錄", Color.BLACK, 20));
 
 
         ListView listView = new ListView(mAct);
-
-
-
 
 
         listView.setAdapter(new AdapterListTable(this, mList));

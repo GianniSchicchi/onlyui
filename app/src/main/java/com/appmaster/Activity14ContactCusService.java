@@ -1,8 +1,6 @@
 package com.appmaster;
 
-import android.app.Activity;
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -50,9 +48,9 @@ public class Activity14ContactCusService extends ActivityGViewBar {
 
         LinearLayout linearLayout = ViewLayoutFactory.createNewLinearLayoutHORIZONTAL(mAct);
 
-        linearLayout.addView(ViewFactory.createNewTextView(mAct,"客服回覆", Color.WHITE,20,2,Color.parseColor("#981800"),false));
+        linearLayout.addView(ViewFactory.createNewTextView(mAct, "客服回覆", Color.WHITE, 20, 2, Color.parseColor("#981800"), false));
 
-        TextView textView = (TextView) ViewFactory.createNewTextView(mAct,"2015-7-02", Color.WHITE,20,1,Color.parseColor("#e52e2d"),false);
+        TextView textView = (TextView) ViewFactory.createNewTextView(mAct, "2015-7-02", Color.WHITE, 20, 1, Color.parseColor("#e52e2d"), false);
         textView.setGravity(Gravity.RIGHT);
         linearLayout.addView(textView);
 

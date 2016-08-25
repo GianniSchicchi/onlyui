@@ -17,7 +17,7 @@ import java.util.List;
 
 public class Activity17MissionPrizeList extends ActivityGViewBar {
 
-    List<InfoMission> list =  Collections.synchronizedList(new ArrayList<InfoMission>());
+    List<InfoMission> list = Collections.synchronizedList(new ArrayList<InfoMission>());
 
 
     @Override
@@ -25,6 +25,7 @@ public class Activity17MissionPrizeList extends ActivityGViewBar {
         super.onCreate(savedInstanceState);
         addFalseAnnInfo();
     }
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -32,14 +33,14 @@ public class Activity17MissionPrizeList extends ActivityGViewBar {
     }
 
     void addFalseAnnInfo() {
-        if(list != null) {
-            list.add(new InfoMission(0,"邀請好友達5人，獎勵XXXXXX \n" +
+        if (list != null) {
+            list.add(new InfoMission(0, "邀請好友達5人，獎勵XXXXXX \n" +
                     "【5/5】", MissiongPrizeStatus.Complete));
-            list.add(new InfoMission(1,"邀請好友達10人，獎勵XXXXXX \n" +
+            list.add(new InfoMission(1, "邀請好友達10人，獎勵XXXXXX \n" +
                     "【10/10】", MissiongPrizeStatus.NotYet));
-            list.add(new InfoMission(2,"邀請好友達15人，獎勵XXXXXX \n" +
+            list.add(new InfoMission(2, "邀請好友達15人，獎勵XXXXXX \n" +
                     "【15/15】", MissiongPrizeStatus.Geted));
-            list.add(new InfoMission(3,"11111", MissiongPrizeStatus.Error));
+            list.add(new InfoMission(3, "11111", MissiongPrizeStatus.Error));
 
         }
     }
@@ -65,12 +66,7 @@ public class Activity17MissionPrizeList extends ActivityGViewBar {
         newLinearLayoutPortait2();
 
 
-
-
         ListView listView = new ListView(mAct);
-
-
-
 
 
         listView.setAdapter(new AdapterListMission(this, list));
