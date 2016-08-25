@@ -2,19 +2,15 @@ package com.appmaster.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.text.TextUtils;
-import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.appmaster.R;
-import com.appmaster.data.InfoAnn;
 
 import java.util.List;
 

@@ -9,13 +9,16 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
+import com.appmaster.data.InfoAcconut;
+import com.appmaster.layout.ReloginView;
 import com.appmaster.tools.ViewFactory;
 import com.appmaster.tools.ViewLayoutFactory;
-
+import com.appmaster.adapter.AdapterReLogin;
 import java.util.ArrayList;
 
 /**
@@ -97,12 +100,12 @@ public class Fragment12Report extends Fragment {
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(mAct, android.R.layout.simple_spinner_dropdown_item, spinnerArray);
 
 
+
+
         Spinner spinner = ViewFactory.createNewSpinner(mAct,"");
         spinner.setAdapter(spinnerArrayAdapter);
 
         layout.addView(spinner);
-
-        layout.addView(ViewFactory.createNewEditText(mAct, "請選擇問題類型"));
 
 
         layout.addView(ViewFactory.createNewTextView(mAct, "問題描述"));

@@ -7,7 +7,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.appmaster.data.InfoAnn;
+import com.appmaster.data.InfoNews;
 
 /**
  * Created by Gianni on 2016/8/24.
@@ -64,7 +64,7 @@ public class NewsItemView extends RelativeLayout {
         txtTitleContent.setText(titleContent);
     }
 
-    public void setInfo(InfoAnn info) {
+    public void setInfo(InfoNews info) {
         txtDate.setText(info.mDate);
         txtTitleType.setText("【" + info.mTitleType + "】");
         txtTitlePriority.setText("【" + info.mTitlePriority + "】");

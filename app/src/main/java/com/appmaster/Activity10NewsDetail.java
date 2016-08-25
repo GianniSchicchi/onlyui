@@ -1,36 +1,28 @@
 package com.appmaster;
 
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.appmaster.adapter.AdapterNewList;
-import com.appmaster.data.InfoAnn;
+import com.appmaster.data.InfoNews;
 import com.appmaster.layout.NewsItemView;
 import com.appmaster.tools.ActivityGViewBar;
 import com.appmaster.tools.ViewFactory;
 import com.appmaster.tools.ViewLayoutFactory;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 public class Activity10NewsDetail extends ActivityGViewBar {
 
 
-    InfoAnn info;
+    InfoNews info;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        info = new InfoAnn();
+        info = new InfoNews();
     }
     @Override
     protected void onResume() {

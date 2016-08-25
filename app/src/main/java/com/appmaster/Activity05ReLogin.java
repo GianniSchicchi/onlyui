@@ -5,9 +5,16 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Spinner;
 
+import com.appmaster.adapter.AdapterReLogin;
+import com.appmaster.data.AccountType;
+import com.appmaster.data.InfoAcconut;
+import com.appmaster.layout.ReloginView;
 import com.appmaster.tools.ActivityGViewBar;
 import com.appmaster.tools.ViewFactory;
+
+import java.util.ArrayList;
 
 public class Activity05ReLogin extends ActivityGViewBar {
 
@@ -33,6 +40,27 @@ public class Activity05ReLogin extends ActivityGViewBar {
         setTitleImgView(true, "logo");
         getView();
         newLinearLayoutPortait2();
+
+
+        ArrayList<InfoAcconut> spinnerArray = new ArrayList<InfoAcconut>();
+        spinnerArray.add(new InfoAcconut());
+        spinnerArray.add(new InfoAcconut(AccountType.TYPE1,"1111111"));
+        spinnerArray.add(new InfoAcconut(AccountType.TYPE2,"2222222"));
+        spinnerArray.add(new InfoAcconut(AccountType.TYPE3,"3333333"));
+        spinnerArray.add(new InfoAcconut(AccountType.TYPE4,"4444444h"));
+
+
+
+
+
+        AdapterReLogin spinnerArrayAdapter = new AdapterReLogin(mAct, spinnerArray);
+
+        Spinner spinner = ViewFactory.createNewSpinner(mAct,"");
+        spinner.setAdapter(spinnerArrayAdapter);
+
+        setLinearLayout2PAddView(spinner);
+
+
         accountEdt = ViewFactory.createNewEditText(mAct, "Ｅ-MAIL或手機號碼");
         setLinearLayout2PAddView(accountEdt);
         setLinearLayout2PAddView(ViewFactory.createNewButton(mAct, "登入", new View.OnClickListener() {

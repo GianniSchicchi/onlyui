@@ -9,7 +9,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.appmaster.adapter.AdapterNewList;
-import com.appmaster.data.InfoAnn;
+import com.appmaster.data.InfoNews;
 import com.appmaster.tools.ActivityGViewBar;
 import com.appmaster.tools.ViewFactory;
 import com.appmaster.tools.ViewLayoutFactory;
@@ -21,7 +21,7 @@ import java.util.List;
 public class Activity09NewsList extends ActivityGViewBar {
 
 
-    List<InfoAnn> mAnnlist =  Collections.synchronizedList(new ArrayList<InfoAnn>());
+    List<InfoNews> mAnnlist =  Collections.synchronizedList(new ArrayList<InfoNews>());
 
 
     @Override
@@ -38,7 +38,7 @@ public class Activity09NewsList extends ActivityGViewBar {
     void addFalseAnnInfo() {
         if(mAnnlist != null) {
             for (int i = 0; i < 10; i++) {
-                mAnnlist.add(new InfoAnn());
+                mAnnlist.add(new InfoNews());
             }
         }
     }

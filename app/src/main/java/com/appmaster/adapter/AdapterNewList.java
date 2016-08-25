@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-import com.appmaster.data.InfoAnn;
+import com.appmaster.data.InfoNews;
 import com.appmaster.layout.NewsItemView;
 
 import java.util.List;
@@ -17,9 +17,9 @@ import java.util.List;
 
 public class AdapterNewList extends BaseAdapter {
     private Context mContext;
-    private List<InfoAnn> mList;
+    private List<InfoNews> mList;
 
-    public AdapterNewList(Context c, List<InfoAnn> list) {
+    public AdapterNewList(Context c, List<InfoNews> list) {
         mContext = c;
         mList = list;
     }
