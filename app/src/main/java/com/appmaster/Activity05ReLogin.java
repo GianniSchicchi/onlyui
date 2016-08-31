@@ -55,8 +55,6 @@ public class Activity05ReLogin extends ActivityGViewBar {
         setLinearLayout2PAddView(spinner);
 
 
-//        accountEdt = ViewFactory.createNewEditText(mAct, "Ｅ-MAIL或手機號碼");
-//        setLinearLayout2PAddView(accountEdt);
         setLinearLayout2PAddView(ViewFactory.createNewButton(mAct, "登入", new View.OnClickListener() {
             @Override
             public void onClick(View v) {

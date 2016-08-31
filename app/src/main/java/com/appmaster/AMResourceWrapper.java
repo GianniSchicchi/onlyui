@@ -71,7 +71,6 @@ public class AMResourceWrapper {
             }
 
             tmp_bmp = BitmapFactory.decodeFile(bmpFile.getAbsolutePath());
-
             //ADD INTO BITMAP POOL
             mapBitmapPool.put(imageName, tmp_bmp);
 

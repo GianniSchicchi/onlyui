@@ -5,7 +5,7 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.FragmentActivity;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.View;
@@ -17,13 +17,13 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.appmaster.R;
+import com.appmaster.AMResourceWrapper;
 
 /**
  * Created by Gianni on 2016/8/15.
  */
 
-public class ActivityGViewBar extends AppCompatActivity {
+public class ActivityGViewBar extends FragmentActivity {
 
     public static int TITLEREATIVELAYOUT = 10;
 
@@ -77,7 +77,7 @@ public class ActivityGViewBar extends AppCompatActivity {
             }
 
             leftImgBtn.setBackgroundColor(Color.TRANSPARENT);
-            leftImgBtn.setImageResource(R.mipmap.btn_back);
+            leftImgBtn.setImageBitmap(AMResourceWrapper.getInstance().getBitmap(mAct, "btn_back"));
             leftImgBtn.setOnClickListener(onClickListener);
         } else {
 
@@ -102,7 +102,7 @@ public class ActivityGViewBar extends AppCompatActivity {
             }
 
             rightImgBtn.setBackgroundColor(Color.TRANSPARENT);
-            rightImgBtn.setImageResource(R.mipmap.btn_close);
+            rightImgBtn.setImageBitmap(AMResourceWrapper.getInstance().getBitmap(mAct, "btn_close"));
             rightImgBtn.setOnClickListener(onClickListener);
         } else {
 
@@ -124,7 +124,7 @@ public class ActivityGViewBar extends AppCompatActivity {
         titleImgView = new ImageButton(mAct);
 
         titleImgView.setBackgroundColor(Color.TRANSPARENT);
-        titleImgView.setImageResource(R.mipmap.logo);
+        titleImgView.setImageBitmap(AMResourceWrapper.getInstance().getBitmap(mAct, "logo"));
 
         RelativeLayout.LayoutParams center = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);

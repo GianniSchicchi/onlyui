@@ -24,7 +24,8 @@ import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.appmaster.R;
+import com.appmaster.AMResourceWrapper;
+
 
 /**
  * Created by Gianni on 2016/8/22.
@@ -64,7 +65,7 @@ public class ViewFactory {
     }
 
 
-    public static View createNewImageButton(Context context, String text, String imageName, View.OnClickListener listener) {
+    public static View createNewImageButton(Activity context, String text, String imageName, View.OnClickListener listener) {
 
         RelativeLayout layout = new RelativeLayout(context);
         layout.setGravity(Gravity.LEFT);
@@ -92,19 +93,19 @@ public class ViewFactory {
         button.setLayoutParams(layoutParams);
 
         if (imageName.equals("1")) {
-            imageView.setImageResource(R.mipmap.icon_14);
+            imageView.setImageBitmap(AMResourceWrapper.getInstance().getBitmap(context, "icon_14"));
         }
         if (imageName.equals("2")) {
-            imageView.setImageResource(R.mipmap.icon_15);
+            imageView.setImageBitmap(AMResourceWrapper.getInstance().getBitmap(context, "icon_15"));
         }
         if (imageName.equals("3")) {
-            imageView.setImageResource(R.mipmap.icon_16);
+            imageView.setImageBitmap(AMResourceWrapper.getInstance().getBitmap(context, "icon_16"));
         }
         if (imageName.equals("4")) {
-            imageView.setImageResource(R.mipmap.icon_17);
+            imageView.setImageBitmap(AMResourceWrapper.getInstance().getBitmap(context, "icon_17"));
         }
         if (imageName.equals("5")) {
-            imageView.setImageResource(R.mipmap.icon_18);
+            imageView.setImageBitmap(AMResourceWrapper.getInstance().getBitmap(context, "icon_18"));
         }
 
 
@@ -117,14 +118,14 @@ public class ViewFactory {
     }
 
 
-    public static View createNewImageView(Context context, String text, String imageName, View.OnClickListener listener) {
+    public static View createNewImageView(Activity context, String text, String imageName, View.OnClickListener listener) {
 
 
         return createNewImageView(context, text, imageName, listener, LinearLayout.VERTICAL);
     }
 
 
-    public static View createNewImageView(Context context, String text, String imageName, View.OnClickListener listener, int iOrientation) {
+    public static View createNewImageView(Activity context, String text, String imageName, View.OnClickListener listener, int iOrientation) {
         LinearLayout linearLayout = new LinearLayout(context);
         linearLayout.setOrientation(iOrientation);
         linearLayout.setGravity(Gravity.CENTER);
@@ -143,22 +144,22 @@ public class ViewFactory {
 
 
         if (imageName.equals("1")) {
-            imageView.setImageResource(R.mipmap.icon_1);
+            imageView.setImageBitmap(AMResourceWrapper.getInstance().getBitmap(context, "icon_1"));
         }
         if (imageName.equals("2")) {
-            imageView.setImageResource(R.mipmap.icon_2);
+            imageView.setImageBitmap(AMResourceWrapper.getInstance().getBitmap(context, "icon_2"));
         }
         if (imageName.equals("3")) {
-            imageView.setImageResource(R.mipmap.icon_4);
+            imageView.setImageBitmap(AMResourceWrapper.getInstance().getBitmap(context, "icon_4"));
         }
         if (imageName.equals("4")) {
-            imageView.setImageResource(R.mipmap.icon_5);
+            imageView.setImageBitmap(AMResourceWrapper.getInstance().getBitmap(context, "icon_5"));
         }
         if (imageName.equals("5")) {
-            imageView.setImageResource(R.mipmap.icon_3);
+            imageView.setImageBitmap(AMResourceWrapper.getInstance().getBitmap(context, "icon_3"));
         }
         if (imageName.equals("6")) {
-            imageView.setImageResource(R.mipmap.icon_6);
+            imageView.setImageBitmap(AMResourceWrapper.getInstance().getBitmap(context, "icon_6"));
         }
 
 
